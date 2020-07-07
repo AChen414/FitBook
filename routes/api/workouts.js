@@ -53,7 +53,7 @@ router.patch('/:id',
 
         const workout = await Workout.findById(req.params.id)
 
-        if (req.user.id !== exercise.user.toString()) { 
+        if (req.user.id !== workout.user.toString()) { 
             return res.status(400).json({ invaliduser: 'Cannot update a workout you did not create'})   // checks that the workout owner is the logged in user
         }
 
@@ -65,10 +65,16 @@ router.patch('/:id',
 
 router.delete('/:id', 
     passport.authenticate('jwt', {session: false}),
-    (req, res) => {
+    async (req, res) => {
+
+        const workout = await Workout.findById(req.params.id)
+
+        if (req.user.id !== workout.user.toString()) {
+            return res.status(400).json({ invaliduser: 'Cannot delete a workout you did not create'})
+        }
+
         Workout.findByIdAndDelete(req.params.id)
             .then(workout => res.json(workout))
-            
     }
 )
 
