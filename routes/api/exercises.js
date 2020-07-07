@@ -8,7 +8,7 @@ const validateExerciseInput = require('../../validation/exercises');
 
 router.get('/', (req, res) => {
     Exercise.find()
-        .sort({ category })
+        .sort({ category: 1 })
         .then(exercises => res.json(exercises))
         .catch(err => res.status(404).json({ noexercisesfound: 'No exercises found' }));
 });
@@ -32,7 +32,7 @@ router.post('/',
     
         if (!isValid) {
             return res.status(400).json(errors);
-        } 
+        };
 
         const newExercise = new Exercise({
             user: req.user.id,
@@ -40,11 +40,42 @@ router.post('/',
             category: req.body.category,
             notes: req.body.notes,
             equipment: req.body.equipment
-        })
+        });
         
         newExercise.save()
             .then(exercise => res.json(exercise))
             .catch(err => console.log(err));
+    }
+);
+
+router.patch('/:id',
+    passport.authenticate('jwt', { session: false }),
+    async (req, res) => {
+        const { errors, isValid } = validateExerciseInput(req.body);
+
+        if (!isValid) {
+            return res.status(400).json(errors);
+        };
+
+        Exercise.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false }, (err, doc) => {
+            if (err) {
+                console.log("error")
+            } else {
+                console.log(doc)
+            }
+        })
+            // .then(result => console.log(result));
+
+        // if (req.user.id !== exercise.user) {
+        //     debugger
+        //     return res.status(400).json({ exercise: `${exercise.user}`, user: req.user.id  })
+        // };
+
+        // const filter = { _id: req.params.id };
+        // const update = req.body;
+
+        // const updatedExercise = await Exercise.findOneAndUpdate(filter, update, { new: true })
+        //     .then(() => console.log("success", updatedExercise));
     }
 );
 
