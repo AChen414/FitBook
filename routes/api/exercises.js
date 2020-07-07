@@ -57,13 +57,16 @@ router.patch('/:id',
             return res.status(400).json(errors);
         };
 
-        Exercise.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false }, (err, doc) => {
-            if (err) {
-                console.log("error")
-            } else {
-                console.log(doc)
-            }
-        })
+        Exercise.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false, new: true })
+            .then(exercise => res.json(exercise));
+
+        // Exercise.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false }, (err, doc) => {
+        //     if (err) {
+        //         console.log("error")
+        //     } else {
+        //         console.log(doc)
+        //     }
+        // })
             // .then(result => console.log(result));
 
         // if (req.user.id !== exercise.user) {
