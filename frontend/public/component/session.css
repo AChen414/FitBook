@@ -1,0 +1,31 @@
+.login-signup-form-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    height: 500px;
+    margin-bottom: 70px;
+}
+
+.session-form {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 140px;
+    padding-bottom: 100px;
+    width: 300px;
+    margin-right: 100px;
+}
+
+.epu-form {
+    display: block;
+    font-size: 14px;
+    margin: 0 0 9px;
+    padding: 5px 9px;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #999;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
