@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getTweets = () => {
+export const getExercises = () => {
   return axios.get("/api/exercises");
 };
 

@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li className="error-message" key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
@@ -58,17 +58,21 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="login-signup-form-container">
-        <form onSubmit={this.handleSubmit}>
+      <div className="session-form-container">
+        <form className="session-form" onSubmit={this.handleSubmit}>
           <div className="switch-link">
-            New to Fitbook?
+            Want to join us?&nbsp;&nbsp;
             <Link className="link" to="/signup">
               Sign Up
             </Link>
           </div>
-          <div>No Terms and Conditions for Logging In.</div>
-          <div className="session-form">
+          <br />
+          <div>Please sign in!</div>
+          <br/>
+          {this.renderErrors()}
+          <div>
             <input
+              className="epu-form"
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
@@ -76,16 +80,23 @@ class LoginForm extends React.Component {
             />
             <br />
             <input
+              className="epu-form"
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
             />
             <br />
-            <input type="submit" value="Log In" />
-            {this.renderErrors()}
+            <input className="submit-button" type="submit" value="Log In" />
+            <br />
           </div>
         </form>
+        <div className="session-img">
+          <img
+            src="https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="fitness center"
+          />
+        </div>
       </div>
     );
   }
