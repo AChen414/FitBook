@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import "./navbar.css";
+// import "../../../public/component/navbar.css";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -19,17 +19,17 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div>
-          <Link to={"/exercises"}>All Exercises</Link>
-          <Link to={"/profile"}>Profile</Link>
-          <Link to={"/new_exercise"}>Create a Exercise</Link>
+          <Link className="nav-button-exercises"to={"/exercises"}>All Exercises</Link>
+          <Link className="nav-button-profile"to={"/profile"}>Profile</Link>
+          <Link className="nav-button-new-exercise"to={"/new_exercise"}>Create a Exercise</Link>
           <button onClick={this.logoutUser}>Logout</button>
         </div>
       );
     } else {
       return (
         <div>
-          <Link to={"/signup"}>Signup</Link>
-          <Link to={"/login"}>Login</Link>
+            <Link className="nav-button-signup" to={"/signup"}>Join</Link>
+            <Link className="nav-button-login" to={"/login"}>Login</Link>
         </div>
       );
     }
@@ -37,9 +37,17 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>FitBook</h1>
-        {this.getLinks()}
+      <div className="nav-bar-container">
+        <div className="nav-bar-main">
+          <div className="nav-title">
+              <Link to="/" className="nav-logo">
+                FitBook
+                </Link>
+            </div>
+          <div className="nav-links">
+            {this.getLinks()}
+          </div>
+        </div>
       </div>
     );
   }
