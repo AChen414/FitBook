@@ -73,7 +73,7 @@ router.delete('/:id',
             return res.status(400).json({ invaliduser: 'Cannot delete a workout you did not create'})
         }
 
-        Workout.findByIdAndDelete(req.params.id)
+        Workout.findByIdAndDelete(req.params.id) 
             .then(workout => res.json(workout))
     }
 )
