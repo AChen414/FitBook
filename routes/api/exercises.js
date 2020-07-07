@@ -57,18 +57,25 @@ router.patch('/:id',
             return res.status(400).json(errors);
         };
 
-        const exercise = await Exercise.findById(req.params.id);
+        Exercise.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false }, (err, doc) => {
+            if (err) {
+                console.log("error")
+            } else {
+                console.log(doc)
+            }
+        })
+            // .then(result => console.log(result));
 
-        if (req.user.id !== exercise.user) {
-            debugger
-            return res.status(400).json({ exercise: `${exercise.user}`, user: req.user.id  })
-        };
+        // if (req.user.id !== exercise.user) {
+        //     debugger
+        //     return res.status(400).json({ exercise: `${exercise.user}`, user: req.user.id  })
+        // };
 
-        const filter = { id: req.params.id };
-        const update = req.body;
+        // const filter = { _id: req.params.id };
+        // const update = req.body;
 
-        await Exercise.findOneAndUpdate(filter, update, { new: true })
-            // .then(() => console.log("success"));
+        // const updatedExercise = await Exercise.findOneAndUpdate(filter, update, { new: true })
+        //     .then(() => console.log("success", updatedExercise));
     }
 );
 
