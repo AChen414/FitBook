@@ -6,6 +6,8 @@ const passport = require('passport');
 const Exercise = require('../../models/Exercise')
 const validateExerciseInput = require('../../validation/exercises');
 
+mongoose.set('useFindAndModify', false); // this line addresses the depracation warning for Model.findByIdAndUpdate
+
 router.get('/', (req, res) => {
     Exercise.find()
         .sort({ category: 1 })
@@ -57,25 +59,38 @@ router.patch('/:id',
             return res.status(400).json(errors);
         };
 
-        Exercise.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false }, (err, doc) => {
-            if (err) {
-                console.log("error")
-            } else {
-                console.log(doc)
-            }
-        })
-            // .then(result => console.log(result));
+        const exercise = await Exercise.findById(req.params.id)
 
-        // if (req.user.id !== exercise.user) {
-        //     debugger
-        //     return res.status(400).json({ exercise: `${exercise.user}`, user: req.user.id  })
-        // };
+        if (req.user.id !== exercise.user.toString()) {
+            debugger;
+            return res.status(400).json( { invaliduser: 'Cannot update an exercise you did not create' } )
+        };
 
-        // const filter = { _id: req.params.id };
-        // const update = req.body;
+        Exercise.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false, new: true })
+            .then(exercise => res.json(exercise))
+            .catch(err => res.status(404).json({ noexercisefound: 'No exercise found with that ID' }));
+    }
+);
 
-        // const updatedExercise = await Exercise.findOneAndUpdate(filter, update, { new: true })
-        //     .then(() => console.log("success", updatedExercise));
+router.delete('/:id',
+    passport.authenticate('jwt', { session: false }),
+    async (req, res) => {
+        const { errors, isValid } = validateExerciseInput(req.body);
+
+        if (!isValid) {
+            return res.status(400).json(errors);
+        };
+
+        const exercise = await Exercise.findById(req.params.id)
+
+        if (req.user.id !== exercise.user.toString()) {
+            debugger;
+            return res.status(400).json({ invaliduser: 'Cannot delete an exercise you did not create' })
+        };
+
+        Exercise.deleteOne({ _id: req.params.id })
+            .then(res => res.json(res))
+            .catch(err => res.status(404).json({ noexercisefound: 'No exercise found with that ID' }));
     }
 );
 
