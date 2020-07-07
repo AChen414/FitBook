@@ -32,7 +32,7 @@ router.post('/',
     
         if (!isValid) {
             return res.status(400).json(errors);
-        } 
+        };
 
         const newExercise = new Exercise({
             user: req.user.id,
@@ -40,11 +40,28 @@ router.post('/',
             category: req.body.category,
             notes: req.body.notes,
             equipment: req.body.equipment
-        })
+        });
         
         newExercise.save()
             .then(exercise => res.json(exercise))
             .catch(err => console.log(err));
+    }
+);
+
+router.patch('/:id',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        const { errors, isValid } = validateExerciseInput(req.body);
+
+        if (!isValid) {
+            return res.status(400).json(errors);
+        };
+
+        const filter = { id: req.params.id };
+        const update = req.body;
+
+        Exercise.findOneAndUpdate(filter, update, { new: true })
+            .then(exercise => res.json(exercise));
     }
 );
 
