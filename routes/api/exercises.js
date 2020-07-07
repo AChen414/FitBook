@@ -72,4 +72,26 @@ router.patch('/:id',
     }
 );
 
+router.delete('/:id',
+    passport.authenticate('jwt', { session: false }),
+    async (req, res) => {
+        const { errors, isValid } = validateExerciseInput(req.body);
+
+        if (!isValid) {
+            return res.status(400).json(errors);
+        };
+
+        const exercise = await Exercise.findById(req.params.id)
+
+        if (req.user.id !== exercise.user.toString()) {
+            debugger;
+            return res.status(400).json({ invaliduser: 'Cannot delete an exercise you did not create' })
+        };
+
+        Exercise.deleteOne({ _id: req.params.id })
+            .then(res => res.json(res))
+            .catch(err => res.status(404).json({ noexercisefound: 'No exercise found with that ID' }));
+    }
+);
+
 module.exports = router;
