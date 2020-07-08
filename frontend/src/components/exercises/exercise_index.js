@@ -3,19 +3,21 @@ import {withRouter} from 'react-router-dom';
 import ExerciseItem from "./exercise_index_item";
 
 class ExerciseIndex extends React.Component{
-    cosntructor(props){
+    constructor(props){
         super(props);
         this.state = {
             exercises: []
         }
     }
 
-    componentWillMount(){
+    componentWillMount() {
         this.props.fetchExercises();
     }
 
     componentWillReceiveProps(newState){
-        this.setState({exercises: newState.exercises})
+        this.setState({
+            exercises: newState.exercises
+        })
     }
 
     render(){
@@ -29,9 +31,9 @@ class ExerciseIndex extends React.Component{
             return (
                 <div>
                     <h2>All Exercises</h2>
-                    {this.state.exercises.map(exercise => {
+                    {this.state.exercises.map(exercise => (
                         <ExerciseItem key={exercise._id} exercise={exercise.exercise}/>
-                    })}
+                    ))}
                 </div>
             )
         }

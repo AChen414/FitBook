@@ -8,6 +8,7 @@ class ExerciseItem extends React.Component{
     render () {
         return(
             <div>
+                <h2>This is a exercise item</h2>
                 <h3>{this.props.exercise}</h3>
             </div>
         )
