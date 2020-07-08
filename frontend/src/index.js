@@ -6,6 +6,8 @@ import configureStore from "./store/store";
 import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
+
+//TESTING
 import { 
   getExercises, 
   getExercise, 
@@ -14,6 +16,14 @@ import {
   updateExercise, 
   deleteExercise 
 } from './util/exercise_api_util';
+
+import {
+  getUserWorkouts,
+  getUserWorkout,
+  createWorkout,
+  updateWorkout,
+  deleteWorkout
+} from './util/workout_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -44,4 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.createExercise = createExercise
   window.updateExercise = updateExercise
   window.deleteExercise = deleteExercise
+
+  window.getUserWorkouts = getUserWorkouts
+  window.getUserWorkout = getUserWorkout
+  window.createWorkout = createWorkout
+  window.updateWorkout = updateWorkout
+  window.deleteWorkout = deleteWorkout
 });

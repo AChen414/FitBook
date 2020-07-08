@@ -6,8 +6,6 @@ const passport = require('passport');
 const Workout = require('../../models/Workout');
 const validateWorkoutInput = require('../../validation/workouts');
 
-router.get("/test", (req, res) => res.json({ msg: "This is the workouts route" }));
-
 router.get('/user/:user_id', (req, res) => {
     Workout.find({ user: req.params.user_id })
         .then(workouts => res.json(workouts))
@@ -17,7 +15,7 @@ router.get('/user/:user_id', (req, res) => {
 router.get('/:id', (req, res) => {
     Workout.findById(req.params.id)
         .then(workout => res.json(workout))
-        .catch(err => res.status(404).json({ noexercisefound: 'No exercise found with that ID'}))
+        .catch(err => res.status(404).json({ noworkoutfound: 'No workout found with that ID'}))
 })
 
 router.post('/', 
