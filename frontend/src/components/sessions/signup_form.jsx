@@ -47,7 +47,9 @@ class SignupForm extends React.Component {
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li className="error-message" key={`error-${i}`}>
+            {this.state.errors[error]}
+          </li>
         ))}
       </ul>
     );
@@ -55,16 +57,18 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="login-signup-form-container">
-        <form onSubmit={this.handleSubmit}>
+      <div className="session-form-container">
+        <form className="session-form" onSubmit={this.handleSubmit}>
           <div className="switch-link">
-            Already on Fitbook?
+            Already on Fitbook?&nbsp;&nbsp;
             <Link className="link" to="/login">
               Log In
             </Link>
           </div>
-          <div>No Terms and Conditions for Signing Up.</div>
-          <div className="session-form">
+          <br />
+          <div>Feel free to Join</div>
+          {this.renderErrors()}
+          <div>
             <br />
             <input
               className="epu-form"
@@ -91,17 +95,27 @@ class SignupForm extends React.Component {
             />
             <br />
             <input
-              className="email-password-form"
+              className="epu-form"
               type="password"
               value={this.state.password2}
               onChange={this.update("password2")}
               placeholder="Confirm Password"
             />
             <br />
-            <input type="submit" value="Sign Up" />
-            {this.renderErrors()}
+            <input
+              className="submit-button"
+              type="submit"
+              value="Start Work-out"
+            />
+            <br />
           </div>
         </form>
+        <div className="session-img">
+          <img
+            src="https://mychirocdn.r.worldssl.net/article-images/create-healthy-habits-this-year-2016.png"
+            alt="fitness center"
+          />
+        </div>
       </div>
     );
   }
