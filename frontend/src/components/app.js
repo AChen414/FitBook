@@ -7,6 +7,7 @@ import MainPage from "./main/main_page";
 import LoginFormContainer from "./sessions/login_form_container";
 import SignupFormContainer from "./sessions/signup_form_container";
 import ExercisesContainer from "./exercises/exercise_index_container"
+import WorkoutsContainer from './workouts/workouts_index_container';
 
 const App = () => (
   <div>
@@ -17,6 +18,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
     
       <ProtectedRoute exact path="/exercises" component={ExercisesContainer}/>
+      <ProtectedRoute exact path="/workouts" component={WorkoutsContainer}/>
     </Switch>
   </div>
 );
