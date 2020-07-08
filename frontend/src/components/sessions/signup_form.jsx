@@ -103,7 +103,7 @@ class SignupForm extends React.Component {
             <input
               className="submit-button"
               type="submit"
-              value="Start Work-out"
+              value="Start Workout"
             />
             <br />
           </div>
