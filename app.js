@@ -7,6 +7,7 @@ const users = require("./routes/api/users");
 const exercises = require("./routes/api/exercises");
 const workouts = require("./routes/api/workouts");
 const passport = require('passport');
+const path = require('path');
 
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -16,6 +17,12 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    })
+}
 
 // app.get('/', (req, res) => res.send('Hello World!'));
 app.use(passport.initialize());
@@ -25,6 +32,6 @@ app.use("/api/users", users);
 app.use("/api/exercises", exercises);
 app.use("/api/workouts", workouts);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5002;
 
 app.listen(port, () => console.log(`Server is runnning on port ${port}`));
