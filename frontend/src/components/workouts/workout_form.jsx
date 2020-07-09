@@ -12,35 +12,36 @@ class WorkoutForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.addExercise = this.addExercise.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
-        };
+    };
 
     componentDidMount() {
         this.props.fetchUserExercises(this.props.user.id);
-    }
+    };
 
     updateSearch(e) {
         this.setState({ search: e.target.value.substring(0, 20)});
-    }
+    };
 
     update(field) {
         return (e) => {
-            this.setState({ [field]: e.currentTarget.value })
-        }
-    }
+            this.setState({ [field]: e.currentTarget.value });
+        };
+    };
 
     addExercise(exerciseId) {
         return () => {
             let currentExercises = this.state.exercises;
-            currentExercises.push(exerciseId)
-            this.setState({ exercises: currentExercises })
+            currentExercises.push(exerciseId);
+            this.setState({ exercises: currentExercises });
         };
     };
 
     handleSubmit(e) {
         e.preventDefault();
         const newWorkout = Object.assign({}, this.state);
+        delete newWorkout["search"]
         this.props.createWorkout(newWorkout);
-    }
+    };
 
     renderErrors() {
         return this.props.errors.map((error, i) => {
@@ -48,14 +49,14 @@ class WorkoutForm extends React.Component {
                 <li key={`error-${i}`} className="workout-error">
                     {error}
                 </li>
-            )
-        })
-    }
+            );
+        });
+    };
 
     render() {
         let filteredExercises = (Object.values(this.props.exercises)).filter((exercise) => {
-            return exercise.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
-        })
+            return exercise.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        });
         return(
             <div>
                 <form className="new-workout-form" onSubmit={this.handleSubmit}>
@@ -99,6 +100,7 @@ class WorkoutForm extends React.Component {
                         type="text"
                         value={this.state.search}
                         onChange={this.updateSearch}
+                        placeholder='Filter by exercise'
                     />
                     <ul>
                         {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
@@ -113,7 +115,7 @@ class WorkoutForm extends React.Component {
                 </div>
 
             </div>
-        )
+        );
     };
 };
 
