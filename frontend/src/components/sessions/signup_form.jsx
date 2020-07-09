@@ -60,11 +60,11 @@ class SignupForm extends React.Component {
           <div className="switch-link">
             Already on Fitbook?&nbsp;&nbsp;
             <Link className="link" to="/login">
-              Log In
+              Log in
             </Link>
           </div>
           <br />
-          <div>Feel free to Join</div>
+          <div>Feel free to join!</div>
           {this.renderErrors()}
           <div>
             <br />
@@ -81,7 +81,7 @@ class SignupForm extends React.Component {
               type="text"
               value={this.state.username}
               onChange={this.update("username")}
-              placeholder="username"
+              placeholder="Username"
             />
             <br />
             <input
@@ -103,7 +103,7 @@ class SignupForm extends React.Component {
             <input
               className="submit-button"
               type="submit"
-              value="Start Workout"
+              value="Create Account"
             />
             <br />
           </div>

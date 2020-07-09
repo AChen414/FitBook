@@ -7,25 +7,24 @@ class LoginForm extends React.Component {
 
     this.state = {
       email: "",
-      password: "",
-      errors: {},
+      password: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.update = this.update.bind(this);
-  }
+  };
 
   componentDidMount(){
     this.props.clearErrors();
-  }
+  };
 
   update(field) {
     return (e) =>
       this.setState({
         [field]: e.currentTarget.value,
       });
-  }
+  };
 
   handleSubmit(e) {
     e.preventDefault();
@@ -39,17 +38,18 @@ class LoginForm extends React.Component {
     
     this.props.login(user);
     this.props.history.push("/exercises");
-  }
+  };
 
   renderErrors() {
+    // debugger
     return (
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li className="error-message" key={`error-${i}`}>{this.state.errors[error]}</li>
+        {Object.keys(this.props.errors).map((error, i) => (
+          <li className="error-message" key={`error-${i}`}>{this.props.errors[error]}</li>
         ))}
       </ul>
     );
-  }
+  };
 
   render() {
     return (
@@ -58,11 +58,11 @@ class LoginForm extends React.Component {
           <div className="switch-link">
             Want to join us?&nbsp;&nbsp;
             <Link className="link" to="/signup">
-              Sign Up
+              Sign up
             </Link>
           </div>
           <br />
-          <div>Please sign in!</div>
+          <div>Please log in!</div>
           <br/>
           {this.renderErrors()}
           <div>
@@ -82,7 +82,7 @@ class LoginForm extends React.Component {
               placeholder="Password"
             />
             <br />
-            <input className="submit-button" type="submit" value="Log In" />
+            <input className="submit-button" type="submit" value="Log in" />
             <br />
           </div>
         </form>
@@ -94,7 +94,7 @@ class LoginForm extends React.Component {
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 export default withRouter(LoginForm);
