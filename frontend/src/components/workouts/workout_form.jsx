@@ -6,10 +6,21 @@ class WorkoutForm extends React.Component {
         this.state = {
             title: '',
             notes: '',
-            exercises: []
-        }
+            exercises: [],
+            search: ''
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
-    };
+        this.addExercise = this.addExercise.bind(this);
+        this.updateSearch = this.updateSearch.bind(this);
+        };
+
+    componentDidMount() {
+        this.props.fetchUserExercises(this.props.user.id);
+    }
+
+    updateSearch(e) {
+        this.setState({ search: e.target.value.substring(0, 20)});
+    }
 
     update(field) {
         return (e) => {
@@ -17,20 +28,38 @@ class WorkoutForm extends React.Component {
         }
     }
 
+    addExercise(exerciseId) {
+        return () => {
+            let currentExercises = this.state.exercises;
+            currentExercises.push(exerciseId)
+            this.setState({ exercises: currentExercises })
+        };
+    };
+
     handleSubmit(e) {
         e.preventDefault();
         const newWorkout = Object.assign({}, this.state);
         this.props.createWorkout(newWorkout);
     }
 
-    handleErrors() {
-        return this.props.errors.map((errors => errors))
+    renderErrors() {
+        return this.props.errors.map((error, i) => {
+            return (
+                <li key={`error-${i}`} className="workout-error">
+                    {error}
+                </li>
+            )
+        })
     }
 
     render() {
+        let filteredExercises = (Object.values(this.props.exercises)).filter((exercise) => {
+            return exercise.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+        })
         return(
             <div>
                 <form className="new-workout-form" onSubmit={this.handleSubmit}>
+                    {this.renderErrors()}
                     <label className="workout-form-type">Title</label>
                     <input 
                         className="workout-form-field"
@@ -47,7 +76,16 @@ class WorkoutForm extends React.Component {
                         cols="30" rows="10">
                     </textarea>
 
-                    <label className="workout-form-type">Exercises</label>
+                    <label className="workout-form-type">Exercises
+                        {this.state.exercises.map((exerciseId, i) => {
+                            return (
+                                <li key={`workout-exercise-${i}`}
+                                    className="workout-exercise-item">
+                                    {this.props.exercises[exerciseId].title}
+                                </li>
+                            )
+                        })}
+                    </label>
 
                     <input 
                         type="submit" 
@@ -55,6 +93,24 @@ class WorkoutForm extends React.Component {
                         value="Create Workout"
                     />
                 </form>
+
+                <div className="exercise-list">
+                    <input 
+                        type="text"
+                        value={this.state.search}
+                        onChange={this.updateSearch}
+                    />
+                    <ul>
+                        {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
+                        {filteredExercises.map((exercise, i) => (
+                            <li key={`exercise-${i}`} onClick={this.addExercise(exercise._id)}>
+                                <div className="exercise-list-title">{exercise.title}</div>
+                                <div className="exerise-list-category">{exercise.category}</div>
+                                <div className="exerise-list-equipment">{exercise.equipment}</div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
 
             </div>
         )
