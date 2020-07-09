@@ -20,7 +20,7 @@ class NavBar extends React.Component {
       return (
         <div>
           <Link type="button" className="btn btn-default navbar-btn" to={"/new_exercise"}>
-            Create a Exercise
+            Create an Exercise
             </Link>
 
           <Link type="button" className="btn btn-default navbar-btn" to={"/profile"}>
@@ -83,7 +83,10 @@ class NavBar extends React.Component {
                 </a>
               </li>
               <li>
-                <a href={"#"}>Exercises</a>
+                <a href="#">Exercises</a>
+              </li>
+              <li>
+                <a href="#">Workouts</a>
               </li>
               {/* <li className="dropdown">
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
