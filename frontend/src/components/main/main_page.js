@@ -1,11 +1,13 @@
 import React from "react";
+import Content from "./content"
+import Footer from "./footer"
 
 class MainPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>FitBook</h1>
-        <footer>Copyright &copy; 2020 Fitbook</footer>
+        <Content/>
+        <Footer/>
       </div>
     );
   }
