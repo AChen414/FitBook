@@ -44,24 +44,32 @@ export const fetchUserWorkouts = (userId) => dispatch => {
 
 export const fetchWorkout = (workoutId) => dispatch => (
     WorkoutAPIUtil.getUserWorkout(workoutId)
-        .then(workout => dispatch(receiveWorkout(workout.data)))
-        .catch(res => dispatch(receiveErrors(res.responseJSON)))
+        .then(
+            workout => dispatch(receiveWorkout(workout.data)),
+            err => dispatch(receiveErrors(err.responseJSON))
+            )
 );
 
 export const createWorkout = (workout) => dispatch => (
     WorkoutAPIUtil.createWorkout(workout)
-        .then(workout => dispatch(receiveWorkout(workout.data)))
-        .catch(res => dispatch(receiveErrors(res.responseJSON)))
+        .then(
+            workout => dispatch(receiveWorkout(workout.data)),
+            err => dispatch(receiveErrors(err.responseJSON))
+            )
 );
 
 export const updateWorkout = (workout) => dispatch => (
     WorkoutAPIUtil.updateWorkout(workout)
-        .then(workout => dispatch(receiveWorkout(workout.data)))
-        .catch(res => dispatch(receiveErrors(res.responseJSON)))
+        .then(
+            workout => dispatch(receiveWorkout(workout.data)),
+            err => dispatch(receiveErrors(err.responseJSON))
+            )
 );
 
 export const deleteWorkout = (workoutId) => dispatch => (
     WorkoutAPIUtil.deleteWorkout(workoutId)
-        .then(() => dispatch(removeWorkout(workoutId)))
-        .catch(res => dispatch(receiveErrors(res.responseJSON)))
+        .then(
+            () => dispatch(removeWorkout(workoutId)),
+            err => dispatch(receiveErrors(err.responseJSON))
+            )
 );
