@@ -102,12 +102,12 @@ class LoginForm extends React.Component {
             <br />
           </div>
         </form>
-        <div className="session-img">
+        {/* <div className="session-img">
           <img
             src="https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             alt="fitness center"
           />
-        </div>
+        </div> */}
       </div>
     );
   };
