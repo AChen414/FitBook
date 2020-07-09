@@ -21,15 +21,15 @@ class NavBar extends React.Component {
         <div>
           <Link className="nav-button-exercises"to={"/exercises"}>All Exercises</Link>
           <Link className="nav-button-profile"to={"/profile"}>Profile</Link>
-          <Link className="nav-button-new-exercise"to={"/new_exercise"}>Create a Exercise</Link>
-          <button onClick={this.logoutUser}>Logout</button>
+          <Link className="nav-button-new-exercise"to={"/new_exercise"}>Create an Exercise</Link>
+          <button onClick={this.logoutUser}>Log out</button>
         </div>
       );
     } else {
       return (
         <div>
             <Link className="nav-button-signup" to={"/signup"}>Join</Link>
-            <Link className="nav-button-login" to={"/login"}>Login</Link>
+            <Link className="nav-button-login" to={"/login"}>Log in</Link>
         </div>
       );
     }
