@@ -13,19 +13,13 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.update = this.update.bind(this);
   }
 
-  // Once the user has been authenticated, redirect to the Tweets page
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      this.props.history.push("/exercises");
-    }
-
-    // Set or clear errors
-    this.setState({ errors: nextProps.errors });
+  componentDidMount(){
+    this.props.clearErrors();
   }
 
-  // Handle field updates (called in the render method)
   update(field) {
     return (e) =>
       this.setState({
@@ -33,19 +27,20 @@ class LoginForm extends React.Component {
       });
   }
 
-  // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
 
-    let user = {
+    let userInfo = {
       email: this.state.email,
       password: this.state.password,
     };
 
+    const user = Object.assign({},userInfo)
+    
     this.props.login(user);
+    this.props.history.push("/exercises");
   }
 
-  // Render the session errors if there are any
   renderErrors() {
     return (
       <ul>
