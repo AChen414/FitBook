@@ -6,7 +6,8 @@ import NavBarContainer from "./nav/navbar_container";
 import MainPage from "./main/main_page";
 import LoginFormContainer from "./sessions/login_form_container";
 import SignupFormContainer from "./sessions/signup_form_container";
-import ExercisesContainer from "./exercises/exercise_index_container"
+import ExerciseIndexContainer from "./exercises/exercise_index_container"
+import WorkoutIndexContainer from './workouts/workout_index_container';
 
 const App = () => (
   <div>

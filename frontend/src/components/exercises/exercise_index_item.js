@@ -5,11 +5,11 @@ class ExerciseItem extends React.Component{
         super(props)
     }
 
-    render () {
+    render() {
         return(
             <div>
-                <h2>This is a exercise item</h2>
-                <h3>{this.props.exercise}</h3>
+                <h2>This is an exercise item</h2>
+                <h3>{this.props.exercise.title}</h3>
             </div>
         )
     }

@@ -11,19 +11,58 @@ mongoose.set('useFindAndModify', false); // this line addresses the depracation 
 router.get('/', (req, res) => {
     Exercise.find()
         .sort({ category: 1 })
-        .then(exercises => res.json(exercises))
+        .then(exercises => {
+            const packagez = {}
+
+            exercises.forEach(exercise => {
+                packagez[exercise._doc._id.toString()] = {
+                    _id: exercise._doc._id.toString(),
+                    user: exercise._doc.user.toString(),
+                    title: exercise._doc.title,
+                    category: exercise._doc.category,
+                    equipment: exercise._doc.equipment,
+                    notes: exercise._doc.notes
+                }
+            })
+            res.json(packagez)
+        })
         .catch(err => res.status(404).json({ noexercisesfound: 'No exercises found' }));
 });
 
 router.get('/user/:user_id', (req, res) => {
     Exercise.find({ user: req.params.user_id })
-        .then(exercises => res.json(exercises))
+        .then(exercises => {
+            const packagez = {}
+
+            exercises.forEach(exercise => {
+                packagez[exercise._doc._id.toString()] = {
+                    _id: exercise._doc._id.toString(),
+                    user: exercise._doc.user.toString(),
+                    title: exercise._doc.title,
+                    category: exercise._doc.category,
+                    equipment: exercise._doc.equipment,
+                    notes: exercise._doc.notes
+                };
+            });
+            res.json(packagez)
+        })
         .catch(err => res.status(404).json({ noexercisesfound: 'No exercises found from that user' }));
 });
 
 router.get('/:id', (req, res) => {
     Exercise.findById(req.params.id)
-        .then(exercise => res.json(exercise))
+        .then(exercise => {
+            let result = {
+                _id: exercise._doc._id.toString(),
+                user: exercise._doc.user.toString(),
+                title: exercise._doc.title,
+                category: exercise._doc.category,
+                equipment: exercise._doc.equipment,
+                notes: exercise._doc.notes
+            }
+            
+            res.json(result)
+        })
         .catch(err => res.status(404).json({ noexercisefound: 'No exercise found with that ID' }));
 });
 
@@ -43,9 +82,20 @@ router.post('/',
             notes: req.body.notes,
             equipment: req.body.equipment
         });
-        
+        debugger
         newExercise.save()
-            .then(exercise => res.json(exercise))
+            .then(exercise => {
+                debugger;
+                const result = {
+                    _id: exercise._doc._id.toString(),
+                    user: exercise._doc.user.toString(),
+                    title: exercise._doc.title,
+                    category: exercise._doc.category,
+                    equipment: exercise._doc.equipment,
+                    notes: exercise._doc.notes
+                }
+                res.json(result)
+            })
             .catch(err => console.log(err));
     }
 );
@@ -62,12 +112,22 @@ router.patch('/:id',
         const exercise = await Exercise.findById(req.params.id)
 
         if (req.user.id !== exercise.user.toString()) {
-            debugger;
+            // debugger;
             return res.status(400).json( { invaliduser: 'Cannot update an exercise you did not create' } )
         };
 
         Exercise.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false, new: true })
-            .then(exercise => res.json(exercise))
+            .then(exercise => {
+                const result = {
+                    _id: exercise._doc._id.toString(),
+                    user: exercise._doc.user.toString(),
+                    title: exercise._doc.title,
+                    category: exercise._doc.category,
+                    equipment: exercise._doc.equipment,
+                    notes: exercise._doc.notes
+                }
+                res.json(result)
+            })
             .catch(err => res.status(404).json({ noexercisefound: 'No exercise found with that ID' }));
     }
 );
@@ -78,7 +138,7 @@ router.delete('/:id',
         const exercise = await Exercise.findById(req.params.id)
 
         if (req.user.id !== exercise.user.toString()) {
-            debugger;
+            // debugger;
             return res.status(400).json({ invaliduser: 'Cannot delete an exercise you did not create' })
         };
 

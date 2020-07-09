@@ -5,23 +5,15 @@ import ExerciseItem from "./exercise_index_item";
 class ExerciseIndex extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            exercises: []
-        }
+ 
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchExercises();
     }
 
-    componentWillReceiveProps(newState){
-        this.setState({
-            exercises: newState.exercises
-        })
-    }
-
     render(){
-        if (this.state.exercises.length === 0) {
+        if (this.props.exercises.length === 0) {
             return (
                 <div>
                     No Exercises
@@ -31,8 +23,8 @@ class ExerciseIndex extends React.Component{
             return (
                 <div>
                     <h2>All Exercises</h2>
-                    {this.state.exercises.map(exercise => (
-                        <ExerciseItem key={exercise._id} exercise={exercise.exercise}/>
+                    {this.props.exercises.map(exercise => (
+                        <ExerciseItem key={exercise._id} exercise={exercise}/>
                     ))}
                 </div>
             )

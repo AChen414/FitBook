@@ -1,26 +1,31 @@
 import {
     RECEIVE_EXERCISES,
     RECEIVE_USER_EXERCISES,
-    RECEIVE_NEW_EXERCISE
+    RECEIVE_EXERCISE,
+    REMOVE_EXERCISE
 } from '../actions/exercise_actions';
 
-const ExercisesReducer = (state = { all: {}, user: {}, new: undefined}, action) => {
+const ExercisesReducer = (state = { all: {}, user: {} }, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
 
     switch (action.type) {
         case RECEIVE_EXERCISES:
-            newState.all = action.exercises.data;
-            return newState;
+            newState.all = action.exercises;
+            // debugger;
+            return newState
         case RECEIVE_USER_EXERCISES:
-            newState.user = action.exercises.data;
+            newState.user = action.exercises;
             return newState;
-        case RECEIVE_NEW_EXERCISE:
-            newState.new = action.tweet.data;
+        case RECEIVE_EXERCISE:
+            newState.all[action.exercise._id] = action.exercise;
+            return newState;
+        case REMOVE_EXERCISE:
+            delete newState.all[action.exerciseId]
             return newState;
         default:
             return state;
-    }
-}
+    };
+};
 
 export default ExercisesReducer;
