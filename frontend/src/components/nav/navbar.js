@@ -86,7 +86,7 @@ class NavBar extends React.Component {
                 </a>
               </li>
               <li>
-                <a href={"/exercises"}>Exercises</a>
+                <a href={"#"}>Exercises</a>
               </li>
               {/* <li className="dropdown">
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
@@ -135,16 +135,3 @@ class NavBar extends React.Component {
 export default NavBar;
 
 
-
-      // <div className="nav-bar-container">
-      //   <div className="nav-bar-main">
-      //     <div className="nav-title">
-      //         <Link to="/" className="nav-logo">
-      //           FitBook
-      //           </Link>
-      //       </div>
-      //     <div className="nav-links">
-      //       {this.getLinks()}
-      //     </div>
-      //   </div>
-      // </div>
