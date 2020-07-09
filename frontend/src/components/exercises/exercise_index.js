@@ -34,6 +34,7 @@ class ExerciseIndex extends React.Component{
     }
 
     render(){
+        // if (!this.props.exercises) return null
         if (this.props.exercises.length === 0) {
             return (
                 <div>
