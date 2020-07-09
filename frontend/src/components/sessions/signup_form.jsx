@@ -8,8 +8,7 @@ class SignupForm extends React.Component {
       email: "",
       username: "",
       password: "",
-      password2: "",
-      errors: {},
+      password2: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,21 +36,34 @@ class SignupForm extends React.Component {
     };
 
     const newUser = Object.assign({}, userInfo);
-    this.props.signup(newUser); 
-    this.props.history.push("/exercises");
+    this.props.signup(newUser) 
+      // .then(() => this.props.history.push("/exercises")); 
+      // don't need becuase protected route will redirect to 'exercises already'
   }
 
-  renderErrors() {
+  renderEmailError() {
     return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li className="error-message" key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
+      <li className="error-message" key={`error-email`}>{this.props.errors['email']}</li>
     );
-  }
+  };
+
+  renderUsernameError() {
+    return (
+      <li className="error-message" key={`error-username`}>{this.props.errors['username']}</li>
+    );
+  };
+
+  renderPasswordError() {
+    return (
+      <li className="error-message" key={`error-password`}>{this.props.errors['password']}</li>
+    );
+  };
+
+  renderPassword2Error() {
+    return (
+      <li className="error-message" key={`error-password2`}>{this.props.errors['password2']}</li>
+    );
+  };
 
   render() {
     return (
@@ -60,50 +72,61 @@ class SignupForm extends React.Component {
           <div className="switch-link">
             Already on Fitbook?&nbsp;&nbsp;
             <Link className="link" to="/login">
-              Log In
+              Log in
             </Link>
           </div>
           <br />
-          <div>Feel free to Join</div>
-          {this.renderErrors()}
+          <div>Feel free to join!</div>
           <div>
             <br />
-            <input
-              className="epu-form"
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
+            <div className="epu-form-email">
+              <input
+                className="epu-form"
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Email"
+              />
+              {this.renderEmailError()}
+            </div>
             <br />
-            <input
-              className="epu-form"
-              type="text"
-              value={this.state.username}
-              onChange={this.update("username")}
-              placeholder="username"
-            />
+            <div className="epu-form-username">
+              <input
+                className="epu-form"
+                type="text"
+                value={this.state.username}
+                onChange={this.update("username")}
+                placeholder="Username"
+              />
+              {this.renderUsernameError()}
+            </div>
             <br />
-            <input
-              className="epu-form"
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
+            <div className="epu-form-password">
+              <input
+                className="epu-form"
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Password"
+              />
+              {this.renderPasswordError()}
+            </div>
             <br />
-            <input
-              className="epu-form"
-              type="password"
-              value={this.state.password2}
-              onChange={this.update("password2")}
-              placeholder="Confirm Password"
-            />
+            <div className="epu-form-password2">
+              <input
+                className="epu-form"
+                type="password"
+                value={this.state.password2}
+                onChange={this.update("password2")}
+                placeholder="Confirm Password"
+              />
+              {this.renderPassword2Error()}
+            </div>
             <br />
             <input
               className="submit-button"
               type="submit"
-              value="Start Workout"
+              value="Create Account"
             />
             <br />
           </div>

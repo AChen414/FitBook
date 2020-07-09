@@ -7,25 +7,23 @@ class LoginForm extends React.Component {
 
     this.state = {
       email: "",
-      password: "",
-      errors: {},
+      password: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
     this.update = this.update.bind(this);
-  }
+  };
 
   componentDidMount(){
     this.props.clearErrors();
-  }
+  };
 
   update(field) {
     return (e) =>
       this.setState({
         [field]: e.currentTarget.value,
       });
-  }
+  };
 
   handleSubmit(e) {
     e.preventDefault();
@@ -39,17 +37,30 @@ class LoginForm extends React.Component {
     
     this.props.login(user);
     this.props.history.push("/exercises");
-  }
+  };
 
-  renderErrors() {
+  // renderErrors() {
+  //   // debugger
+  //   return (
+  //     <ul>
+  //       {Object.keys(this.props.errors).map((error, i) => (
+  //         <li className="error-message" key={`error-${i}`}>{this.props.errors[error]}</li>
+  //       ))}
+  //     </ul>
+  //   );
+  // };
+
+  renderEmailError() {
     return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li className="error-message" key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
-      </ul>
+          <li className="error-message" key={`error-email`}>{this.props.errors['email']}</li>
     );
-  }
+  };
+
+  renderPasswordError() {
+    return (
+          <li className="error-message" key={`error-password`}>{this.props.errors['password']}</li>
+    );
+  };
 
   render() {
     return (
@@ -58,31 +69,36 @@ class LoginForm extends React.Component {
           <div className="switch-link">
             Want to join us?&nbsp;&nbsp;
             <Link className="link" to="/signup">
-              Sign Up
+              Sign up
             </Link>
           </div>
           <br />
-          <div>Please sign in!</div>
+          <div>Please log in!</div>
           <br/>
-          {this.renderErrors()}
           <div>
-            <input
-              className="epu-form"
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
+            <div className="epu-form-email">
+              <input
+                className="epu-form"
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Email"
+              />
+              {this.renderEmailError()}
+            </div>
             <br />
-            <input
-              className="epu-form"
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
+              <div className="epu-form-password">
+                <input
+                  className="epu-form"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  placeholder="Password"
+                />
+                {this.renderPasswordError()} 
+              </div>
             <br />
-            <input className="submit-button" type="submit" value="Log In" />
+            <input className="submit-button" type="submit" value="Log in" />
             <br />
           </div>
         </form>
@@ -94,7 +110,7 @@ class LoginForm extends React.Component {
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 export default withRouter(LoginForm);
