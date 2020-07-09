@@ -70,7 +70,7 @@ class SignupForm extends React.Component {
       <div className="session-form-container">
         <form className="session-form" onSubmit={this.handleSubmit}>
           <div className="switch-link">
-            Already on Fitbook?&nbsp;&nbsp;
+            Already on FitBook?&nbsp;&nbsp;
             <Link className="link" to="/login">
               Log in
             </Link>
@@ -131,12 +131,12 @@ class SignupForm extends React.Component {
             <br />
           </div>
         </form>
-        <div className="session-img">
+        {/* <div className="session-img">
           <img
             src="https://mychirocdn.r.worldssl.net/article-images/create-healthy-habits-this-year-2016.png"
             alt="fitness center"
           />
-        </div>
+        </div> */}
       </div>
     );
   }
