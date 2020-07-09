@@ -19,15 +19,14 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div>
+          <Link type="button" className="btn btn-default navbar-btn" to={"/new_exercise"}>
+            Create a Exercise
+            </Link>
 
-          <button type="button" className="btn btn-default navbar-btn">
-            <Link to={"/new_exercise"}>Create a Exercise</Link>
-          </button>
-          
-          <button type="button" className="btn btn-default navbar-btn">
-            <Link to={"/profile"}>Profile</Link>
-          </button>
-
+          <Link type="button" className="btn btn-default navbar-btn" to={"/profile"}>
+            Profile
+          </Link>
+        
           <button
             type="button"
             className="btn btn-default navbar-btn"
@@ -40,14 +39,12 @@ class NavBar extends React.Component {
     } else {
       return (
         <div>
-          <button type="button" className="btn btn-default navbar-btn">
-            <Link to={"/signup"}>Join</Link>
-          </button>
-          <button type="button" className="btn btn-default navbar-btn">
-            <Link to={"/login"}>
-              Login
-            </Link>
-          </button>
+          <Link type="button" className="btn btn-default navbar-btn" to={"/signup"}>
+              Join
+          </Link>
+          <Link type="button" className="btn btn-default navbar-btn" to={"/login"}>
+            Login
+          </Link>
         </div>
       );
     }

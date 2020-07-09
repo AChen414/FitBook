@@ -1,6 +1,7 @@
 import React from "react";
 import Content from "./content"
 import Footer from "./footer"
+import { Link } from 'react-router-dom';
 
 class MainPage extends React.Component {
   render() {
@@ -17,9 +18,10 @@ class MainPage extends React.Component {
             <p>
               <a
                 className="btn btn-primary btn-lg"
-                href="/about-us"
+                href="#"
                 role="button"
               >
+                {/* link to about us */}
                 Learn more about us
               </a>
             </p>

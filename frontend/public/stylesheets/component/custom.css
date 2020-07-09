@@ -27,3 +27,34 @@
     margin-right: 15px;
     margin-left: 15px;
 }
+
+
+.workout-form-container{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    border: 1px solid black;
+}
+
+/* left */
+.new-workout-form{ 
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    border: 1px solid black;
+    margin: 10px;
+    font-size:
+}
+
+.workout-form-right{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    border: 1px solid black;
+    margin: 10px
+}
+
+.workout-form-type{
+    display:flex;
+    justify-content: start;
+}

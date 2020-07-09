@@ -58,60 +58,71 @@ class WorkoutForm extends React.Component {
             return exercise.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
         });
         return(
-            <div>
-                <form className="new-workout-form" onSubmit={this.handleSubmit}>
-                    {this.renderErrors()}
-                    <label className="workout-form-type">Title</label>
-                    <input 
-                        className="workout-form-field"
-                        type="text"
-                        onChange={this.update('title')}
-                        value={this.state.title}
-                    />
+            <div className="workout-form-container">
+                <div className="col-md-6 workout-form-left">
+                    <form className="new-workout-form" onSubmit={this.handleSubmit}>
+                        {this.renderErrors()}
+                        <div className="workout-form-title">
+                            <label className="workout-form-type">Title</label>
+                            <input 
+                                className="workout-form-field"
+                                type="text"
+                                onChange={this.update('title')}
+                                value={this.state.title}
+                            />
+                        </div>
 
-                    <label className="workout-form-type">Notes</label>
-                    <textarea 
-                        onChange={this.update('notes')}
-                        value={this.state.notes}
-                        placeholder='Notes (ex. Upper chest focused workout)'
-                        cols="30" rows="10">
-                    </textarea>
+                        
+                            <div className="workout-form-notes">
+                                <label className="workout-form-type">Notes</label>
+                                <textarea 
+                                    onChange={this.update('notes')}
+                                    value={this.state.notes}
+                                    placeholder='Notes (ex. Upper chest focused workout)'
+                                    cols="30" rows="10">
+                                </textarea>
+                            </div>
 
-                    <label className="workout-form-type">Exercises
-                        {this.state.exercises.map((exerciseId, i) => {
-                            return (
-                                <li key={`workout-exercise-${i}`}
-                                    className="workout-exercise-item">
-                                    {this.props.exercises[exerciseId].title}
+                            <label className="workout-form-type">Exercises
+                                {this.state.exercises.map((exerciseId, i) => {
+                                    return (
+                                        <li key={`workout-exercise-${i}`}
+                                            className="workout-exercise-item">
+                                            {this.props.exercises[exerciseId].title}
+                                        </li>
+                                    )
+                                })}
+                            </label>
+                        
+
+                        <input 
+                            type="submit" 
+                            className="workout-form-submit" 
+                            value="Create Workout"
+                        />
+                    </form>
+                </div>
+
+                            
+                <div className="col-md-6 workout-form-right"> 
+                    <div className="exercise-list">
+                        <input 
+                            type="text"
+                            value={this.state.search}
+                            onChange={this.updateSearch}
+                            placeholder='Filter by exercise'
+                        />
+                        <ul>
+                            {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
+                            {filteredExercises.map((exercise, i) => (
+                                <li key={`exercise-${i}`} onClick={this.addExercise(exercise._id)}>
+                                    <div className="exercise-list-title">{exercise.title}</div>
+                                    <div className="exerise-list-category">{exercise.category}</div>
+                                    <div className="exerise-list-equipment">{exercise.equipment}</div>
                                 </li>
-                            )
-                        })}
-                    </label>
-
-                    <input 
-                        type="submit" 
-                        className="workout-form-submit" 
-                        value="Create Workout"
-                    />
-                </form>
-
-                <div className="exercise-list">
-                    <input 
-                        type="text"
-                        value={this.state.search}
-                        onChange={this.updateSearch}
-                        placeholder='Filter by exercise'
-                    />
-                    <ul>
-                        {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
-                        {filteredExercises.map((exercise, i) => (
-                            <li key={`exercise-${i}`} onClick={this.addExercise(exercise._id)}>
-                                <div className="exercise-list-title">{exercise.title}</div>
-                                <div className="exerise-list-category">{exercise.category}</div>
-                                <div className="exerise-list-equipment">{exercise.equipment}</div>
-                            </li>
-                        ))}
-                    </ul>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
 
             </div>
