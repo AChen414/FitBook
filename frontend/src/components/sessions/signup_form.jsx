@@ -8,8 +8,7 @@ class SignupForm extends React.Component {
       email: "",
       username: "",
       password: "",
-      password2: "",
-      errors: {},
+      password2: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,16 +36,17 @@ class SignupForm extends React.Component {
     };
 
     const newUser = Object.assign({}, userInfo);
-    this.props.signup(newUser); 
-    this.props.history.push("/exercises");
+    this.props.signup(newUser) 
+      // .then(() => this.props.history.push("/exercises")); 
+      // don't need becuase protected route will redirect to 'exercises already'
   }
 
   renderErrors() {
     return (
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li className="error-message" key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
