@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link, Redirect } from "react-router-dom";
 
 const NavBarSearch = (props) => {
-  const { searchBusiness, match, history } = props;
-  const [search, setSearch] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
-    searchBusiness(search).then(() => <Redirect to="/businesses/search" />);
+    searchBusiness(search).then(() => <Redirect to="/exercises/search" />);
   };
 
   const update = () => {
@@ -18,13 +16,11 @@ const NavBarSearch = (props) => {
     <form className="search-bar-show" onSubmit={onSubmit}>
       <span className="description find">Find</span>
       <input
-        className="left-side-search"
+        className="search-bar"
         type="text"
-        placeholder="restaurants, boba, coffee..."
+        placeholder=""
         onChange={update()}
       />
-      <span className="description border-near">Near</span>
-      <input className="middle-search" type="text" placeholder="App Academy" />
       <button id="search-submit" type="submit">
         <i className="material-icons show-search-icon">search</i>
       </button>

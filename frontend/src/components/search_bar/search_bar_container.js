@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import SearchBar from "./search_bar";
-import { searchBusinesses } from "../../actions/business_actions";
+import { searchExercise } from "../../actions/exercise_actions";
 
 const mapStateToProps = (state, ownProps) => {
   return {
     type: ownProps.type,
-    businesses: ownProps.businesses,
+    exercises: ownProps.exercises,
   };
 };
 

@@ -6,8 +6,6 @@ const passport = require('passport');
 const Workout = require('../../models/Workout');
 const validateWorkoutInput = require('../../validation/workouts');
 
-router.get("/test", (req, res) => res.json({ msg: "This is the workouts route" }));
-
 router.get('/user/:user_id', (req, res) => {
     Workout.find({ user: req.params.user_id })
         .then(workouts => res.json(workouts))
@@ -17,7 +15,7 @@ router.get('/user/:user_id', (req, res) => {
 router.get('/:id', (req, res) => {
     Workout.findById(req.params.id)
         .then(workout => res.json(workout))
-        .catch(err => res.status(404).json({ noexercisefound: 'No exercise found with that ID'}))
+        .catch(err => res.status(404).json({ noworkoutfound: 'No workout found with that ID'}))
 })
 
 router.post('/', 
@@ -53,7 +51,7 @@ router.patch('/:id',
 
         const workout = await Workout.findById(req.params.id)
 
-        if (req.user.id !== exercise.user.toString()) { 
+        if (req.user.id !== workout.user.toString()) { 
             return res.status(400).json({ invaliduser: 'Cannot update a workout you did not create'})   // checks that the workout owner is the logged in user
         }
 
@@ -65,10 +63,16 @@ router.patch('/:id',
 
 router.delete('/:id', 
     passport.authenticate('jwt', {session: false}),
-    (req, res) => {
-        Workout.findByIdAndDelete(req.params.id)
+    async (req, res) => {
+
+        const workout = await Workout.findById(req.params.id)
+
+        if (req.user.id !== workout.user.toString()) {
+            return res.status(400).json({ invaliduser: 'Cannot delete a workout you did not create'})
+        }
+
+        Workout.findByIdAndDelete(req.params.id) 
             .then(workout => res.json(workout))
-            
     }
 )
 

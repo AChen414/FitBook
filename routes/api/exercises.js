@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 
-const Exercise = require('../../models/Exercise')
+const Exercise = require('../../models/Exercise');
 const validateExerciseInput = require('../../validation/exercises');
 
 mongoose.set('useFindAndModify', false); // this line addresses the depracation warning for Model.findByIdAndUpdate
@@ -75,12 +75,6 @@ router.patch('/:id',
 router.delete('/:id',
     passport.authenticate('jwt', { session: false }),
     async (req, res) => {
-        const { errors, isValid } = validateExerciseInput(req.body);
-
-        if (!isValid) {
-            return res.status(400).json(errors);
-        };
-
         const exercise = await Exercise.findById(req.params.id)
 
         if (req.user.id !== exercise.user.toString()) {
@@ -88,8 +82,8 @@ router.delete('/:id',
             return res.status(400).json({ invaliduser: 'Cannot delete an exercise you did not create' })
         };
 
-        Exercise.deleteOne({ _id: req.params.id })
-            .then(res => res.json(res))
+        Exercise.findByIdAndDelete(req.params.id)
+            .then(exercise => res.json(exercise))
             .catch(err => res.status(404).json({ noexercisefound: 'No exercise found with that ID' }));
     }
 );

@@ -48,9 +48,15 @@
 
 #footer-container {
     background-color: royalblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
+h1 {
+    font-size: x-large;
+    text-align: center;
+}
 
 .about-us-right {
     width: 150px;
@@ -69,4 +75,5 @@
 
 .col {
     display: block;
+
 }

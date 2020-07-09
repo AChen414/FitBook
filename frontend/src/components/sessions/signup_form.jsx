@@ -13,15 +13,11 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
+    this.update = this.update.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push("/login");
-    }
-
-    this.setState({ errors: nextProps.errors });
+  componentDidMount() {
+    this.props.clearErrors();
   }
 
   update(field) {
@@ -33,14 +29,16 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let user = {
+    let userInfo = {
       email: this.state.email,
       username: this.state.username,
       password: this.state.password,
       password2: this.state.password2,
     };
 
-    this.props.signup(user, this.props.history);
+    const newUser = Object.assign({}, userInfo);
+    this.props.signup(newUser); 
+    this.props.history.push("/exercises");
   }
 
   renderErrors() {
@@ -83,7 +81,7 @@ class SignupForm extends React.Component {
               type="text"
               value={this.state.username}
               onChange={this.update("username")}
-              placeholder="username"
+              placeholder="Username"
             />
             <br />
             <input
