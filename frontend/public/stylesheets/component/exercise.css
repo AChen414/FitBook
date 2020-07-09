@@ -1,0 +1,11 @@
+.exercise-item span{
+  width: 90%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.exercise-item {
+    display: inline-block;
+}
