@@ -8,6 +8,7 @@ import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
 
 //TESTING
+import { fetchUserExercises, composeExercise, fetchExercise, deletusExercise } from './actions/exercise_actions';
 import { 
   getExercises, 
   getExercise, 
@@ -24,6 +25,7 @@ import {
   updateWorkout,
   deleteWorkout
 } from './util/workout_api_util';
+import { compose } from "redux";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -48,16 +50,24 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={store} />, root);
 
   // for testing only
-  window.getExercises = getExercises
-  window.getExercise = getExercise
-  window.getUserExercises = getUserExercises
-  window.createExercise = createExercise
-  window.updateExercise = updateExercise
-  window.deleteExercise = deleteExercise
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  window.fetchUserExercises = fetchUserExercises;
+        //dispatch(fetchUserExercises()).then(console.log)
+  window.composeExercise = composeExercise;
+  window.fetchExercise = fetchExercise;
+  window.deletusExercise = deletusExercise;
+  // window.getExercises = getExercises
+  // window.getExercise = getExercise
+  // window.getUserExercises = getUserExercises
+  // window.createExercise = createExercise
+  // window.updateExercise = updateExercise
+  // window.deleteExercise = deleteExercise
 
-  window.getUserWorkouts = getUserWorkouts
-  window.getUserWorkout = getUserWorkout
-  window.createWorkout = createWorkout
-  window.updateWorkout = updateWorkout
-  window.deleteWorkout = deleteWorkout
+  // window.getUserWorkouts = getUserWorkouts
+  // window.getUserWorkout = getUserWorkout
+  // window.createWorkout = createWorkout
+  // window.updateWorkout = updateWorkout
+  // window.deleteWorkout = deleteWorkout
+
 });

@@ -5,7 +5,6 @@ import {fetchExercises} from '../../actions/exercise_actions';
 import ExerciseIndex from './exercise_index';
 
 const mSTP = state => {
-    // debugger
     return {
         exercises: Object.values(state.entities.exercises.all)
     }
