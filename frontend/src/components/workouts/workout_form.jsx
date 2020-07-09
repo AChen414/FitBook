@@ -12,6 +12,7 @@ class WorkoutForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.addExercise = this.addExercise.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
+        this.removeExercise = this.removeExercise.bind(this);
     };
 
     componentDidMount() {
@@ -35,6 +36,15 @@ class WorkoutForm extends React.Component {
             this.setState({ exercises: currentExercises });
         };
     };
+
+    removeExercise(exerciseId) {
+        return (e) => {
+            e.preventDefault();
+            let prevExercises = this.state.exercises;
+            let currentExercises = prevExercises.filter( ele => (ele !== exerciseId))
+            this.setState({ exercises: currentExercises })
+        }
+    }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -86,10 +96,16 @@ class WorkoutForm extends React.Component {
                             <label className="workout-form-type">Exercises
                                 {this.state.exercises.map((exerciseId, i) => {
                                     return (
+                                        <>
                                         <li key={`workout-exercise-${i}`}
                                             className="workout-exercise-item">
                                             {this.props.exercises[exerciseId].title}
                                         </li>
+                   
+                                        <button className="remove-workout-exercise" onClick={this.removeExercise(exerciseId)}>
+                                            Delete
+                                        </button>
+                                        </>
                                     )
                                 })}
                             </label>
