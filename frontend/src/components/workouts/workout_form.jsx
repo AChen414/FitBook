@@ -53,7 +53,10 @@ class WorkoutForm extends React.Component {
         this.props.createWorkout(newWorkout);
     };
 
-    renderErrors() {
+    // Curently, the only errors that can occur are for not having a title so this.props.errors will return
+    // an object { title: 'Title cannot be empty' } instead of an array (I think) so for now a quick fix
+    // is to just render this one error (instead of looping through the errors)
+    renderErrors() {    
         return (
             <div>{this.props.errors.title}</div>
         )
