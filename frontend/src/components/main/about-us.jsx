@@ -17,72 +17,98 @@ const AboutUs = () => (
           experience by completing workouts and by working out with other users,
           which will unlock rewards.
         </div>
-        <div className="about-us-box">
-          photo
-          <div className="link-session">
-            <a href="linkin link">
+        <div className="box-container">
+          <div className="about-us-box">
+            <div className="about-us-pic">
+                photo
               <img
-                src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
-                alt="linkedin"
+                src=""
+                alt=""
               />
-            </a>
-            <a href="github">
-              <img
-                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-                alt="github"
-              />
-            </a>
+            </div>
+            <div className="link-session">
+              <a href="linkin link">
+                <img
+                  src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
+                  alt="linkedin"
+                />
+              </a>
+              <a href="github">
+                <img
+                  src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                  alt="github"
+                />
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="about-us-box">
-          photo
-          <div className="link-session">
-            <a href="linkin link">
+          <div className="about-us-box">
+            <div className="about-us-pic">
+                photo
               <img
-                src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
-                alt="linkedin"
+                src=""
+                alt=""
               />
-            </a>
-            <a href="github">
-              <img
-                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-                alt="github"
-              />
-            </a>
+            </div>
+            <div className="link-session">
+              <a href="linkin link">
+                <img
+                  src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
+                  alt="linkedin"
+                />
+              </a>
+              <a href="github">
+                <img
+                  src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                  alt="github"
+                />
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="about-us-box">
-          photo
-          <div className="link-session">
-            <a href="linkin link">
+          <div className="about-us-box">
+            <div className="about-us-pic">
+                photo
               <img
-                src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
-                alt="linkedin"
+                src=""
+                alt=""
               />
-            </a>
-            <a href="github">
-              <img
-                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-                alt="github"
-              />
-            </a>
+            </div>
+            <div className="link-session">
+              <a href="linkin link">
+                <img
+                  src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
+                  alt="linkedin"
+                />
+              </a>
+              <a href="github">
+                <img
+                  src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                  alt="github"
+                />
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="about-us-box">
-          photo
-          <div className="link-session">
-            <a href="linkin link">
+          <div className="about-us-box">
+            <div className="about-us-pic">
+                photo
               <img
-                src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
-                alt="linkedin"
+                src=""
+                alt=""
               />
-            </a>
-            <a href="github">
-              <img
-                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-                alt="github"
-              />
-            </a>
+            </div>
+            <div className="link-session">
+              <a href="linkin link">
+                <img
+                  src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
+                  alt="linkedin"
+                />
+              </a>
+              <a href="github">
+                <img
+                  src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                  alt="github"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
