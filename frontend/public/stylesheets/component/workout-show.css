@@ -1,0 +1,9 @@
+.workout-title {
+    justify-content: center;
+    text-align: center;
+    font-size: 80px;
+}
+.workout-exercise-title li {
+    font-size: large;
+}
+

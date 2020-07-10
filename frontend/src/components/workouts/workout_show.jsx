@@ -27,11 +27,18 @@ class WorkoutShow extends React.Component {
                 <div className="workout-title">
                     {workout.title}
                 </div>
-                <ul>
-                        {workout.exercises.map((exerciseId) => (
-                            <li>{exercises[exerciseId].title}</li>    
-                        ))}
-                </ul>
+                <div className="workout-exercise-title">
+                    <ul>
+                            {workout.exercises.map((exerciseId) => (
+                                <li>{exercises[exerciseId].title}
+                                    <div className="exercise-img">
+                                        put an image right here
+                                    </div>    
+                                </li>
+                            ))}
+
+                    </ul>
+                </div>
 
                 <div className="workout-notes">
                     {workout.notes}
