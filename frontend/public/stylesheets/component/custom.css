@@ -6,5 +6,24 @@
 @import url("./footer.css");
 @import url("./exercise_index.css");
 @import url("./workout-show.css");
-@import url("./workout-index.css")
+@import url("./workout-index.css");
 
+
+.workout-form-type{
+    display: flex;
+    flex-direction: column;
+}
+
+.workout-exec-title{
+    width: 375px;
+    text-align: center;
+}
+.workout-added-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 150px;
+    overflow: scroll;
+    /* border: 1px solid black */
+}
