@@ -1,0 +1,8 @@
+#footer-container {
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    border-top: #e7e7e7;
+    text-align: center;
+    position: fixed;
+}

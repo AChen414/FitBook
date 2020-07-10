@@ -1,12 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
-const WorkoutIndexItem = (props) => {
+class WorkoutIndexItem extends React.Component {
+    constructor(props) {
+        super(props);
 
-    return (
-        <li>
-            <h1>{props.workout.title}</h1>
-        </li>
-    )
+        this.handleDelete = this.handleDelete.bind(this)
+    }
+
+    handleDelete(e) {
+        e.preventDefault();
+        this.props.deleteWorkout(this.props.workout._id);
+    }
+    
+    render() {
+        return (
+            <div className="user-workout">
+                <li>
+                <Link to={`/workouts/${this.props.workout._id}`}>{this.props.workout.title}</Link>
+                    <button onClick={this.handleDelete}>Delete</button>
+                </li>
+            </div>
+        )
+    }
 }
 
 export default WorkoutIndexItem;
