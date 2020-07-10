@@ -22,7 +22,7 @@ class UserProfile extends React.Component{
          
                             <div class="profile-usertitle">
                                 <div class="profile-usertitle-name">
-                                    {currentUser.email}
+                                    {currentUser.username}
                                 </div>
                             </div>
             

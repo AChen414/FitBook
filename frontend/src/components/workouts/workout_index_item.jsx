@@ -15,13 +15,15 @@ class WorkoutIndexItem extends React.Component {
     
     render() {
         return (
-            <div className="user-workout">
-                <li>
-                <Link to={`/workouts/${this.props.workout._id}`}>{this.props.workout.title}</Link>
-                    <button onClick={this.handleDelete}>Delete</button>
-                </li>
-            </div>
-        )
+          <div className="user-workout">
+            <li>
+              <Link to={`/workouts/${this.props.workout._id}`}>
+                <span className="workout-index-title">{this.props.workout.title}</span>
+              </Link>
+              <button onClick={this.handleDelete}>Delete</button>
+            </li>
+          </div>
+        );
     }
 }
 
