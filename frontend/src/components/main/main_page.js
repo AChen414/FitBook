@@ -31,7 +31,7 @@ class MainPage extends React.Component {
               <span className="text-muted">It'll blow your mind.</span>
             </h2>
             <p className="lead">
-              Add and share your work out schedule with all your friends.
+              Add and share your workout schedule with all your friends.
             </p>
           </div>
           <div className="col-md-5">

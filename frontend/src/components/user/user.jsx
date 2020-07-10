@@ -1,5 +1,5 @@
 import React from "react";
-import UserCalender from './calendar'
+import UserCalender from './calendar';
 
 
 class UserProfile extends React.Component{
@@ -67,4 +67,4 @@ class UserProfile extends React.Component{
     }
 }
 
-export default UserProfile
+export default UserProfile;
