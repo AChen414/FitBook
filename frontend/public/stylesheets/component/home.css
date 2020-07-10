@@ -24,3 +24,12 @@ hr {
     margin-right: 100px;
     margin-left: 100px;
 }
+
+
+h2.featurette-heading {
+    font-size: 42px
+}
+
+.lead {
+    font-size: 32px;
+}

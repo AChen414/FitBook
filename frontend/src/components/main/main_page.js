@@ -27,7 +27,7 @@ class MainPage extends React.Component {
         <div className="row featurette">
           <div className="col-md-7">
             <h2 className="featurette-heading">
-              Scheduling.{" "}
+              Dynamic Scheduling.{" "}
               <span className="text-muted">It'll blow your mind.</span>
             </h2>
             <p className="lead">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom'
 
 class WorkoutForm extends React.Component {
     constructor(props) {
@@ -111,12 +112,13 @@ class WorkoutForm extends React.Component {
                                 })}
                             </label>
                         
-
-                        <input 
-                            type="submit" 
-                            className="workout-form-submit" 
-                            value="Create Workout"
-                        />
+                        <Redirect to="/workouts">
+                            <input 
+                                type="submit" 
+                                className="workout-form-submit" 
+                                value="Create Workout"
+                            />
+                        </Redirect>
                     </form>
                 </div>
 
