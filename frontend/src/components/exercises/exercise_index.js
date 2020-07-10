@@ -5,28 +5,14 @@ import ExerciseItem from "./exercise_index_item";
 class ExerciseIndex extends React.Component{
     constructor(props){
         super(props);
-
-        this.searchFunction = this.searchFunction.bind(this)
+        this.state = {
+            search: ''
+        }
+        this.updateSearch = this.updateSearch.bind(this)
     }
 
-    searchFunction() {
-        var myinput = document.querySelector("#myinput");
-
-        myinput.addEventListener("keyup", function(e){
-            var search_item = e.target.value.toLowerCase();
-            var span_items = document.querySelectorAll(
-                ".exercise-item span"
-            );
-
-            span_items.forEach(function(item) {
-                if(item.textContent.toLowerCase().includes(search_item)) {
-                    item.closest("span").style.display = "block";
-                }
-                else {
-                    item.closest("li").style.display = "none";
-                }
-            })
-            })
+    updateSearch(e) {
+        this.setState({search: e.target.value.substring(0, 20)})
     }
 
     componentDidMount() {
@@ -34,6 +20,9 @@ class ExerciseIndex extends React.Component{
     }
 
     render(){
+        let filteredExercises = (Object.values(this.props.exercises)).filter((exercise) => {
+            return exercise.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        });
         // if (!this.props.exercises) return null
         if (this.props.exercises.length === 0) {
             return (
@@ -48,20 +37,18 @@ class ExerciseIndex extends React.Component{
                   <input
                     type="text"
                     id="myinput"
-                    onChange={this.searchFunction}
-                    placeholder="Search Exercises"
+                    value={this.search}
+                    onChange={this.updateSearch}
+                    placeholder="Filter by Exercises"
                   />
                 </div>
-                <div>
-                    <ul >All Exercises
+                <ul>All Exercises:
+                    {filteredExercises.map((exercise, i) => (
                         <li>
-                            {this.props.exercises.map((exercise) => (
-                            <ExerciseItem key={exercise._id} exercise={exercise} />
-                            ))}
+                            <ExerciseItem key={`exercise._id-${i}`} exercise={exercise}/>
                         </li>
-                    </ul>
-                </div>
-                <script src="search.js"></script>
+                    ))}
+                </ul>
               </div>
             );
         }

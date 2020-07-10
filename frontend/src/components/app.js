@@ -10,6 +10,7 @@ import ExerciseIndexContainer from "./exercises/exercise_index_container";
 import WorkoutIndexContainer from './workouts/workout_index_container';
 import WorkoutFormContainer from './workouts/workout_form_container';
 import AboutUs from "./main/about-us";
+import Footer from"./main/footer";
 
 const App = () => (
   <div>
@@ -19,11 +20,12 @@ const App = () => (
       <Route exact path="/about-us" component={AboutUs} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Route exact path="/exercises" component={ExerciseIndexContainer} />
 
-      <ProtectedRoute exact path="/exercises" component={ExerciseIndexContainer} />
       <ProtectedRoute exact path="/workouts" component={WorkoutIndexContainer} />
       <ProtectedRoute exact path="/workouts/new" component={WorkoutFormContainer} />
     </Switch>
+    <Footer/>
   </div>
 );
 

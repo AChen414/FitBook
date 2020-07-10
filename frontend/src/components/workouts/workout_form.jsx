@@ -1,4 +1,7 @@
 import React from 'react';
+import Modal from '../modal';
+import { openModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
 
 class WorkoutForm extends React.Component {
     constructor(props) {
@@ -15,8 +18,12 @@ class WorkoutForm extends React.Component {
         this.removeExercise = this.removeExercise.bind(this);
     };
 
-    componentDidMount() {
+    componentDidMount(prevProps) {
         this.props.fetchUserExercises(this.props.user.id);
+        if (this.props.workouts.length !== prevProps.workouts.length) {
+            this.props.history.push('/workouts')
+        }
+        
     };
 
     updateSearch(e) {
@@ -51,7 +58,7 @@ class WorkoutForm extends React.Component {
         const newWorkout = Object.assign({}, this.state);
         delete newWorkout["search"]
         this.props.createWorkout(newWorkout);
-    };
+    }
 
     // Curently, the only errors that can occur are for not having a title so this.props.errors will return
     // an object { title: 'Title cannot be empty' } instead of an array (I think) so for now a quick fix
@@ -66,6 +73,8 @@ class WorkoutForm extends React.Component {
         let filteredExercises = (Object.values(this.props.exercises)).filter((exercise) => {
             return exercise.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
         });
+
+
         return(
             <div className="workout-form-container">
                 <div className="col-md-6 workout-form-left">
@@ -88,7 +97,7 @@ class WorkoutForm extends React.Component {
                                     onChange={this.update('notes')}
                                     value={this.state.notes}
                                     placeholder='Notes (ex. Upper chest focused workout)'
-                                    cols="30" rows="10">
+                                    cols="50" rows="20">
                                 </textarea>
                             </div>
 
@@ -127,22 +136,30 @@ class WorkoutForm extends React.Component {
                             onChange={this.updateSearch}
                             placeholder='Filter by exercise'
                         />
-                        <ul>
+                        <div className="add-exercise" onClick={this.props.openModal('Add Exercise')}>
+                            Add Exercise
+                        </div>
+                        <ul className="exercise-ul">
                             {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
                             {filteredExercises.map((exercise, i) => (
-                                <li key={`exercise-${i}`} onClick={this.addExercise(exercise._id)}>
-                                    <div className="exercise-list-title">{exercise.title}</div>
-                                    <div className="exerise-list-category">{exercise.category}</div>
-                                    <div className="exerise-list-equipment">{exercise.equipment}</div>
+                                <li className="exercise-item-list " key={`exercise-${i}`} onClick={this.addExercise(exercise._id)}>
+                                    <div>
+                                        <div className="exercise-list-title">{exercise.title}</div>
+                                        <div className="exerise-list-category">Category: {exercise.category}</div>
+                                        <div className="exerise-list-equipment">Equpiment: {exercise.equipment}</div>
+                                    </div>
+                                    <div className="exercise-img">
+                                        <div className={`exercise-img-${exercise.category.toLowerCase()}` } />     
+                                    </div>
                                 </li>
                             ))}
                         </ul>
                     </div>
                 </div>
-
+                <Modal />
             </div>
         );
     };
 };
 
-export default WorkoutForm;
+export default withRouter(WorkoutForm);

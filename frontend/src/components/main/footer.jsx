@@ -7,7 +7,7 @@ class Footer extends React.Component {
     render () {
         return (
             <div id="footer-container">
-                <div className="footer"> 
+                {/* <div className="footer"> 
                     <h1 className="footer-title">FitBook</h1>
                     <section id="nav_menu" className="col">
                         <div className="scn">
@@ -21,10 +21,10 @@ class Footer extends React.Component {
                                 </li>
                             </ul>
                         </div>
-                    </section>
+                    </section> */}
                     <footer>Copyright &copy; 2020 Fitbook</footer>
 
-                </div>
+                {/* </div> */}
 
             </div>
         )
