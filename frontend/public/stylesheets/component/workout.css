@@ -1,0 +1,103 @@
+
+/* Workouts  */
+.workout-form-container{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    /* border: 1px solid black; */
+    height: 750px;
+}
+
+/* left */
+.new-workout-form{ 
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    /* border: 1px solid black; */
+    margin: 10px;
+    height: 100%;
+}
+
+.workout-form-right, .workout-form-left{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    /* border: 1px solid black; */
+    margin: 10px;
+    width: 100%;
+    padding: 15px;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+
+.exercise-list{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.exercise-ul{
+    padding: 0;
+    overflow: scroll;
+    /* max-height: 50%; */
+    height: 100vh;
+    /* position: fixed; */
+    border: 1px solid black;
+    box-shadow: black;
+    width: 420px;
+}
+.workout-form-type{
+    display:flex;
+    justify-content: start;
+}
+
+.exercise-item-list{
+    display: flex;
+    justify-content: space-around ;
+    border: 1px solid black;
+    margin: 5px; 
+    padding: 5px;
+    width: 400px;
+    height: 170px;
+    align-items: center;
+}
+
+.exercise-img{
+    height: 150px;
+    width: 250px;
+    border-radius: 3px;
+}
+
+.exercise-img-chest {
+    background: url("https://i.pinimg.com/originals/20/08/e3/2008e3218d914487fd636c273a0b4f3b.jpg") no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+}
+.exercise-img-legs {
+    background: url("https://lh3.googleusercontent.com/proxy/iGf0riO0WSQp-Vb1nzN3AYqgGITQJesPFfMjhXxja0V5dmtHKOeXydrWGP70fQdRDHDE_2eeQ7LA2_NGLkU6SLDF_gkvOqk") no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+.exercise-img-full {
+    background: url("https://qph.fs.quoracdn.net/main-qimg-49833be48453f927747bef01b4636043") no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}

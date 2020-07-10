@@ -25,10 +25,12 @@ const AboutUs = () => (
         <br />
         <div className="box-container">
           <div className="about-us-box">
+
             <div className="about-us-pic">
               <p>Andrew Chen</p>
               <img src="" alt="" />
             </div>
+
             <div className="link-session">
               <a href="linkin link">
                 <img
@@ -45,10 +47,12 @@ const AboutUs = () => (
             </div>
           </div>
           <div className="about-us-box">
+
             <div className="about-us-pic">
               <p>Kenneth Liang</p>
               <img src="" alt="" />
             </div>
+
             <div className="link-session">
               <a href="linkin link">
                 <img
@@ -65,10 +69,12 @@ const AboutUs = () => (
             </div>
           </div>
           <div className="about-us-box">
+
             <div className="about-us-pic">
               <p>Gordy Bullen</p>
               <img src="" alt="" />
             </div>
+
             <div className="link-session">
               <a href="linkin link">
                 <img
@@ -85,10 +91,12 @@ const AboutUs = () => (
             </div>
           </div>
           <div className="about-us-box">
+
             <div className="about-us-pic">
               <p>Yuk Chan</p>
               <img src="" alt="" />
             </div>
+
             <div className="link-session">
               <a href="linkin link">
                 <img
