@@ -10,17 +10,13 @@ class MainPage extends React.Component {
         <div className="jumbotron">
           <div className="jumbotron-content">
             <h1>FitBook</h1>
-            <p>
+            {/* <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Vestibulum imperdiet id ex in lobortis. Nullam.
-            </p>
+            </p> */}
 
             <p>
-              <a
-                className="btn btn-primary btn-lg"
-                href="#"
-                role="button"
-              >
+              <a className="btn btn-primary btn-lg" href="#" role="button">
                 {/* link to about us */}
                 Learn more about us
               </a>
@@ -31,14 +27,11 @@ class MainPage extends React.Component {
         <div className="row featurette">
           <div className="col-md-7">
             <h2 className="featurette-heading">
-              First featurette heading.{" "}
+              Scheduling.{" "}
               <span className="text-muted">It'll blow your mind.</span>
             </h2>
             <p className="lead">
-              Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
-              ligula porta felis euismod semper. Praesent commodo cursus magna,
-              vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-              commodo.
+              Add and share your work out schedule with all your friends.
             </p>
           </div>
           <div className="col-md-5">
@@ -56,14 +49,12 @@ class MainPage extends React.Component {
         <div className="row featurette">
           <div className="col-md-7 col-md-push-5">
             <h2 className="featurette-heading">
-              Oh yeah, it's that good.{" "}
+              Personalized Workout Builder.{" "}
               <span className="text-muted">See for yourself.</span>
             </h2>
             <p className="lead">
-              Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
-              ligula porta felis euismod semper. Praesent commodo cursus magna,
-              vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-              commodo.
+              Choose from our vast database of exercises submitted by your
+              coaches and friends!
             </p>
           </div>
           <div className="col-md-5 col-md-pull-7">
@@ -71,7 +62,7 @@ class MainPage extends React.Component {
               className="featurette-image img-responsive center-block"
               data-src="holder.js/500x500/auto"
               alt="500x500"
-              src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzUwMHg1MDAvYXV0bwpDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsjaG9sZGVyXzE3MzM0ZTM2MWMyIHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjVwdCB9IF1dPjwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTczMzRlMzYxYzIiPjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjRUVFRUVFIi8+PGc+PHRleHQgeD0iMTg1LjExNzE4NzUiIHk9IjI2MS4xIj41MDB4NTAwPC90ZXh0PjwvZz48L2c+PC9zdmc+"
+              src="https://media.self.com/photos/5c1423a59d0b1e66a38062ac/4:3/w_2560%2Cc_limit/GettyImages-912023438.jpg"
               data-holder-rendered="true"
             />
           </div>
