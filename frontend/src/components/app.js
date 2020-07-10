@@ -9,7 +9,7 @@ import SignupFormContainer from "./sessions/signup_form_container";
 import ExerciseIndexContainer from "./exercises/exercise_index_container";
 import WorkoutIndexContainer from './workouts/workout_index_container';
 import WorkoutFormContainer from './workouts/workout_form_container';
-import UserContainer from './user/user_container'
+import UserContainer from './user/user_container';
 import WorkoutShowContainer from './workouts/workout_show_container';
 import AboutUs from "./main/about-us";
 import Footer from"./main/footer";
