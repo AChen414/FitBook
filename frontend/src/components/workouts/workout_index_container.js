@@ -5,6 +5,7 @@ import {
   deleteWorkout 
 } from '../../actions/workout_actions';
 import WorkoutIndex from './workout_index';
+import { fetchUserExercises } from "../../actions/exercise_actions";
 
 const mapStateToProps = state => {
   return {
@@ -17,7 +18,8 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchUserWorkouts: (userId) => dispatch(fetchUserWorkouts(userId)),
     fetchWorkout: (workoutId) => dispatch(fetchWorkout(workoutId)),
-    deleteWorkout: (workoutId) => dispatch(deleteWorkout(workoutId))
+    deleteWorkout: (workoutId) => dispatch(deleteWorkout(workoutId)),
+    // fetchUserExercises: (userId) => dispatch(fetchUserExercises(userId)),
   };
 };
 
