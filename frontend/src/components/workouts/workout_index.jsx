@@ -17,7 +17,7 @@ class WorkoutIndex extends React.Component {
         return (
           <div className="workout-index">
             <div className="workout-index-header">
-              <h1>These are {this.props.user.username}'s All Workouts</h1>
+              <h1>These are {this.props.user.email}'s Workouts</h1>
             </div>
             <ul>
               {this.props.workouts.map((workout) => (

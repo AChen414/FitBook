@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
 class WorkoutForm extends React.Component {
     constructor(props) {
@@ -51,7 +51,8 @@ class WorkoutForm extends React.Component {
         e.preventDefault();
         const newWorkout = Object.assign({}, this.state);
         delete newWorkout["search"]
-        this.props.createWorkout(newWorkout);
+        this.props.createWorkout(newWorkout).then(() => this.props.history.push('/workouts'));
+
     };
 
     // Curently, the only errors that can occur are for not having a title so this.props.errors will return
@@ -112,13 +113,11 @@ class WorkoutForm extends React.Component {
                                 })}
                             </label>
                         
-                        <Redirect to="/workouts">
                             <input 
                                 type="submit" 
                                 className="workout-form-submit" 
                                 value="Create Workout"
                             />
-                        </Redirect>
                     </form>
                 </div>
 
@@ -154,4 +153,4 @@ class WorkoutForm extends React.Component {
     };
 };
 
-export default WorkoutForm;
+export default withRouter(WorkoutForm);
