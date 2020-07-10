@@ -9,6 +9,7 @@ import SignupFormContainer from "./sessions/signup_form_container";
 import ExerciseIndexContainer from "./exercises/exercise_index_container";
 import WorkoutIndexContainer from './workouts/workout_index_container';
 import WorkoutFormContainer from './workouts/workout_form_container';
+import UserContainer from './user/user_container'
 import AboutUs from "./main/about-us";
 import Footer from"./main/footer";
 
@@ -22,6 +23,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/exercises" component={ExerciseIndexContainer} />
 
+      <ProtectedRoute exeact path="/profile" component={UserContainer}/>
       <ProtectedRoute exact path="/workouts" component={WorkoutIndexContainer} />
       <ProtectedRoute exact path="/workouts/new" component={WorkoutFormContainer} />
     </Switch>
