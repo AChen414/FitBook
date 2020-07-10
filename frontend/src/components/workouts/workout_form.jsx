@@ -57,6 +57,8 @@ class WorkoutForm extends React.Component {
         let filteredExercises = (Object.values(this.props.exercises)).filter((exercise) => {
             return exercise.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
         });
+
+
         return(
             <div className="workout-form-container">
                 <div className="col-md-6 workout-form-left">
@@ -79,7 +81,7 @@ class WorkoutForm extends React.Component {
                                     onChange={this.update('notes')}
                                     value={this.state.notes}
                                     placeholder='Notes (ex. Upper chest focused workout)'
-                                    cols="30" rows="10">
+                                    cols="50" rows="20">
                                 </textarea>
                             </div>
 
@@ -112,13 +114,18 @@ class WorkoutForm extends React.Component {
                             onChange={this.updateSearch}
                             placeholder='Filter by exercise'
                         />
-                        <ul>
+                        <ul className="exercise-ul">
                             {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
                             {filteredExercises.map((exercise, i) => (
-                                <li key={`exercise-${i}`} onClick={this.addExercise(exercise._id)}>
-                                    <div className="exercise-list-title">{exercise.title}</div>
-                                    <div className="exerise-list-category">{exercise.category}</div>
-                                    <div className="exerise-list-equipment">{exercise.equipment}</div>
+                                <li className="exercise-item-list " key={`exercise-${i}`} onClick={this.addExercise(exercise._id)}>
+                                    <div>
+                                        <div className="exercise-list-title">{exercise.title}</div>
+                                        <div className="exerise-list-category">Category: {exercise.category}</div>
+                                        <div className="exerise-list-equipment">Equpiment: {exercise.equipment}</div>
+                                    </div>
+                                    <div className="exercise-img">
+                                        <div className={`exercise-img-${exercise.category.toLowerCase()}` } />     
+                                    </div>
                                 </li>
                             ))}
                         </ul>
