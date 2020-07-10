@@ -54,7 +54,7 @@ export const createWorkout = (workout) => dispatch => (
     WorkoutAPIUtil.createWorkout(workout)
         .then(
             workout => dispatch(receiveWorkout(workout.data)),
-            err => dispatch(receiveErrors(err.responseJSON))
+            err => dispatch(receiveErrors(err.response.data))
             )
 );
 

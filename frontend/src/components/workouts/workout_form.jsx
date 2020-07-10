@@ -12,6 +12,7 @@ class WorkoutForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.addExercise = this.addExercise.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
+        this.removeExercise = this.removeExercise.bind(this);
     };
 
     componentDidMount() {
@@ -36,6 +37,15 @@ class WorkoutForm extends React.Component {
         };
     };
 
+    removeExercise(exerciseId) {
+        return (e) => {
+            e.preventDefault();
+            let prevExercises = this.state.exercises;
+            let currentExercises = prevExercises.filter( ele => (ele !== exerciseId))
+            this.setState({ exercises: currentExercises })
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const newWorkout = Object.assign({}, this.state);
@@ -43,14 +53,13 @@ class WorkoutForm extends React.Component {
         this.props.createWorkout(newWorkout);
     };
 
-    renderErrors() {
-        return this.props.errors.map((error, i) => {
-            return (
-                <li key={`error-${i}`} className="workout-error">
-                    {error}
-                </li>
-            );
-        });
+    // Curently, the only errors that can occur are for not having a title so this.props.errors will return
+    // an object { title: 'Title cannot be empty' } instead of an array (I think) so for now a quick fix
+    // is to just render this one error (instead of looping through the errors)
+    renderErrors() {    
+        return (
+            <div>{this.props.errors.title}</div>
+        )
     };
 
     render() {
@@ -88,10 +97,16 @@ class WorkoutForm extends React.Component {
                             <label className="workout-form-type">Exercises
                                 {this.state.exercises.map((exerciseId, i) => {
                                     return (
+                                        <>
                                         <li key={`workout-exercise-${i}`}
                                             className="workout-exercise-item">
                                             {this.props.exercises[exerciseId].title}
                                         </li>
+                   
+                                        <button className="remove-workout-exercise" onClick={this.removeExercise(exerciseId)}>
+                                            Delete
+                                        </button>
+                                        </>
                                     )
                                 })}
                             </label>
