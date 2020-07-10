@@ -21,6 +21,7 @@ router.get('/user/:user_id', (req, res) => {
             })
             res.json(packagez)
         })
+        // .then(workouts => res.json(workouts))
         .catch(err => res.status(404).json({ noworkoutsfound: 'No workouts found from that user'}));
 });
 

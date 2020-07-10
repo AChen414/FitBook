@@ -9,6 +9,7 @@ import { logout } from "./actions/session_actions";
 
 //TESTING
 import { fetchUserExercises, composeExercise, fetchExercise, deletusExercise } from './actions/exercise_actions';
+import { fetchUserWorkouts } from './actions/workout_actions'
 import { 
   getExercises, 
   getExercise, 
@@ -50,13 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={store} />, root);
 
   // for testing only
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.fetchUserExercises = fetchUserExercises;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.fetchUserExercises = fetchUserExercises;
         //dispatch(fetchUserExercises()).then(console.log)
-  window.composeExercise = composeExercise;
-  window.fetchExercise = fetchExercise;
-  window.deletusExercise = deletusExercise;
+  // window.composeExercise = composeExercise;
+  // window.fetchExercise = fetchExercise;
+  // window.deletusExercise = deletusExercise;
   // window.getExercises = getExercises
   // window.getExercise = getExercise
   // window.getUserExercises = getUserExercises
@@ -70,4 +71,5 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.updateWorkout = updateWorkout
   // window.deleteWorkout = deleteWorkout
 
+  // window.fetchUserWorkouts = fetchUserWorkouts;
 });
