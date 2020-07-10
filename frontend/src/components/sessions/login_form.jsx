@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.demoUser = this.demoUser.bind(this);
   };
 
   componentDidMount(){
@@ -26,29 +27,47 @@ class LoginForm extends React.Component {
   };
 
   handleSubmit(e) {
-    e.preventDefault();
-
-    let userInfo = {
-      email: this.state.email,
-      password: this.state.password,
-    };
-
-    const user = Object.assign({},userInfo)
+    const user = Object.assign({}, this.state)
     
-    this.props.login(user);
-    this.props.history.push("/exercises");
+    this.props.login(user)
+      // .then(() => this.props.history.push("/exercises"));
   };
 
-  // renderErrors() {
-  //   // debugger
-  //   return (
-  //     <ul>
-  //       {Object.keys(this.props.errors).map((error, i) => (
-  //         <li className="error-message" key={`error-${i}`}>{this.props.errors[error]}</li>
-  //       ))}
-  //     </ul>
-  //   );
-  // };
+  demoUser(e) {
+    e.preventDefault();
+
+    const demoUser = {
+      email: "demo@gmail.com",
+      password: "123456"
+    };
+
+    const speed = 100;
+    if (this.state.email !== demoUser.email) {
+      const inputUsername = setInterval(() => {
+        if (this.state.email !== demoUser.email) {
+          const temp = demoUser.email.slice(0, this.state.email.length + 1);
+          this.setState({ email: temp });
+        } else {
+          clearInterval(inputUsername);
+          animatePassword()
+        }
+      }, speed);
+    };
+
+    const animatePassword = () => {
+      if (this.state.password !== demoUser.password) {
+        const inputPassword = setInterval(() => {
+          if (this.state.password !== demoUser.password) {
+            const temp = demoUser.password.slice(0, this.state.password.length + 1);
+            this.setState({ password: temp });
+          } else {
+            clearInterval(inputPassword);
+            this.handleSubmit();
+          }
+        }, speed);
+      };
+    };
+  };
 
   renderEmailError() {
     return (
@@ -100,6 +119,11 @@ class LoginForm extends React.Component {
             <br />
             <input className="submit-button" type="submit" value="Log in" />
             <br />
+            <button
+              className="submit-button"
+              onClick={this.demoUser}
+              type="button">Demo user
+            </button>
           </div>
         </form>
         {/* <div className="session-img">

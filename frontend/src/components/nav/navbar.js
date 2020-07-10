@@ -43,7 +43,7 @@ class NavBar extends React.Component {
               Join
           </Link>
           <Link type="button" className="btn btn-default navbar-btn" to={"/login"}>
-            Login
+            Log in
           </Link>
         </div>
       );
