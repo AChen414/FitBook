@@ -15,20 +15,25 @@ class WorkoutIndex extends React.Component {
         if (!this.props.workouts) return null
         
         return (
-            <div className="workout-index">
-                <ul>
-                    {
-                        this.props.workouts.map((workout) => (
-                            <WorkoutIndexItem 
-                                workout={workout} 
-                                key={workout._id} 
-                                deleteWorkout={this.props.deleteWorkout}    
-                            />
-                        ))
-                    }
-                    <Link to="/workouts/new"className="add-workout-button">Add Workout</Link>
-                </ul>
+          <div className="workout-index">
+            <div className="workout-index-header">
+              <h1>These are {this.props.user.username}'s All Workouts</h1>
             </div>
+            <ul>
+              {this.props.workouts.map((workout) => (
+                <WorkoutIndexItem
+                  workout={workout}
+                  key={workout._id}
+                  deleteWorkout={this.props.deleteWorkout}
+                />
+              ))}
+            </ul>
+            <div>
+              <Link to="/workouts/new" className="add-workout-button">
+                <button>Add Workout</button>
+              </Link>
+            </div>
+          </div>
         );
     };
 };

@@ -20,9 +20,9 @@ class UserProfile extends React.Component{
                                 <img src="https://cdn.onlinewebfonts.com/svg/img_568657.png" className="img-responsive" alt=""/>
                             </div>
          
-                            <div className="profile-usertitle">
-                                <div className="profile-usertitle-name">
-                                    {currentUser.email}
+                            <div class="profile-usertitle">
+                                <div class="profile-usertitle-name">
+                                    {currentUser.username}
                                 </div>
                             </div>
             

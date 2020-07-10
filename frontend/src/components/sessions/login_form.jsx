@@ -6,6 +6,7 @@ class LoginForm extends React.Component {
     super(props);
 
     this.state = {
+      username: "",
       email: "",
       password: ""
     };
@@ -37,6 +38,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
 
     const demoUser = {
+      username: "Saitama",
       email: "demo@gmail.com",
       password: "123456"
     };

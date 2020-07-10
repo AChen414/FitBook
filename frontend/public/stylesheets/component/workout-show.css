@@ -1,0 +1,26 @@
+.workout-title {
+    justify-content: center;
+    text-align: center;
+    font-size: 80px;
+}
+.workout-exercise-title li {
+    font-size: large;
+}
+
+.workout-exercise-title {
+
+    display: block;
+    float: left;
+}
+
+.workout-show-container {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.workout-notes {
+    font-size: large;
+    display: block;
+    float: right;
+    width: 292px;
+}
