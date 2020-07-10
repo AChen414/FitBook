@@ -17,15 +17,18 @@ const AboutUs = () => (
           experience by completing workouts and by working out with other users,
           which will unlock rewards.
         </div>
+        <br />
+        <div className="developer-header">
+          <h1>Website Developer</h1>
+        </div>
+        <br />
+        <br />
         <div className="box-container">
           <div className="about-us-box">
 
             <div className="about-us-pic">
-                photo
-              <img
-                src=""
-                alt=""
-              />
+              <p>Andrew Chen</p>
+              <img src="" alt="" />
             </div>
 
             <div className="link-session">
@@ -46,11 +49,8 @@ const AboutUs = () => (
           <div className="about-us-box">
 
             <div className="about-us-pic">
-                photo
-              <img
-                src=""
-                alt=""
-              />
+              <p>Kenneth Liang</p>
+              <img src="" alt="" />
             </div>
 
             <div className="link-session">
@@ -71,11 +71,8 @@ const AboutUs = () => (
           <div className="about-us-box">
 
             <div className="about-us-pic">
-                photo
-              <img
-                src=""
-                alt=""
-              />
+              <p>Gordy Bullen</p>
+              <img src="" alt="" />
             </div>
 
             <div className="link-session">
@@ -96,11 +93,8 @@ const AboutUs = () => (
           <div className="about-us-box">
 
             <div className="about-us-pic">
-                photo
-              <img
-                src=""
-                alt=""
-              />
+              <p>Yuk Chan</p>
+              <img src="" alt="" />
             </div>
 
             <div className="link-session">
