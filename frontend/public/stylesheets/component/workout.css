@@ -94,10 +94,27 @@
     background-size: cover;
     height: 100%;
     width: 100%;
+    border-radius: 3px;
 }
 .exercise-img-full {
     background: url("https://qph.fs.quoracdn.net/main-qimg-49833be48453f927747bef01b4636043") no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
+    border-radius: 3px;
+}
+.exercise-img-shoulders {
+    background: url("https://oldschoollabs.com/wp-content/uploads/2019/06/2-9.jpg") no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.exercise-img-arms {
+    background: url("https://image.shutterstock.com/image-vector/biceps-triceps-movement-arm-hand-260nw-119687539.jpg") no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
 }
