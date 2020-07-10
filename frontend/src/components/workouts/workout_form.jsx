@@ -70,85 +70,103 @@ class WorkoutForm extends React.Component {
         });
 
 
-        return(
-            <div className="workout-form-container">
-                <div className="col-md-6 workout-form-left">
-                    <form className="new-workout-form" onSubmit={this.handleSubmit}>
-                        {this.renderErrors()}
-                        <div className="workout-form-title">
-                            <label className="workout-form-type">Title</label>
-                            <input 
-                                className="workout-form-field"
-                                type="text"
-                                onChange={this.update('title')}
-                                value={this.state.title}
-                            />
-                        </div>
-
-                        
-                            <div className="workout-form-notes">
-                                <label className="workout-form-type">Notes</label>
-                                <textarea 
-                                    onChange={this.update('notes')}
-                                    value={this.state.notes}
-                                    placeholder='Notes (ex. Upper chest focused workout)'
-                                    cols="50" rows="20">
-                                </textarea>
-                            </div>
-
-                            <label className="workout-form-type">Exercises
-                                {this.state.exercises.map((exerciseId, i) => {
-                                    return (
-                                        <>
-                                        <li key={`workout-exercise-${i}`}
-                                            className="workout-exercise-item">
-                                            {this.props.exercises[exerciseId].title}
-                                        </li>
-                   
-                                        <button className="remove-workout-exercise" onClick={this.removeExercise(exerciseId)}>
-                                            Delete
-                                        </button>
-                                        </>
-                                    )
-                                })}
-                            </label>
-                        
-                            <input 
-                                type="submit" 
-                                className="workout-form-submit" 
-                                value="Create Workout"
-                            />
-                    </form>
+        return (
+          <div className="workout-form-container">
+            <div className="col-md-6 workout-form-left">
+              <form className="new-workout-form" onSubmit={this.handleSubmit}>
+                {this.renderErrors()}
+                <div className="workout-form-title">
+                  <label className="workout-form-type">Title</label>
+                  <input
+                    className="workout-form-field"
+                    type="text"
+                    onChange={this.update("title")}
+                    value={this.state.title}
+                  />
                 </div>
 
-                            
-                <div className="col-md-6 workout-form-right"> 
-                    <div className="exercise-list">
-                        <input 
-                            type="text"
-                            value={this.state.search}
-                            onChange={this.updateSearch}
-                            placeholder='Filter by exercise'
-                        />
-                        <ul className="exercise-ul">
-                            {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
-                            {filteredExercises.map((exercise, i) => (
-                                <li className="exercise-item-list " key={`exercise-${i}`} onClick={this.addExercise(exercise._id)}>
-                                    <div>
-                                        <div className="exercise-list-title">{exercise.title}</div>
-                                        <div className="exerise-list-category">Category: {exercise.category}</div>
-                                        <div className="exerise-list-equipment">Equpiment: {exercise.equipment}</div>
-                                    </div>
-                                    <div className="exercise-img">
-                                        <div className={`exercise-img-${exercise.category.toLowerCase()}` } />     
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                <div className="workout-form-notes">
+                  <label className="workout-form-type">Notes</label>
+                  <textarea
+                    onChange={this.update("notes")}
+                    value={this.state.notes}
+                    placeholder="Notes (ex. Upper chest focused workout)"
+                    cols="50"
+                    rows="20"
+                  ></textarea>
                 </div>
 
+                <label className="workout-form-type">
+                  <div className="workout-exec-title">Exercises</div>
+                  <div className="workout-added-list">
+                    {this.state.exercises.map((exerciseId, i) => {
+                      return (
+                        <>
+                          <li
+                            key={`workout-exercise-${i}`}
+                            className="workout-exercise-item"
+                          >
+                            {this.props.exercises[exerciseId].title}
+                            &nbsp;
+                            <button
+                              className="remove-workout-exercise"
+                              onClick={this.removeExercise(exerciseId)}
+                            >
+                              X
+                            </button>
+                          </li>
+                        </>
+                      );
+                    })}
+                  </div>
+                </label>
+
+                <input
+                  type="submit"
+                  className="workout-form-submit"
+                  value="Create Workout"
+                />
+              </form>
             </div>
+
+            <div className="col-md-6 workout-form-right">
+              <div className="exercise-list">
+                <input
+                  type="text"
+                  value={this.state.search}
+                  onChange={this.updateSearch}
+                  placeholder="Filter by exercise"
+                />
+                <ul className="exercise-ul">
+                  {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
+                  {filteredExercises.map((exercise, i) => (
+                    <li
+                      className="exercise-item-list "
+                      key={`exercise-${i}`}
+                      onClick={this.addExercise(exercise._id)}
+                    >
+                      <div>
+                        <div className="exercise-list-title">
+                          {exercise.title}
+                        </div>
+                        <div className="exerise-list-category">
+                          Category: {exercise.category}
+                        </div>
+                        <div className="exerise-list-equipment">
+                          Equpiment: {exercise.equipment}
+                        </div>
+                      </div>
+                      <div className="exercise-img">
+                        <div
+                          className={`exercise-img-${exercise.category.toLowerCase()}`}
+                        />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         );
     };
 };
