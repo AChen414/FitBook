@@ -100,3 +100,8 @@
   background: #fff;
   min-height: 460px;
 }
+
+.user-workouts{
+  display:flex;
+  justify-content: space-evenly;
+}
