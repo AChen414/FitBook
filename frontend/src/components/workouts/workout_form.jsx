@@ -54,13 +54,9 @@ class WorkoutForm extends React.Component {
     };
 
     renderErrors() {
-        return this.props.errors.map((error, i) => {
-            return (
-                <li key={`error-${i}`} className="workout-error">
-                    {error}
-                </li>
-            );
-        });
+        return (
+            <div>{this.props.errors.title}</div>
+        )
     };
 
     render() {
