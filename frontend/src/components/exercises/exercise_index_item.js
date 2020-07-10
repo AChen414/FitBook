@@ -5,12 +5,14 @@ class ExerciseItem extends React.Component{
         super(props)
     }
 
+
     render() {
         return (
           <div className="exercise-item">
             <span>{this.props.exercise.title}</span>
           </div>
         );
+
     }
 }
 

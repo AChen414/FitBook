@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import WorkoutIndexItem from './workout_index_item';
 
 class WorkoutIndex extends React.Component {
@@ -25,6 +26,7 @@ class WorkoutIndex extends React.Component {
                             />
                         ))
                     }
+                    <Link to="/workouts/new"className="add-workout-button">Add Workout</Link>
                 </ul>
             </div>
         );
