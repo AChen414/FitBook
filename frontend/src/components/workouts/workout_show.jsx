@@ -4,22 +4,28 @@ import { Link } from 'react-router-dom';
 class WorkoutShow extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+          load: false
+        }
     }
-
-    componentDidMount() {
+    
+    async componentDidMount() {
         // debugger
-        this.props.fetchUserExercises(this.props.currentUser.id)
-        this.props.fetchWorkout(this.props.match.params.workoutId)
+        await this.props.fetchUserExercises(this.props.currentUser.id)
+        await this.props.fetchWorkout(this.props.match.params.workoutId)
+        this.setState({
+          load: true
+        })
     }
 
     render() {
         const { workout, exercises } = this.props
         // debugger
-        if (!workout) {
-            return null;
-        }
-        if (!exercises) {
-            return null
+        // if (!workout || !exercises) {
+        //     return null
+        // }
+        if (!this.state.load) {
+          return null
         }
         return (
           <div className="workout-show">
