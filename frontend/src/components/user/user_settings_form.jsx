@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 class UserBioForm extends React.Component {
 
     render() {
@@ -63,7 +61,7 @@ class UserBioForm extends React.Component {
                   <option>5 years+</option>
                 </select>
               </div>
-              <div class="form-group">
+              {/* <div class="form-group">
                 <label for="exampleFormControlTextarea1">
                   Example textarea
                 </label>
@@ -72,7 +70,7 @@ class UserBioForm extends React.Component {
                   id="exampleFormControlTextarea1"
                   rows="3"
                 ></textarea>
-              </div>
+              </div> */}
             </form>
           </div>
         );

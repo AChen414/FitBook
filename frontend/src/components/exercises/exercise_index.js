@@ -23,34 +23,27 @@ class ExerciseIndex extends React.Component{
         let filteredExercises = (Object.values(this.props.exercises)).filter((exercise) => {
             return exercise.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
         });
-        // // if (!this.props.exercises) return null
-        // if (this.props.exercises.length === 0) {
-        //     return (
-        //         <div>
-        //             No Exercises
-        //         </div>
-        //     )
-        // } else {
-            return (
-              <div className="exercise-index-container">
+
+        return (
+            <div className="exercise-index-container">
                 <div className="search-box">
-                  <input
+                    <input
                     type="text"
                     id="myinput"
                     value={this.search}
                     onChange={this.updateSearch}
                     placeholder="Filter by exercise"
-                  />
+                    />
                 </div>
                 <div className="exercise-index">Exercises:
                     {filteredExercises.map((exercise, i) => (
                         <ExerciseItem key={`exercise._id-${i}`} exercise={exercise} />
                     ))}
                 </div>
-              </div>
-            );
-        }
+            </div>
+        );
     }
+}
 
 
 
