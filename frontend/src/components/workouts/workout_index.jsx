@@ -16,11 +16,13 @@ class WorkoutIndex extends React.Component {
         
         return (
           <div className="workout-index">
+            <div className="workout-index-background">
+              <img src="https://www.pixelstalk.net/wp-content/uploads/2016/06/Free-Images-HD-Fitness-Backgrounds.jpg" alt=""/>
+            </div>
             <div className="workout-index-header">
               <h1>These are {this.props.user.username}'s Workouts</h1>
             </div>
-            <div className="workout-list-container">
-              <ul>
+            <div className="workout-item-container">
                 {this.props.workouts.map((workout) => (
                   <WorkoutIndexItem
                     workout={workout}
@@ -28,13 +30,10 @@ class WorkoutIndex extends React.Component {
                     deleteWorkout={this.props.deleteWorkout}
                   />
                 ))}
-              </ul>
             </div>
-            <div className="addd-workout-button">
-              <Link to="/workouts/new" className="add-workout-button">
-                <button>Add Workout</button>
-              </Link>
-            </div>
+            <Link to="/workouts/new" className="btn btn-info btn-lg add-workout-button">
+              Add Workout
+            </Link>
           </div>
         );
     };
