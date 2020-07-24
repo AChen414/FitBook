@@ -1,11 +1,25 @@
+.user-body {
+  background: url("https://cdn.mos.cms.futurecdn.net/gTxTWSYcKzvLNrCuAyRTUY.jpg") no-repeat;
+  background-size: 100%;
+  background-size: cover;
+  /* background: orange; */
+  width: 100%;
+  min-height: 1000px;
+  padding-top: 20px;
+  opacity: .9;
+}
+
+
 .profile {
   margin: 20px 0;
 }
 
 /* Profile sidebar */
 .profile-sidebar {
-  padding: 20px 0 10px 0;
+  padding: 20px 5px 10px 5px;
   background: #fff;
+  opacity: .95;
+  border-radius: 3px;
 }
 
 .profile-userpic img {
@@ -96,24 +110,35 @@
 
 /* Profile Content */
 .profile-content {
-  padding: 20px;
+  padding: 15px;
   background: #fff;
   min-height: 460px;
-}
-
-.user-workouts{
-  /* display:flex;
-  justify-content: space-evenly; */
+  opacity: .95;
+  border-radius: 3px;
+  margin: 5px;
 }
 
 .workout-list{
     display: flex;
     /* flex-direction: column; */
     width: 500px;
-    margin: 1rem;
+    margin: 1rem;   
 }
 
-.user-workout-item {
+.workout-list a {
+  color: whitesmoke;
+}
+
+.user-workouts{
+  background: white;
+  margin: 5px;
+  padding: 15px;
+  opacity: .95;
+  border-radius: 3px;
+
+}
+
+.btn-info {
     margin: 5px;
     width: 150px;
 }
@@ -152,4 +177,26 @@
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+#recommendation{
+  visibility: hidden;
+  background: #ffff88;
+  padding: 10px;
+  margin-top: 50px;
+  border-radius: 3px;
+}
+
+
+.schedule-header{
+  margin-bottom: 5px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schedule-instructions{
+  font-size: 12px;
+  line-height: 5px;
 }
