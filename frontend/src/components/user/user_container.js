@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 
 import UserProfile from "./user";
 import {fetchUserWorkouts} from '../../actions/workout_actions'
+import {openModal} from '../../actions/user_modal_actions'
 
 const mSTP = (state) => {
   return {
@@ -12,7 +13,8 @@ const mSTP = (state) => {
 
 const mDTP = dispatch => {
     return {
-      fetchUserWorkouts: userId => dispatch(fetchUserWorkouts(userId))
+      fetchUserWorkouts: userId => dispatch(fetchUserWorkouts(userId)),
+      openModal: modal => dispatch(openModal(modal))
     }
 }
 

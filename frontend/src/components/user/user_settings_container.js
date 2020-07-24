@@ -1,22 +1,18 @@
-// import { connect } from "react-redux";
-// import { openModal, closeModal } from "../../actions/modal_actions";
+import { connect } from "react-redux";
+import { openModal, closeModal } from "../../actions/user_modal_actions";
 
-// import UserSettings from "./user_settings";
+import UserSettings from "./user_settings";
 
-// const mSTP = ({ errors }) => {
-//   return {
-//     errors: errors.session,
-//     formType: "Sign In",
-//   };
-// };
+const mSTP = state => {
+  return {
+    currentUser: state.session.user,
+  };
+};
 
-// const mDTP = (dispatch) => {
-//   return {
-//     action: (user) => dispatch(login(user)),
-//     receiveErrors: (errors) => dispatch(receiveErrors(errors)),
-//     closeModal: () => dispatch(closeModal()),
-//     clearErrors: () => dispatch(clearErrors()),
-//   };
-// };
+const mDTP = (dispatch) => {
+  return {
+    closeModal: () => dispatch(closeModal()),
+  };
+};
 
-// export default connect(mSTP, mDTP)(UserSettings);
+export default connect(mSTP, mDTP)(UserSettings);

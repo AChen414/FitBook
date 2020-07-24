@@ -2,7 +2,6 @@ import React from "react";
 import UserCalender from './calendar';
 import {Link} from 'react-router-dom'
 
-
 class UserProfile extends React.Component{
     constructor(props){
         super(props)
@@ -53,7 +52,7 @@ class UserProfile extends React.Component{
                         </a>
                       </li>
                       <li>
-                        <a href="#/profile">
+                        <a href="#/profile" onClick={() => this.props.openModal('settings')}>
                           <i className="glyphicon glyphicon-user"></i>
                           User Settings
                         </a>
@@ -74,7 +73,7 @@ class UserProfile extends React.Component{
                     <div>My Workouts: </div>
                     <ul className="workout-list">
                         {this.props.workouts.map((workout) => (
-                        <button type="button" class="user-workout-item">
+                        <button type="button" className="user-workout-item">
                             <Link to={`/workouts/${workout._id}`}>
                             {workout.title}
                             </Link>
