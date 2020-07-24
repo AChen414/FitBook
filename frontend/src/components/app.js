@@ -13,7 +13,7 @@ import UserContainer from './user/user_container';
 import WorkoutShowContainer from './workouts/workout_show_container';
 import AboutUs from "./main/about-us";
 import Footer from"./main/footer";
-import Modal from './user/user_modal'
+import Modal from './modal/modal'
 
 const App = () => (
   <div>
