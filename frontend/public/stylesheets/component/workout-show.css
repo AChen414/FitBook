@@ -1,16 +1,34 @@
+#workout-show {
+    background-image: url("https://blog.gympass.com/wp-content/uploads/2018/03/ThinkstockPhotos-892146834-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 2.5rem;
+}
+
 .workout-title {
     justify-content: center;
     text-align: center;
     font-size: 80px;
+    border: 1px solid black;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 265px;
+    margin-left: 265px;
+    background-color: cornflowerblue;
+    opacity: 0.8;
 }
+
 .workout-exercise-title li {
     font-size: large;
 }
 
 .workout-exercise-title {
-
+    border: 1px solid black;
+    background-color: cornflowerblue;
+    width: 320px;
     display: block;
-    float: left;
+    opacity: 0.8;
 }
 
 .workout-show-container {
@@ -18,9 +36,16 @@
     display: flex;
 }
 
+.exercise-element {
+    margin: 10px;
+}
+
 .workout-notes {
+    border: 1px solid black;
+    background-color: cornflowerblue;
     font-size: large;
     display: block;
     float: right;
-    width: 292px;
+    width: 320px;
+    opacity: 0.8;
 }

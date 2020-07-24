@@ -4,6 +4,10 @@
     height: 600px;
 }
 
+.main-page {
+    padding-bottom: 2.5rem;
+}
+
 .jumbotron-content{
     display: flex;
     align-items: center;
