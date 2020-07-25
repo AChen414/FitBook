@@ -65,7 +65,7 @@ class LoginForm extends React.Component {
             this.setState({ password: temp });
           } else {
             clearInterval(inputPassword);
-            this.handleSubmit();
+            this.props.login(this.state)
           }
         }, speed);
       };

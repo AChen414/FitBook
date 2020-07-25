@@ -14,13 +14,14 @@
 
 .workout-index-background img {
     position: absolute;
-    opacity: 0.7;
+    opacity: 1;
     width: 100%;
     height: 100vh;
 }
 
 .workout-index-header {
     z-index: 1;
+    color: black;
 }
 
 .workout-item-container {
