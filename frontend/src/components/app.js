@@ -16,7 +16,7 @@ import Footer from"./main/footer";
 import Modal from './modal/modal'
 
 const App = () => (
-  <div id="home-page-container">
+  <div id="home-page-container"> 
     <Modal/>
     <NavBarContainer />
     <Switch>

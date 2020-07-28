@@ -1,6 +1,13 @@
 #home-page-container {
   position: relative;
   min-height: 100vh;
+  padding-bottom: 2.5rem;
+}
+
+.about-us-container {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 2.5rem;
 }
 
 #footer-container {
