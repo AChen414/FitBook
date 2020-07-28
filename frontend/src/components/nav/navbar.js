@@ -67,9 +67,9 @@ class NavBar extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="/">
+            <Link className="navbar-brand" to="/">
               FitBook
-            </a>
+            </Link>
           </div>
 
           <div

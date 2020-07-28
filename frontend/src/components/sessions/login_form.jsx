@@ -28,6 +28,7 @@ class LoginForm extends React.Component {
   };
 
   handleSubmit(e) {
+    e.preventDefault();
     const user = Object.assign({}, this.state)
     
     this.props.login(user)
@@ -64,7 +65,7 @@ class LoginForm extends React.Component {
             this.setState({ password: temp });
           } else {
             clearInterval(inputPassword);
-            this.handleSubmit();
+            this.props.login(this.state)
           }
         }, speed);
       };
