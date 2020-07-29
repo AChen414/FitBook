@@ -23,15 +23,18 @@ class WorkoutIndex extends React.Component {
               <h1>These are {this.props.user.username}'s Workouts</h1>
             </div>
             <div className="workout-item-container">
-                {this.props.workouts.map((workout) => (
-                  <WorkoutIndexItem
-                    workout={workout}
-                    key={workout._id}
-                    deleteWorkout={this.props.deleteWorkout}
-                  />
-                ))}
+              {this.props.workouts.map((workout) => (
+                <WorkoutIndexItem
+                  workout={workout}
+                  key={workout._id}
+                  deleteWorkout={this.props.deleteWorkout}
+                />
+              ))}
             </div>
-            <Link to="/workouts/new" className="btn btn-info btn-lg add-workout-button">
+            <Link
+              to="/workouts/new"
+              className="btn btn-info btn-lg add-workout-button"
+            >
               Add Workout
             </Link>
           </div>
