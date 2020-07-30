@@ -50,6 +50,11 @@
     width: 100%;
 }
 
+.exercise-list > a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .exercise-ul{
     padding: 0;
     overflow: scroll;
