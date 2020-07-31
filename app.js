@@ -19,7 +19,6 @@ mongoose
     
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use("/api/profile", profile);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));
@@ -35,6 +34,7 @@ require('./config/passport')(passport);
 app.use("/api/users", users);
 app.use("/api/exercises", exercises);
 app.use("/api/workouts", workouts);
+app.use("/api/profile", profile);
 
 const port = process.env.PORT || 5000;
 
