@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { closeModal } from "../../actions/user_modal_actions";
 import  UserSettingsForm  from "../user/user_settings_container";
 import ExerciseEditForm from "../exercises/exercise_edit_form";
+import ExerciseModal from '../exercises/exercise_form_container'; // update to container
+import PhotoForm from '../user/upload_photo'
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -15,6 +17,10 @@ function Modal({ modal, closeModal }) {
       break;
     case "EDIT_EXERCISE":
       component = <ExerciseEditForm />;
+    case "create exercise": 
+      component = <ExerciseModal />;
+    case "photo":
+      component = <PhotoForm />;
       break;
     default:
       return null;

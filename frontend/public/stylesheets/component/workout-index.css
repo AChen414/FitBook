@@ -1,0 +1,19 @@
+.workout-index-title {
+    font-size: x-large;
+}
+
+.workout-list-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.add-workout-button {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* .user-workout {
+    
+} */

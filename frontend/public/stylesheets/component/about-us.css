@@ -1,16 +1,34 @@
+.about-us-pages {
+    background-image: url("https://static1.squarespace.com/static/5ada11772714e5eb213ab1df/5ae0d938758d469f93c8f3bc/5b90332e21c67cccd994e8a0/1589381884404/Background.jpg?format=1500w");
+    background-size: cover;
+}
 
-h1 {
-    font-size: xx-large;
+
+.about-us-container {
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+
+.about-us-content h1 {
+    font-size: 50px;
     font-weight: bold;
     justify-content: center;
     text-align: center;
-    padding: 10px;
-    margin-top: 10px;
+    margin-top: 0;
+    padding-top: 10px;
     font-family: 'Montserrat Subrayada', sans-serif;
 }
 
-.developer-header h1 {
+.developer-header p {
     font-family: 'Bangers', cursive;
+    font-size: 50px;
+    text-align: center;
+    align-items: center;
+}
+
+.rainbow-text {
+    font-weight: bold;
 }
 
 .box-container {
@@ -34,12 +52,28 @@ h1 {
     justify-content: center;
     text-align: center;
     font-family: 'Noto Sans JP', sans-serif;
+    background-color: mediumturquoise;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: medium;
+    border: 1px solid black;
+    font-weight: bold;
 }
 
 .link-session img {
     height: 50px;
     width: 50px;
     border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.link-session {
+    justify-content: space-between;
+
+    padding-bottom: 10px;
 }
 
 .about-us-pic img {
@@ -50,7 +84,19 @@ h1 {
 
 }
 
+
+.about-us-pic p {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+}
+
 .about-us-box {
     display: block;
-    margin: 10px;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    background-color: mediumturquoise;
 }

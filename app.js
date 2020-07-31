@@ -9,6 +9,9 @@ const workouts = require("./routes/api/workouts");
 const passport = require('passport');
 const path = require('path');
 
+const profile = require("./routes/api/profile");
+
+
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Connected to MongoDB successfully"))
@@ -31,6 +34,7 @@ require('./config/passport')(passport);
 app.use("/api/users", users);
 app.use("/api/exercises", exercises);
 app.use("/api/workouts", workouts);
+app.use("/api/profile", profile);
 
 const port = process.env.PORT || 5000;
 
