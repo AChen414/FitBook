@@ -20,6 +20,10 @@ class WorkoutForm extends React.Component {
         this.props.fetchUserExercises(this.props.user.id);
     };
 
+    componentDidUpdate() {
+      this.props.fetchUserExercises(this.props.user.id);
+    }
+
     updateSearch(e) {
         this.setState({ search: e.target.value.substring(0, 20)});
     };
@@ -137,6 +141,9 @@ class WorkoutForm extends React.Component {
                   onChange={this.updateSearch}
                   placeholder="Filter by exercise"
                 />
+                <a onClick={() => this.props.openModal('create exercise')}>
+                  Create Exercise
+                </a>
                 <ul className="exercise-ul">
                   {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
                   {filteredExercises.map((exercise, i) => (
