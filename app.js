@@ -9,6 +9,9 @@ const workouts = require("./routes/api/workouts");
 const passport = require('passport');
 const path = require('path');
 
+const profile = require("./routes/api/profile");
+
+
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Connected to MongoDB successfully"))
@@ -16,6 +19,7 @@ mongoose
     
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use("/api/profile", profile);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));

@@ -1,0 +1,11 @@
+.card.border-light.mb-3.mt-5 {
+    background: white;
+    width: 300px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+
+input[type="file"] {
+    margin: 5px;
+}

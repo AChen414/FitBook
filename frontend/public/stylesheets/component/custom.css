@@ -8,7 +8,8 @@
 @import url("./workout_show.css");
 @import url("./workout_index.css");
 @import url("./navbar.css");
-
+@import url("./photo_form.css");
+@import url("./modal.css");
 
 .workout-form-type{
     display: flex;
@@ -30,22 +31,7 @@
 }
 
   
-.modal-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
-}
 
-.modal-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 /* .user-settings-form{
   background: white;

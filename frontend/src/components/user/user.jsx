@@ -51,24 +51,31 @@ class UserProfile extends React.Component{
                     </div>
 
                     <div className="profile-userbuttons">
-                      <button type="button" className="btn btn-success btn-sm">
+                      <button
+                        type="button"
+                        className="btn btn-success btn-sm"
+                        onClick={() => this.props.openModal("photo")}
+                      >
                         Upload Photo
-                      </button> 
+                      </button>
                       {/* <button type="button" className="btn btn-danger btn-sm">
                         Message
                       </button> */}
-                    </div> 
+                    </div>
 
                     <div className="profile-usermenu">
                       <ul className="nav">
-                        <li >
+                        <li>
                           <a href="#/workouts/new">
                             <i className="glyphicon glyphicon-plus-sign"></i>
                             Add a New Workout
                           </a>
                         </li>
-                        <li >
-                          <a href="#/profile" onClick={() => this.props.openModal("settings")} >
+                        <li>
+                          <a
+                            href="#/profile"
+                            onClick={() => this.props.openModal("settings")}
+                          >
                             <i className="glyphicon glyphicon-user"></i>
                             User Quiz
                           </a>
