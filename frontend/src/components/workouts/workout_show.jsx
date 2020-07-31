@@ -28,36 +28,34 @@ class WorkoutShow extends React.Component {
           return null
         }
         return (
-          <div className="workout-show">
+          <div id="workout-show">
             <div className="workout-title">{workout.title}</div>
             <div className="workout-show-container">
               <div className="workout-exercise-title">
                 <ul>
                   {workout.exercises.map((exerciseId) => (
-                    <li>
+                    <li className="exercise-element">
                       {exercises[exerciseId].title}
                       <div className="exercise-img">
                         <div
-                          className={`exercise-img-${exercises[exerciseId].category.toLowerCase()}`}
+                          className={`exercise-img-${exercises[
+                            exerciseId
+                          ].category.toLowerCase()}`}
                         />
                       </div>
                     </li>
                   ))}
                 </ul>
               </div>
-
               <div className="workout-notes">
-                  <div className="workout-notes-header">
-                      Notes:
-                  </div>
-                  <br/>
-                  {workout.notes}
-                </div>
-
+                <div className="workout-notes-header">Notes:</div>
+                <br />
+                {workout.notes}
+              </div>
             </div>
           </div>
         );
+      }
     }
-}
 
 export default WorkoutShow;

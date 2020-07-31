@@ -1,0 +1,69 @@
+.workout-index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.workout-index-background {
+    width: 100%;
+    height: 100%;
+    /* position: absolute; */
+}
+
+.workout-index-background img {
+    position: absolute;
+    opacity: 1;
+    width: 100%;
+    height: 100vh;
+}
+
+.workout-index-header {
+    z-index: 1;
+    color: black;
+}
+
+.workout-item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    overflow: scroll;
+    z-index: 1;
+}
+
+.add-workout-button {
+    background-color: lightseagreen;
+    color: black;
+    border-color: black;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.workout-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    color: black;
+    margin: 15px 0 15px;
+    background: lightseagreen;
+    border: 1px solid #333;
+    font-weight: 500;
+    font-size: 36px;
+    border-radius: 4px;
+    padding: 10px 16px;
+    opacity: 0.9;
+}
+
+.workout-item-title {
+    color: black;
+}
+
+.workout-item-delete {
+    background-color: slategray;
+}

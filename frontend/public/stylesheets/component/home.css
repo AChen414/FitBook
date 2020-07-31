@@ -1,7 +1,12 @@
 .jumbotron{
-    background-image: url("https://media1.popsugar-assets.com/files/thumbor/7NvXrUxR1XBjpYeKPhI-ywNH63g/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2020/05/14/030/n/1922729/6978f89d348efe66_ClassPass_Zoom-background_4/i/Weightlifting-Gym-Zoom-Background.jpg");
+    background-image: url("https://fitbook-seeds.s3-us-west-1.amazonaws.com/home-page1.jpg");
     background-size: cover;
     height: 600px;
+    margin-top: 20px;
+}
+
+.main-page {
+    padding-bottom: 2.5rem;
 }
 
 .jumbotron-content{

@@ -1,9 +1,22 @@
+#home-page-container {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 2.5rem;
+}
+
+.about-us-container {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 2.5rem;
+}
+
 #footer-container {
     bottom: 0;
+    height: 2.5rem;
     width: 100%;
     background-color: #2D333F;
     border-top: #e7e7e7;
     color: white;
     text-align: center;
-    position: fixed;
+    position: absolute;
 }

@@ -22,21 +22,27 @@ class ExerciseItem extends React.Component{
           <div className="exercise-item">
             <div className="exercise-item-left">
               <div className="exercise-item-left-content">
-                <div className="exercise-title">{this.props.exercise.title}</div>
+                <div className="exercise-title">
+                  {this.props.exercise.title}
+                </div>
                 <div className="exercise-info">
                   <div>Category: {this.props.exercise.category}</div>
                   <div>Equipment: {this.props.exercise.equipment}</div>
-                  <button className="btn btn-info btn-sm show-notes" onClick={this.showNotes()}>
+                  <button
+                    className="btn btn-info btn-sm show-notes"
+                    onClick={this.showNotes()}
+                  >
                     Notes
                   </button>
-                  <div className="exercise-notes">
-                    {this.state.notes}
-                  </div>
+                  <div className="exercise-notes">{this.state.notes}</div>
                 </div>
               </div>
             </div>
             <div className="exercise-item-right">
-              <img className="exercise-item-image" src="https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/001/586/original/weight.png" />
+              <img
+                className="exercise-item-image"
+                src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/dumbell.png"
+              />
             </div>
           </div>
         );

@@ -88,28 +88,28 @@
 }
 
 .exercise-img-chest {
-    background: url("https://i.pinimg.com/originals/20/08/e3/2008e3218d914487fd636c273a0b4f3b.jpg") no-repeat;
+    background: url("https://fitbook-seeds.s3-us-west-1.amazonaws.com/exercise-img-chest.jpg") no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
     border-radius: 3px;
 }
 .exercise-img-legs {
-    background: url("https://i.pinimg.com/originals/83/c1/2a/83c12a455b7e8e132f0011b813d5ff22.jpg") no-repeat;
+    background: url("https://fitbook-seeds.s3-us-west-1.amazonaws.com/exercise-img-legs.jpg") no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
     border-radius: 3px;
 }
 .exercise-img-full-body {
-    background: url("https://lh3.googleusercontent.com/proxy/TBO3fC4rKfA3sxSIPkRuepbUVPOFJAVOCgiBc-8x5xP5s_amkM0zDj5dT6IO_BUZrtfv5521FDUETSx7ZrwLeaq3oKfZrX_Fv2Jpb0VYjHzNKO38_iujcFxKwm4nthapbuYglb4AMCM") no-repeat;
+    background: url("https://fitbook-seeds.s3-us-west-1.amazonaws.com/exercise-img-fullbody.jpg") no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
     border-radius: 3px;
 }
 .exercise-img-shoulders {
-    background: url("https://oldschoollabs.com/wp-content/uploads/2019/06/2-9.jpg") no-repeat;
+    background: url("https://fitbook-seeds.s3-us-west-1.amazonaws.com/exercise-img-shoulder.jpg") no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -117,7 +117,7 @@
 }
 
 .exercise-img-arms {
-    background: url("https://image.shutterstock.com/image-vector/biceps-triceps-movement-arm-hand-260nw-119687539.jpg") no-repeat;
+    background: url("https://fitbook-seeds.s3-us-west-1.amazonaws.com/exercise-img-arms.jpg") no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;

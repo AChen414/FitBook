@@ -39,7 +39,7 @@ class MainPage extends React.Component {
               className="featurette-image img-responsive center-block"
               data-src="holder.js/500x500/auto"
               alt="500x500"
-              src="https://static1.squarespace.com/static/5a049a70be42d60e92dd8246/t/5e8ca6d075471a498775d7ee/1586276078521/Screen+Shot+2020-04-07+at+12.09.31+PM.png?format=1500w"
+              src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/home-page-schedule.png"
               data-holder-rendered="true"
             />
           </div>
@@ -62,7 +62,7 @@ class MainPage extends React.Component {
               className="featurette-image img-responsive center-block"
               data-src="holder.js/500x500/auto"
               alt="500x500"
-              src="https://media.self.com/photos/5c1423a59d0b1e66a38062ac/4:3/w_2560%2Cc_limit/GettyImages-912023438.jpg"
+              src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/home-page-ladies.jpg"
               data-holder-rendered="true"
             />
           </div>

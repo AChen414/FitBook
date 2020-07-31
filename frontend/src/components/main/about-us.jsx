@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const AboutUs = () => (
-  <div>
+  <div className="about-us-pages">
     <div className="about-us-container">
       <div className="about-us-content">
         <h1>About Us</h1>
@@ -13,32 +13,29 @@ const AboutUs = () => (
           workouts by creating or selecting different exercises. Users can
           schedule workouts throughout the week and checkoff/complete items in
           their workouts. Fitbook will also have a social component where users
-          can view other users' workouts and interact with them. Users can gain
-          experience by completing workouts and by working out with other users,
-          which will unlock rewards.
+          can view other users' workouts and interact with them.
         </div>
         <br />
         <div className="developer-header">
-          <h1>Website Developer</h1>
+          <p className="rainbow-text">Website Developer</p>
         </div>
         <br />
         <br />
         <div className="box-container">
           <div className="about-us-box">
-
             <div className="about-us-pic">
               <p>Andrew Chen</p>
               <img src="" alt="" />
             </div>
 
             <div className="link-session">
-              <a href="linkin link">
+              <a href="https://www.linkedin.com/in/andrew-chen-787534171/">
                 <img
                   src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
                   alt="linkedin"
                 />
               </a>
-              <a href="github">
+              <a href="https://github.com/AChen414">
                 <img
                   src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
                   alt="github"
@@ -47,20 +44,22 @@ const AboutUs = () => (
             </div>
           </div>
           <div className="about-us-box">
-
             <div className="about-us-pic">
               <p>Kenneth Liang</p>
-              <img src="" alt="" />
+              <img
+                src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/KL.jpeg"
+                alt=""
+              />
             </div>
 
             <div className="link-session">
-              <a href="linkin link">
+              <a href="https://www.linkedin.com/in/insightfulkennethliang/">
                 <img
                   src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
                   alt="linkedin"
                 />
               </a>
-              <a href="github">
+              <a href="https://github.com/kenneth-liang">
                 <img
                   src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
                   alt="github"
@@ -69,20 +68,22 @@ const AboutUs = () => (
             </div>
           </div>
           <div className="about-us-box">
-
             <div className="about-us-pic">
               <p>Gordy Bullen</p>
-              <img src="" alt="" />
+              <img
+                src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/GB.jpeg"
+                alt=""
+              />
             </div>
 
             <div className="link-session">
-              <a href="linkin link">
+              <a href="https://www.linkedin.com/in/gordy-bullen-b78531181/">
                 <img
                   src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
                   alt="linkedin"
                 />
               </a>
-              <a href="github">
+              <a href="https://github.com/gordybullen">
                 <img
                   src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
                   alt="github"
@@ -91,20 +92,19 @@ const AboutUs = () => (
             </div>
           </div>
           <div className="about-us-box">
-
             <div className="about-us-pic">
-              <p>Yuk Chan</p>
-              <img src="" alt="" />
+              <p>Yuk Fai Chan</p>
+              <img src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/YC.jpeg" alt="" />
             </div>
 
             <div className="link-session">
-              <a href="linkin link">
+              <a href="https://www.linkedin.com/in/yuk-fai-chan-54830a192/">
                 <img
                   src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
                   alt="linkedin"
                 />
               </a>
-              <a href="github">
+              <a href="https://github.com/YukC92">
                 <img
                   src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
                   alt="github"
