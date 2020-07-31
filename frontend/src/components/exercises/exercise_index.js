@@ -40,7 +40,8 @@ class ExerciseIndex extends React.Component{
                         <ExerciseItem 
                             key={`exercise._id-${i}`} 
                             exercise={exercise}
-                            openModal={this.props.openModal} 
+                            openModal={this.props.openModal}
+                            closeModal={this.props.closeModal}
                         />
                     ))}
                 </div>

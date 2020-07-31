@@ -17,8 +17,10 @@ function Modal({ modal, closeModal }) {
       break;
     case "EDIT_EXERCISE":
       component = <ExerciseEditForm />;
+      break;
     case "create exercise": 
       component = <ExerciseModal />;
+      break;
     case "photo":
       component = <PhotoForm />;
       break;
