@@ -37,7 +37,11 @@ class ExerciseIndex extends React.Component{
                 </div>
                 <div className="exercise-index">Exercises:
                     {filteredExercises.map((exercise, i) => (
-                        <ExerciseItem key={`exercise._id-${i}`} exercise={exercise} />
+                        <ExerciseItem 
+                            key={`exercise._id-${i}`} 
+                            exercise={exercise}
+                            openModal={this.props.openModal} 
+                        />
                     ))}
                 </div>
             </div>

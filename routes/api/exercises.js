@@ -82,10 +82,8 @@ router.post('/',
             notes: req.body.notes,
             equipment: req.body.equipment
         });
-        debugger
         newExercise.save()
             .then(exercise => {
-                debugger;
                 const result = {
                     _id: exercise._doc._id.toString(),
                     user: exercise._doc.user.toString(),

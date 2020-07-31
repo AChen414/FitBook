@@ -29,12 +29,20 @@ class ExerciseItem extends React.Component{
                   <div>Category: {this.props.exercise.category}</div>
                   <div>Equipment: {this.props.exercise.equipment}</div>
                   <button
+                    className="btn btn-info btn-sm edit-exercise"
+                    onClick={() => this.props.openModal("EDIT_EXERCISE")}
+                  >
+                    Edit exercise
+                  </button>
+                  <button
                     className="btn btn-info btn-sm show-notes"
                     onClick={this.showNotes()}
                   >
                     Notes
                   </button>
-                  <div className="exercise-notes">{this.state.notes}</div>
+                  <div className="exercise-notes">
+                    {this.state.notes}
+                  </div>
                 </div>
               </div>
             </div>
