@@ -4,3 +4,13 @@
   align-items: flex-start;
   padding: 0;
 }
+
+.form-group label {
+  font-size: 16px;
+}
+
+.exercise-edit-button, .modal-title-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

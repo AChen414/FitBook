@@ -50,20 +50,24 @@ const ExerciseEditForm = props => {
           >
             <span aria-hidden="true">&times;</span>
           </button>
-          <h3 className="modal-title">Edit your exercise</h3>
+          <div className="modal-title-container">
+            <h3 className="modal-title">Edit your exercise</h3>
+          </div>
         </div>
         <form className="exercise-edit-form" onSubmit={handleSubmit}>
           <div className="form-group exercise-info">
-            <label>Title:
+            <label for="exampleFormControlInput1">Title:
             </label>
             <input
               type="text"
+              id="exampleFormControlInput1"
+              className="form-control"
               {...title}
             />
           </div>
           <div className="form-group exercise-category">
-            <label htmlFor="exampleFormControlSelect1">
-              Select Category
+            <label for="exampleFormControlSelect1">
+              Select Category:
             </label>
             <select 
               className="form-control" 
@@ -79,24 +83,30 @@ const ExerciseEditForm = props => {
             </select>
           </div>
           <div className="form-group exercise-info">
-            <label>Equipment:
+            <label for="exampleFormControlInput2">Equipment:
             </label>
             <input 
-              type="text" 
+              type="text"
+              id="exampleFormControlInput2"
+              className="form-control" 
               {...equipment}
             />
           </div>
           <div className="form-group exercise-info">
-            <label>Notes:
+            <label for="exampleFormControlInput3">Notes:
             </label>
             <input 
-              type="text" 
+              type="text"
+              id="exampleFormControlInput3"
+              className="form-control"
               {...notes}
             />
           </div>
-          <button>
-            Update exercise
-          </button>
+          <div className="exercise-edit-button">
+            <button className="btn btn-primary" type="submit">
+              Update exercise
+            </button>
+          </div>
         </form>  
       </div>
     </div>
