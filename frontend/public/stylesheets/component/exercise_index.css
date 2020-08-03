@@ -22,6 +22,11 @@
   margin-bottom: 15px;
 }
 
+.exercise-index-container > a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
 ::-webkit-input-placeholder {
   color: #333;
   font-weight: 300;
@@ -60,6 +65,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+  margin: 20px 0 0 20px;
 }
 
 .exercise-info {
@@ -68,10 +74,15 @@
   height: 100%;
 }
 
-.show-notes {
+.show-notes, .edit-exercise {
   color: black;
-  margin: 15px 0;
+  margin: 5px 0;
 }
+
+/* .edit-exercise {
+  margin-top: 0;
+  margin-bottom: 0;
+} */
 
 .exercise-notes {
   width: 200px;

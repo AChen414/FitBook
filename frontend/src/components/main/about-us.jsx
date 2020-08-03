@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const AboutUs = () => (
-  <div>
+  <div className="about-us-pages">
     <div className="about-us-container">
       <div className="about-us-content">
         <h1>About Us</h1>
@@ -13,13 +13,11 @@ const AboutUs = () => (
           workouts by creating or selecting different exercises. Users can
           schedule workouts throughout the week and checkoff/complete items in
           their workouts. Fitbook will also have a social component where users
-          can view other users' workouts and interact with them. Users can gain
-          experience by completing workouts and by working out with other users,
-          which will unlock rewards.
+          can view other users' workouts and interact with them.
         </div>
         <br />
         <div className="developer-header">
-          <h1>Website Developer</h1>
+          <p className="rainbow-text">Website Developer</p>
         </div>
         <br />
         <br />

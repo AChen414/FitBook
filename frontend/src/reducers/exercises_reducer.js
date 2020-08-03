@@ -12,7 +12,6 @@ const ExercisesReducer = (state = { all: {}, user: {} }, action) => {
     switch (action.type) {
         case RECEIVE_EXERCISES:
             newState.all = action.exercises;
-            // debugger;
             return newState
         case RECEIVE_USER_EXERCISES:
             newState.user = action.exercises;
