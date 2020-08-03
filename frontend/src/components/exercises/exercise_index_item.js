@@ -17,6 +17,18 @@ class ExerciseItem extends React.Component{
     };
   };
 
+  notesButton() {
+    if (this.props.exercise.notes) {
+      if (this.state.notes) {
+        return "Hide notes";
+      } else {
+        return "Show notes";
+      }
+    } else {
+      return "No notes yet";
+    }
+  }
+
     render() {
         return (
           <div className="exercise-item">
@@ -29,12 +41,20 @@ class ExerciseItem extends React.Component{
                   <div>Category: {this.props.exercise.category}</div>
                   <div>Equipment: {this.props.exercise.equipment}</div>
                   <button
+                    className="btn btn-info btn-sm edit-exercise"
+                    onClick={() => this.props.openModal("EDIT_EXERCISE", this.props.exercise._id)}
+                  >
+                    Edit exercise
+                  </button>
+                  <button
                     className="btn btn-info btn-sm show-notes"
                     onClick={this.showNotes()}
                   >
-                    Notes
+                    { this.notesButton() }
                   </button>
-                  <div className="exercise-notes">{this.state.notes}</div>
+                  <div className="exercise-notes">
+                    {this.state.notes}
+                  </div>
                 </div>
               </div>
             </div>

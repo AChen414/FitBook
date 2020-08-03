@@ -7,12 +7,12 @@ class ExerciseIndex extends React.Component{
         super(props);
         this.state = {
             search: ''
-        }
-        this.updateSearch = this.updateSearch.bind(this)
+        };
+        this.updateSearch = this.updateSearch.bind(this);
     }
 
     updateSearch(e) {
-        this.setState({search: e.target.value.substring(0, 20)})
+        this.setState({search: e.target.value.substring(0, 20)});
     }
 
     componentDidMount() {
@@ -37,15 +37,17 @@ class ExerciseIndex extends React.Component{
                 </div>
                 <div className="exercise-index">Exercises:
                     {filteredExercises.map((exercise, i) => (
-                        <ExerciseItem key={`exercise._id-${i}`} exercise={exercise} />
+                        <ExerciseItem 
+                            key={`exercise._id-${i}`} 
+                            exercise={exercise}
+                            openModal={this.props.openModal}
+                            closeModal={this.props.closeModal}
+                        />
                     ))}
                 </div>
             </div>
         );
     }
 }
-
-
-
 
 export default withRouter(ExerciseIndex)

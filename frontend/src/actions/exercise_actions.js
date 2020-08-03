@@ -1,5 +1,5 @@
 import {
-    getExercises, getUserExercises, createExercise, getExercise, deleteExercise
+    getExercises, getUserExercises, createExercise, updateExercise, getExercise, deleteExercise
 } from '../util/exercise_api_util'
 
 export const RECEIVE_EXERCISES = "RECEIVE_EXERCISES";
@@ -58,6 +58,12 @@ export const composeExercise = newExercise => dispatch => (
         .then(exercise => dispatch(receiveExercise(exercise.data)))
         .catch( err => console.log(err))
 );
+
+export const editExercise = exercise => dispatch => (
+    updateExercise(exercise)
+        .then(updatedExercise => dispatch(receiveExercise(updatedExercise.data)))
+        .catch(err => console.log(err))
+)
 
 export const deletusExercise = exerciseId => dispatch => (
     deleteExercise(exerciseId)

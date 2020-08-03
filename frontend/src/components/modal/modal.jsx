@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/user_modal_actions";
 import  UserSettingsForm  from "../user/user_settings_container";
+import ExerciseEditForm from "../exercises/exercise_edit_form";
 import ExerciseModal from '../exercises/exercise_form_container'; // update to container
 import PhotoForm from '../user/upload_photo'
 
@@ -10,12 +11,16 @@ function Modal({ modal, closeModal }) {
     return null;
   }
   let component;
-  switch (modal) {
+  switch (modal.type) {
     case "settings":
       component = <UserSettingsForm />;
       break;
+    case "EDIT_EXERCISE":
+      component = <ExerciseEditForm />;
+      break;
     case "create exercise": 
-      component = <ExerciseModal />;
+      component = <ExerciseModal exerciseId={modal.data}/>;
+      break;
     case "photo":
       component = <PhotoForm />;
       break;
@@ -34,6 +39,7 @@ function Modal({ modal, closeModal }) {
 const mapStateToProps = (state) => {
   return {
     modal: state.ui.modal,
+    data: state.ui.modal
   };
 };
 
