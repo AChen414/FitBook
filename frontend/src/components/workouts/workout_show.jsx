@@ -10,7 +10,6 @@ class WorkoutShow extends React.Component {
     }
     
     async componentDidMount() {
-        // debugger
         await this.props.fetchUserExercises(this.props.currentUser.id)
         await this.props.fetchWorkout(this.props.match.params.workoutId)
         this.setState({

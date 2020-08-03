@@ -82,10 +82,8 @@ router.post('/',
             notes: req.body.notes,
             equipment: req.body.equipment
         });
-        debugger
         newExercise.save()
             .then(exercise => {
-                debugger;
                 const result = {
                     _id: exercise._doc._id.toString(),
                     user: exercise._doc.user.toString(),
@@ -112,10 +110,9 @@ router.patch('/:id',
         const exercise = await Exercise.findById(req.params.id)
 
         if (req.user.id !== exercise.user.toString()) {
-            // debugger;
             return res.status(400).json( { invaliduser: 'Cannot update an exercise you did not create' } )
         };
-
+        
         Exercise.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false, new: true })
             .then(exercise => {
                 const result = {
@@ -138,7 +135,6 @@ router.delete('/:id',
         const exercise = await Exercise.findById(req.params.id)
 
         if (req.user.id !== exercise.user.toString()) {
-            // debugger;
             return res.status(400).json({ invaliduser: 'Cannot delete an exercise you did not create' })
         };
 

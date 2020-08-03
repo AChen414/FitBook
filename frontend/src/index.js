@@ -8,25 +8,25 @@ import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
 
 //TESTING
-import { fetchUserExercises, composeExercise, fetchExercise, deletusExercise } from './actions/exercise_actions';
-import { fetchUserWorkouts } from './actions/workout_actions'
-import { 
-  getExercises, 
-  getExercise, 
-  getUserExercises, 
-  createExercise, 
-  updateExercise, 
-  deleteExercise 
-} from './util/exercise_api_util';
+// import { fetchUserExercises, composeExercise, fetchExercise, deletusExercise } from './actions/exercise_actions';
+// import { fetchUserWorkouts } from './actions/workout_actions'
+// import { 
+//   getExercises, 
+//   getExercise, 
+//   getUserExercises, 
+//   createExercise, 
+//   updateExercise, 
+//   deleteExercise 
+// } from './util/exercise_api_util';
 
-import {
-  getUserWorkouts,
-  getUserWorkout,
-  createWorkout,
-  updateWorkout,
-  deleteWorkout
-} from './util/workout_api_util';
-import { compose } from "redux";
+// import {
+//   getUserWorkouts,
+//   getUserWorkout,
+//   createWorkout,
+//   updateWorkout,
+//   deleteWorkout
+// } from './util/workout_api_util';
+// import { compose } from "redux";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
