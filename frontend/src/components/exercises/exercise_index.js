@@ -34,6 +34,12 @@ class ExerciseIndex extends React.Component{
                     onChange={this.updateSearch}
                     placeholder="Filter by exercise"
                     />
+                    <button
+                        className="btn btn-info btn-sm add-exercise"
+                        onClick={() => this.props.openModal('create exercise')}
+                    >
+                        Create Exercise
+                    </button>
                 </div>
                 <div className="exercise-index">Exercises:
                     {filteredExercises.map((exercise, i) => (
