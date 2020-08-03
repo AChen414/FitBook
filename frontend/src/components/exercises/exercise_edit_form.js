@@ -39,17 +39,17 @@ const ExerciseEditForm = props => {
 
   return (
     <div className="modal-dialog" role="document">
-      <div className="modal-content">
+      <div className="modal-content exercise-edit-content">
+        <button
+          type="button"
+          className="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          onClick={props.closeModal}
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
         <div className="modal-header">
-          <button
-            type="button"
-            className="close"
-            data-dismiss="modal"
-            aria-label="Close"
-            onClick={props.closeModal}
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
           <div className="modal-title-container">
             <h3 className="modal-title">Edit your exercise</h3>
           </div>

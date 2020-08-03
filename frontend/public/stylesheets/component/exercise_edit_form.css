@@ -5,6 +5,13 @@
   padding: 0;
 }
 
+.exercise-edit-content .modal-header {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  position: relative;
+}
+
 .form-group label {
   font-size: 16px;
 }
@@ -13,4 +20,9 @@
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+
+.close span {
+  color: black;
 }
