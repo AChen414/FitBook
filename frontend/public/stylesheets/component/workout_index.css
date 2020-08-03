@@ -64,6 +64,21 @@
     color: black;
 }
 
+.workout-title-container {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
 .workout-item-delete {
     background-color: slategray;
+    
+}
+
+.workout-item-update {
+    background-color: slategray;
+}
+
+.workout-item-update a {
+    color: white;
 }

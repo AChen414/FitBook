@@ -27,6 +27,7 @@ class WorkoutIndex extends React.Component {
                 <WorkoutIndexItem
                   workout={workout}
                   key={workout._id}
+                  updateWorkout={this.props.updateWorkout}
                   deleteWorkout={this.props.deleteWorkout}
                 />
               ))}
