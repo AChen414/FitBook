@@ -11,7 +11,7 @@ function Modal({ modal, closeModal }) {
     return null;
   }
   let component;
-  switch (modal) {
+  switch (modal.type) {
     case "settings":
       component = <UserSettingsForm />;
       break;
@@ -19,7 +19,7 @@ function Modal({ modal, closeModal }) {
       component = <ExerciseEditForm />;
       break;
     case "create exercise": 
-      component = <ExerciseModal />;
+      component = <ExerciseModal exerciseId={modal.data}/>;
       break;
     case "photo":
       component = <PhotoForm />;
@@ -39,6 +39,7 @@ function Modal({ modal, closeModal }) {
 const mapStateToProps = (state) => {
   return {
     modal: state.ui.modal,
+    data: state.ui.modal
   };
 };
 

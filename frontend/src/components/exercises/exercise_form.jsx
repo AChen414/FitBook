@@ -22,7 +22,6 @@ class ExerciseForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const newExercise = Object.assign({}, this.state);
-        debugger;
         this.props.composeExercise(newExercise).then(() => this.props.closeModal());
     }
 

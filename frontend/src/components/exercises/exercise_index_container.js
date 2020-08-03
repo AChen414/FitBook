@@ -13,7 +13,7 @@ const mSTP = state => {
 const mDTP = dispatch => {
     return {
         fetchExercises: () => dispatch(fetchExercises()),
-        openModal: modal => dispatch(openModal(modal)),
+        openModal: (modal, data) => dispatch(openModal(modal, data)),
     };
 }
 

@@ -7,12 +7,12 @@ class ExerciseIndex extends React.Component{
         super(props);
         this.state = {
             search: ''
-        }
-        this.updateSearch = this.updateSearch.bind(this)
+        };
+        this.updateSearch = this.updateSearch.bind(this);
     }
 
     updateSearch(e) {
-        this.setState({search: e.target.value.substring(0, 20)})
+        this.setState({search: e.target.value.substring(0, 20)});
     }
 
     componentDidMount() {
@@ -49,8 +49,5 @@ class ExerciseIndex extends React.Component{
         );
     }
 }
-
-
-
 
 export default withRouter(ExerciseIndex)
