@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import WorkoutIndexItem from './workout_index_item';
 
 class WorkoutIndex extends React.Component {
-    constructor(props) {
-        super(props);
-    };
-
     componentDidMount() {
         this.props.fetchUserWorkouts(this.props.user.id);
     };
@@ -27,6 +23,7 @@ class WorkoutIndex extends React.Component {
                 <WorkoutIndexItem
                   workout={workout}
                   key={workout._id}
+                  updateWorkout={this.props.updateWorkout}
                   deleteWorkout={this.props.deleteWorkout}
                 />
               ))}

@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.2.1",
     "aws-sdk": "^2.724.0",
     "axios": "^0.19.2",
+    "jquery": "^3.5.1",
     "jwt-decode": "^2.2.0",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",

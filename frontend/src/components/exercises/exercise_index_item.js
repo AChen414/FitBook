@@ -62,6 +62,7 @@ class ExerciseItem extends React.Component{
               <img
                 className="exercise-item-image"
                 src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/dumbell.png"
+                alt = ""
               />
             </div>
           </div>
