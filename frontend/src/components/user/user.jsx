@@ -1,6 +1,7 @@
 import React from "react";
 import UserCalender from './calendar';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+
 
 class UserProfile extends React.Component{
     constructor(props){
@@ -29,6 +30,31 @@ class UserProfile extends React.Component{
           ) : (
             <div>No Workouts</div>
           );
+
+        // this is a test 
+        // need to store photo key on backend for each user
+        this.props.currentUser.profilePhotoKey =
+          "Lvo1gzjph7qd81tpvm26-1596496579339.jpg";
+        // debugger
+        const profilePic =
+          this.props.currentUser.profilePhotoKey !== "" ? (
+            <div className="profile-userpic">
+              <img
+                src={`https://fit-book-bucket.s3.amazonaws.com/${this.props.currentUser.profilePhotoKey}`}
+                className="img-responsive"
+                alt=""
+              />
+            </div>
+          ) : (
+            <div className="profile-userpic">
+              <img
+                src="https://cdn.onlinewebfonts.com/svg/img_568657.png"
+                className="img-responsive"
+                alt=""
+              />
+            </div>
+          );
+          // debugger
         
         return (
           <div className="user-body">
@@ -36,13 +62,7 @@ class UserProfile extends React.Component{
               <div className="row profile">
                 <div className="col-md-3">
                   <div className="profile-sidebar">
-                    <div className="profile-userpic">
-                      <img
-                        src="https://cdn.onlinewebfonts.com/svg/img_568657.png"
-                        className="img-responsive"
-                        alt=""
-                      />
-                    </div>
+                    {profilePic}
 
                     <div className="profile-usertitle">
                       <div className="profile-usertitle-name">
