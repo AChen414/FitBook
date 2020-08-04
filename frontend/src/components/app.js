@@ -11,6 +11,7 @@ import WorkoutIndexContainer from './workouts/workout_index_container';
 import WorkoutFormContainer from './workouts/workout_form_container';
 import UserContainer from './user/user_container';
 import WorkoutShowContainer from './workouts/workout_show_container';
+import EditWorkoutFormContainer from'./workouts/update_workout_form_container';
 import AboutUs from "./main/about-us";
 import Footer from"./main/footer";
 import Modal from './modal/modal'
@@ -30,6 +31,7 @@ const App = () => (
       <ProtectedRoute exact path="/workouts" component={WorkoutIndexContainer} />
       <ProtectedRoute exact path="/workouts/new" component={WorkoutFormContainer} />
       <ProtectedRoute exact path="/workouts/:workoutId" component={WorkoutShowContainer} />
+      <ProtectedRoute exact path="/workouts/:workoutId/edit" component={EditWorkoutFormContainer} />
     </Switch>
     <Footer/>
   </div>
