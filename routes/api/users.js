@@ -7,6 +7,7 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const defaultExercises = require('../../models/default_exercises');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -53,6 +54,12 @@ router.post("/register", (req, res) => {
                                     token: "Bearer " + token
                                 });
                             });
+
+                            defaultExercises.forEach((exercise) => {
+                                exercise.user = user.id;
+                                exercise.save();
+                            })
+
                         })
                         .catch(err => console.log(err));
                 });
