@@ -11,6 +11,7 @@
 @import url("./photo_form.css");
 @import url("./modal.css");
 @import url("./exercise_edit_form.css");
+@import url("./exercise_index_item.css");
 
 .workout-form-type{
     display: flex;

@@ -1,0 +1,53 @@
+.exercise-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  color: black;
+  margin: 15px 0 15px;
+  background: lightcoral;
+  border: 1px solid #333;
+  font-weight: 500;
+  font-size: 24px;
+  border-radius: 4px;
+  padding: 10px 16px;
+}
+
+.exercise-item-left, .exercise-item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 20px 0 0 20px;
+}
+
+.exercise-info {
+  padding: 0 15px;
+  font-size: 16px;
+  height: 100%;
+}
+
+.show-notes, .edit-exercise {
+  color: black;
+  margin: 5px 0;
+}
+
+/* .edit-exercise {
+  margin-top: 0;
+  margin-bottom: 0;
+} */
+
+.exercise-notes {
+  width: 200px;
+  height: 40px;
+  font-size: 14px;
+  color: black;
+}
+
+.exercise-item-image {
+  height: 100%;
+  width: 75%;
+}

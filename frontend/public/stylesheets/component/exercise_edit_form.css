@@ -22,6 +22,9 @@
   width: 100%;
 }
 
+.exercise-edit-button {
+  justify-content: space-evenly;
+}
 
 .close span {
   color: black;

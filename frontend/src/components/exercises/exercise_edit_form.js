@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/user_modal_actions';
-import { editExercise } from '../../actions/exercise_actions';
+import { editExercise, deletusExercise } from '../../actions/exercise_actions';
 
 const mSTP = state => {
   return {
@@ -13,15 +13,16 @@ const mSTP = state => {
 const mDTP = dispatch => {
   return {
     editExercise: exercise => dispatch(editExercise(exercise)),
+    deleteExercise: exerciseId => dispatch(deletusExercise(exerciseId)),
     closeModal: () => dispatch(closeModal())
   };
 }
 
 const ExerciseEditForm = props => {
-  const title = useFormInput(props.exercise.title);
-  const category = useFormInput(props.exercise.category);
-  const equipment = useFormInput(props.exercise.equipment);  
-  const notes = useFormInput(props.exercise.notes);
+  const title = useFormInput(props.exercise ? props.exercise.title : null);
+  const category = useFormInput(props.exercise ? props.exercise.category : null);
+  const equipment = useFormInput(props.exercise ? props.exercise.equipment : null);  
+  const notes = useFormInput(props.exercise ? props.exercise.notes : null);
   
   function handleSubmit(e) {
     e.preventDefault();
@@ -82,7 +83,22 @@ const ExerciseEditForm = props => {
               <option>Legs</option>
             </select>
           </div>
-          <div className="form-group exercise-info">
+          <div className="form-group exercise-category">
+            <label for="exampleFormControlSelect2">
+              Equipment:
+            </label>
+            <select 
+              className="form-control" 
+              id="exampleFormControlSelect2" 
+              {...equipment}
+            >
+              <option>None</option>
+              <option>Machine</option>
+              <option>Barbell</option>
+              <option>Dumbell</option>
+            </select>
+          </div>
+          {/* <div className="form-group exercise-info">
             <label for="exampleFormControlInput2">Equipment:
             </label>
             <input 
@@ -91,7 +107,7 @@ const ExerciseEditForm = props => {
               className="form-control" 
               {...equipment}
             />
-          </div>
+          </div> */}
           <div className="form-group exercise-info">
             <label for="exampleFormControlInput3">Notes:
             </label>
@@ -105,9 +121,15 @@ const ExerciseEditForm = props => {
           <div className="exercise-edit-button">
             <button className="btn btn-primary" type="submit">
               Update exercise
-            </button>
+            </button>     
+            <button
+              className="btn btn-danger"
+              onClick={() => props.deleteExercise(props.exercise._id)}
+            >
+              Remove exercise
+            </button>    
           </div>
-        </form>  
+        </form>
       </div>
     </div>
   );

@@ -33,7 +33,13 @@ class ExerciseForm extends React.Component {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title">New Exercise</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.props.closeModal} >
+                            <button 
+                                type="button" 
+                                className="close" 
+                                data-dismiss="modal" 
+                                aria-label="Close" 
+                                onClick={this.props.closeModal} 
+                            >
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
