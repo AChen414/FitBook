@@ -25,7 +25,7 @@ const App = () => (
       <Route exact path="/about-us" component={AboutUs} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route exact path="/exercises" component={ExerciseIndexContainer} />
+      <ProtectedRoute exact path="/exercises" component={ExerciseIndexContainer} />
 
       <ProtectedRoute exeact path="/profile" component={UserContainer}/>
       <ProtectedRoute exact path="/workouts" component={WorkoutIndexContainer} />
