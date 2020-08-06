@@ -7,7 +7,7 @@ import ExerciseIndex from './exercise_index';
 const mSTP = state => {
     return {
         exercises: Object.values(state.entities.exercises.all),
-        currentUser: state.session.user.id
+        currentUser: state.session.user['id']
     };
 }
 
@@ -18,4 +18,4 @@ const mDTP = dispatch => {
     };
 }
 
-export default connect(mSTP, mDTP)(ExerciseIndex)
+export default connect(mSTP, mDTP)(ExerciseIndex);
