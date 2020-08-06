@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { closeModal } from '../../actions/user_modal_actions';
+import { closeModal } from '../../actions/modal_actions';
 import { editExercise } from '../../actions/exercise_actions';
 
 const mSTP = state => {
