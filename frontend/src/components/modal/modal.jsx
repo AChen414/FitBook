@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { closeModal } from "../../actions/user_modal_actions";
+import { closeModal } from "../../actions/modal_actions";
 import  UserSettingsForm  from "../user/user_settings_container";
 import PhotoForm from '../user/upload_photo_container'
 import ExerciseEditForm from "../exercises/exercise_edit_form";
