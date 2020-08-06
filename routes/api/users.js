@@ -5,6 +5,14 @@ const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
+
+const aws = require("aws-sdk");
+const multerS3 = require("multer-s3");
+const multer = require("multer");
+const path = require("path");
+var storage = multer.memoryStorage();
+var upload = multer({ storage: storage });
+
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
@@ -17,7 +25,6 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
         email: req.user.email
     });
 })
-
 
 
 router.post("/register", (req, res) => {
@@ -94,5 +101,65 @@ router.post("/login", (req, res) => {
         });
     });
 });
+
+
+router.get("/profile/:id", (req, res) => {
+    debugger
+    User.findOne({ _id: req.params.id })
+        .then(user => {
+            if (!user) {
+                return res.status(404).json({ email: 'This user does not exist!' })
+            } else {
+                return res.json(user);
+            }
+        })
+})
+
+
+//aws img upload
+
+router.post("/:id/profile-img", upload.single("file"), (req,res) => {
+    console.log('requestOkokok', req.file);
+
+    // debugger
+    User.findOne({ _id: req.params.id})
+        .then( user => {
+            // debugger
+            if (!user) {
+                return res.status(404).json({ user: 'This user does not exist!' })
+            } else {
+                const file = req.file;
+
+                // const s3FileURL = process.env.AWS_Uploaded_File_URL_LINK;
+
+                let s3 = new aws.S3({
+                    accessKeyId: keys.accessKeyId,
+                    secretAccessKey: keys.secretAccessKey,
+                    Bucket: keys.Bucket,
+                });
+
+                var params = { 
+                    Bucket: "fit-book-bucket",
+                    Key: file.originalname,
+                    Body: file.buffer,
+                    ContentType: file.mimetype,
+                    ACL: "public-read"
+                };
+
+                s3.upload(params, (err,data) => {
+                    // debugger
+                    if (err) {
+                        res.status(500).json({ error: true, Message: error });
+                    } else {
+                        // debugger
+                        user.profilePhotoKey = params.Key
+                        user.save()
+                            .then(user => res.json(user))
+                            .catch(err => console.log(err));
+                    }
+                })
+            }
+        })
+})
 
 module.exports = router;

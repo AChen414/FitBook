@@ -3,6 +3,7 @@ const aws = require("aws-sdk");
 const multerS3 = require("multer-s3");
 const multer = require("multer");
 const path = require("path");
+const User = require('../../models/User');
 
 // const url = require("url");
 
@@ -31,18 +32,12 @@ const profileImgUpload = multer({
       );
     },
   }),
-  limits: { fileSize: 2000000 }, // In bytes: 2000000 bytes = 2 MB
+  limits: { fileSize: 3000000 }, // In bytes: 2000000 bytes = 3 MB
   fileFilter: function (req, file, cb) {
     checkFileType(file, cb);
   },
 }).single("profileImage");
 
-/**
- * Check File Type
- * @param file
- * @param cb
- * @return {*}
- */
 function checkFileType( file, cb ){
 	// Allowed ext
 	const filetypes = /jpeg|jpg|png|gif/;
@@ -62,7 +57,7 @@ function checkFileType( file, cb ){
  * @desc Upload post image
  * @access public
  */
-router.post( '/profile-img-upload', ( req, res ) => {
+router.post( '/:id/profile-img-upload', ( req, res ) => {
 	profileImgUpload( req, res, ( error ) => {
 		console.log( 'requestOkokok', req.file );
 		console.log( 'error', error );
@@ -79,10 +74,15 @@ router.post( '/profile-img-upload', ( req, res ) => {
 				const imageName = req.file.key;
 				const imageLocation = req.file.location;
 // Save the file name into database into profile model
+				// debugger
+
+				
 				res.json( {
 					image: imageName,
 					location: imageLocation
 				} );
+
+			
 			}
 		}
 	});
