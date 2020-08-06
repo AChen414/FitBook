@@ -6,7 +6,8 @@ import ExerciseIndex from './exercise_index';
 
 const mSTP = state => {
     return {
-        exercises: Object.values(state.entities.exercises.all)
+        exercises: Object.values(state.entities.exercises.all),
+        currentUser: state.session.user
     };
 }
 
