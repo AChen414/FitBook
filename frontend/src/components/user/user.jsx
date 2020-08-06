@@ -1,23 +1,57 @@
 import React from "react";
 import UserCalender from './calendar';
-import {Link} from 'react-router-dom';
+import { Link, withRouter} from 'react-router-dom';
 
 
 class UserProfile extends React.Component{
     constructor(props){
-        super(props)
+      super(props)
+      this.state = {
+        profilePic: null,
+      };
+      this.handleProfileImg = this.handleProfileImg.bind(this);
+      this.handleSubmitProfileImg = this.handleSubmitProfileImg.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchUserWorkouts(this.props.currentUser.id)
+      // debugger
+      this.props.fetchUserProfile(this.props.currentUser.id)
+      // debugger
+      this.props.fetchUserWorkouts(this.props.currentUser.id)
     }
+
+  handleProfileImg(e) {
+    e.preventDefault();
+    this.setState({
+      profilePic: e.target.files[0],
+    });
+  };
+
+  handleSubmitProfileImg(e) {
+    e.preventDefault();
+
+    if (!this.state.profilePic) {
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", this.state.profilePic);
+    // debugger
+    this.props.updateProfilePic(formData, this.props.currentUser.id)
+      .then(() => {
+        this.setState({
+          profilePic: null
+        })
+      })
+  }
+
 
 
     render (){
+        if (!this.props.user) return null
         if (!this.props.workouts) return null 
         const {currentUser} = this.props
-
-
+        
         const UserWorkouts =
           this.props.workouts.length !== 0 ? (
             <ul className="workout-list">
@@ -31,16 +65,14 @@ class UserProfile extends React.Component{
             <div>No Workouts</div>
           );
 
-        // this is a test 
-        // need to store photo key on backend for each user
-        this.props.currentUser.profilePhotoKey =
-          "Lvo1gzjph7qd81tpvm26-1596496579339.jpg";
-        // debugger
+
+        const profileLink = `https://fit-book-bucket.s3.amazonaws.com/${this.props.user.profilePhotoKey}`
+        // if profile link exists use it if not use default avatar
         const profilePic =
-          this.props.currentUser.profilePhotoKey !== "" ? (
+          this.props.user.profilePhotoKey !== "" ? (
             <div className="profile-userpic">
               <img
-                src={`https://fit-book-bucket.s3.amazonaws.com/${this.props.currentUser.profilePhotoKey}`}
+                src={profileLink}
                 className="img-responsive"
                 alt=""
               />
@@ -54,7 +86,6 @@ class UserProfile extends React.Component{
               />
             </div>
           );
-          // debugger
         
         return (
           <div className="user-body">
@@ -71,13 +102,21 @@ class UserProfile extends React.Component{
                     </div>
 
                     <div className="profile-userbuttons">
-                      <button
+                      <form className="img-upload" onSubmit={this.handleSubmitProfileImg}>
+                        <input type="file" onChange={this.handleProfileImg} />
+                        <button className="upload-pic-btn">Upload Photo</button>
+                      </form>
+
+
+                      {/* old method */}
+                      {/* <button
                         type="button"
                         className="btn btn-success btn-sm"
-                        onClick={() => this.props.openModal("photo")}
+                        // onClick={() => this.props.openModal("photo")}
+                        on
                       >
                         Upload Photo
-                      </button>
+                      </button> */}
                       {/* <button type="button" className="btn btn-danger btn-sm">
                         Message
                       </button> */}
@@ -145,7 +184,7 @@ class UserProfile extends React.Component{
     }
 }
 
-export default UserProfile;
+export default withRouter(UserProfile);
 
 
 // "The FitBook Program" will help if
