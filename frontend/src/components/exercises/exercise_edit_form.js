@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { closeModal } from '../../actions/user_modal_actions';
+import { closeModal } from '../../actions/modal_actions';
 import { editExercise, deletusExercise } from '../../actions/exercise_actions';
 
 const mSTP = state => {
@@ -57,7 +57,7 @@ const ExerciseEditForm = props => {
         </div>
         <form className="exercise-edit-form" onSubmit={handleSubmit}>
           <div className="form-group exercise-info">
-            <label for="exampleFormControlInput1">Title:
+            <label htmlFor="exampleFormControlInput1">Title:
             </label>
             <input
               type="text"
@@ -67,7 +67,7 @@ const ExerciseEditForm = props => {
             />
           </div>
           <div className="form-group exercise-category">
-            <label for="exampleFormControlSelect1">
+            <label htmlFor="exampleFormControlSelect1">
               Select Category:
             </label>
             <select 
@@ -84,7 +84,7 @@ const ExerciseEditForm = props => {
             </select>
           </div>
           <div className="form-group exercise-category">
-            <label for="exampleFormControlSelect2">
+            <label htmlFor="exampleFormControlSelect2">
               Equipment:
             </label>
             <select 
@@ -109,9 +109,9 @@ const ExerciseEditForm = props => {
             />
           </div> */}
           <div className="form-group exercise-info">
-            <label for="exampleFormControlInput3">Notes:
+            <label htmlFor="exampleFormControlInput3">Notes:
             </label>
-            <input 
+            <textarea
               type="text"
               id="exampleFormControlInput3"
               className="form-control"

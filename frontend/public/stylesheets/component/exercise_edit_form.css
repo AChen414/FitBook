@@ -29,3 +29,8 @@
 .close span {
   color: black;
 }
+
+#exampleFormControlInput3 {
+  max-height: 48px;
+  max-width: 100%;
+}

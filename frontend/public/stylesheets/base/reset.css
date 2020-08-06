@@ -59,3 +59,5 @@ a:hover {
 a:active {
   text-decoration: underline;
 }
+
+input:focus, button:focus { outline: 0; }

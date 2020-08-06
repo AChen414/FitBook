@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { createWorkout } from '../../actions/workout_actions';
 import { fetchUserExercises, composeExercise } from '../../actions/exercise_actions';
-import { openModal } from '../../actions/user_modal_actions';
+import { openModal } from '../../actions/modal_actions';
 import WorkoutForm from './workout_form';
 
 

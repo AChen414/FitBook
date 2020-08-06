@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchExercises } from '../../actions/exercise_actions';
-import { openModal } from '../../actions/user_modal_actions';
+import { openModal } from '../../actions/modal_actions';
 
 import ExerciseIndex from './exercise_index';
 
