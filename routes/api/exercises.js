@@ -133,7 +133,7 @@ router.delete('/:id',
     passport.authenticate('jwt', { session: false }),
     async (req, res) => {
         const exercise = await Exercise.findById(req.params.id)
-
+        debugger
         if (req.user.id !== exercise.user.toString()) {
             return res.status(400).json({ invaliduser: 'Cannot delete an exercise you did not create' })
         };
