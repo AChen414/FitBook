@@ -15,8 +15,7 @@ const UserSchema = new Schema({
         required: true
     },
     profilePhotoKey: {
-        type: String,
-        required: false
+        type: String
     }
 }, {
     timestamps: true
