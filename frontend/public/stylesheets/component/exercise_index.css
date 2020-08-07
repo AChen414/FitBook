@@ -7,6 +7,13 @@
   margin-top: 20px;
 }
 
+.add-exercise {
+  width: 200px;
+  height: 40px;
+  margin-top: 0;
+  font-size: 16px;
+}
+
 .exercise-index-container .search-box input {
   width: 400px;
   height: 40px;
