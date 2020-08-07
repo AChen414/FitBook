@@ -8,9 +8,9 @@ class MainPage extends React.Component {
           <div className="jumbotron-content">
             <h1>FitBook</h1>
             <p>
-              <a className="btn btn-primary btn-lg" href="#" role="button">
+              <button className="btn btn-primary btn-lg" >
                 Learn more about us
-              </a>
+              </button>
             </p>
           </div>
         </div>
