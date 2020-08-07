@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { openModal, closeModal } from "../../actions/modal_actions";
+import {closeModal } from "../../actions/modal_actions";
 import { fetchUserProfile, updateProfilePic } from '../../actions/user_actions';
 import PhotoForm from "./upload_photo";
 
