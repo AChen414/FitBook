@@ -23,8 +23,10 @@ class UserProfile extends React.Component{
   handleProfileImg(e) {
     e.preventDefault();
     this.setState({
-      profilePic: e.target.files[0],
-    });
+      profilePic: e.target.files[0]
+    })
+    debugger
+    this.handleSubmitProfileImg(e)
   };
 
   handleSubmitProfileImg(e) {
@@ -36,7 +38,7 @@ class UserProfile extends React.Component{
 
     const formData = new FormData();
     formData.append("file", this.state.profilePic);
-    // debugger
+    debugger
     this.props.updateProfilePic(formData, this.props.currentUser.id)
       .then(() => {
         this.setState({
@@ -57,7 +59,7 @@ class UserProfile extends React.Component{
             <ul className="workout-list">
               {this.props.workouts.map((workout) => (
                 <button type="button" className="btn btn-info">
-                  <Link to={`/workouts/${workout._id}`}>{workout.title}</Link>
+                  <Link  to={`/workouts/${workout._id}`}>{workout.title}</Link>
                 </button>
               ))}
             </ul>
@@ -93,34 +95,25 @@ class UserProfile extends React.Component{
               <div className="row profile">
                 <div className="col-md-3">
                   <div className="profile-sidebar">
-                    {profilePic}
 
-                    <div className="profile-usertitle">
-                      <div className="profile-usertitle-name">
-                        {currentUser.username}
+
+                    <div className="user-profile-pic">
+                      <div className="profile-usertitle">
+                        <div className="profile-usertitle-name">
+                          {currentUser.username}
+                        </div>
                       </div>
-                    </div>
-
-                    <div className="profile-userbuttons">
-                      <form className="img-upload" onSubmit={this.handleSubmitProfileImg}>
-                        <input type="file" onChange={this.handleProfileImg} />
-                        <button className="upload-pic-btn">Upload Photo</button>
-                      </form>
-
-
-                      {/* old method */}
-                      {/* <button
+                      {profilePic}
+                      <button
                         type="button"
                         className="btn btn-success btn-sm"
-                        // onClick={() => this.props.openModal("photo")}
-                        on
+                        onClick={() => this.props.openModal("photo")} 
                       >
-                        Upload Photo
-                      </button> */}
-                      {/* <button type="button" className="btn btn-danger btn-sm">
-                        Message
-                      </button> */}
+                        Change Profile Photo
+                      </button>
                     </div>
+
+                   
 
                     <div className="profile-usermenu">
                       <ul className="nav">

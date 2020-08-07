@@ -123,3 +123,25 @@
     width: 100%;
     border-radius: 3px;
 }
+
+
+.workout-form-type{
+    display: flex;
+    flex-direction: column;
+}
+
+.workout-exec-title{
+    width: 375px;
+    text-align: center;
+}
+.workout-added-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 150px;
+    overflow: scroll;
+    /* border: 1px solid black */
+}
+
+  

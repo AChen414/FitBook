@@ -6,17 +6,17 @@ class UserBioForm extends React.Component {
         return (
           <div>
             <form>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="exampleFormControlSelect1">Select Gender</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select className="form-control" id="exampleFormControlSelect1">
                   <option>Select Gender</option>
                   <option>Male</option>
                   <option>Female</option>
                 </select>
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="exampleFormControlSelect1">Select Age Range</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select className="form-control" id="exampleFormControlSelect1">
                   <option>Select Age</option>
                   <option>Teen's</option>
                   <option>20's</option>
@@ -26,11 +26,11 @@ class UserBioForm extends React.Component {
                   <option>60's</option>
                 </select>
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="exampleFormControlSelect1">
                   What Best Describes Where You're At?
                 </label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select className="form-control" id="exampleFormControlSelect1">
                   <option>Select Description</option>
                   <option>
                     I have a low amount of body fat and need/want to build more
@@ -50,11 +50,11 @@ class UserBioForm extends React.Component {
                   </option>
                 </select>
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="exampleFormControlSelect1">
                   Workout Experience
                 </label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select className="form-control" id="exampleFormControlSelect1">
                   <option>Workout Experience</option>
                   <option>0-1 years</option>
                   <option>2-4 years</option>
