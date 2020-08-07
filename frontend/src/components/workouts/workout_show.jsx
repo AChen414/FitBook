@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 
 class WorkoutShow extends React.Component {
     constructor(props) {
@@ -19,10 +18,6 @@ class WorkoutShow extends React.Component {
 
     render() {
         const { workout, exercises } = this.props
-        // debugger
-        // if (!workout || !exercises) {
-        //     return null
-        // }
         if (!this.state.load) {
           return null
         }
