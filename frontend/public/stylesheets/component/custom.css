@@ -11,31 +11,3 @@
 @import url("./photo_form.css");
 @import url("./modal.css");
 @import url("./exercise_edit_form.css");
-
-.workout-form-type{
-    display: flex;
-    flex-direction: column;
-}
-
-.workout-exec-title{
-    width: 375px;
-    text-align: center;
-}
-.workout-added-list{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 150px;
-    overflow: scroll;
-    /* border: 1px solid black */
-}
-
-  
-
-
-/* .user-settings-form{
-  background: white;
-  height: 500px;
-  width: 500px;
-} */
