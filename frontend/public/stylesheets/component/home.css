@@ -2,7 +2,7 @@
     background-image: url("https://fitbook-seeds.s3-us-west-1.amazonaws.com/home-page1.jpg");
     background-size: cover;
     height: 600px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .main-page {
