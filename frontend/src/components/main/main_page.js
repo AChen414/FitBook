@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 
 class MainPage extends React.Component {
   render() {
@@ -8,9 +9,11 @@ class MainPage extends React.Component {
           <div className="jumbotron-content">
             <h1>FitBook</h1>
             <p>
-              <button className="btn btn-primary btn-lg" >
-                Learn more about us
-              </button>
+              <Link to={`/about-us`}>
+                <button className="btn btn-primary btn-lg" >
+                  Learn more about us
+                </button>
+              </Link>
             </p>
           </div>
         </div>
