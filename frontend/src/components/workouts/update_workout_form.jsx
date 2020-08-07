@@ -129,24 +129,27 @@ class EditWorkoutForm extends React.Component {
                 <div className="workout-exec-title">Exercises</div>
                 <div className="workout-added-list">
                   {this.state.exercises.map((exerciseId, i) => {
-                    return (
-                      <>
-                        <li
-                          key={`workout-exercise-${i}`}
-                          className="workout-exercise-item"
-                        >
-                          {this.props.exercises[exerciseId].title}
-                          &nbsp;
-                          <button
-                            className="remove-workout-exercise"
-                            onClick={this.removeExercise(exerciseId)}
+                    if (!this.props.exercises[exerciseId]) {
+                      return null;
+                    } else {
+                      return (
+                        <>
+                          <li
+                            key={`workout-exercise-${i}`}
+                            className="workout-exercise-item"
                           >
-                            X
-                          </button>
-                        </li>
-                      </>
-                    );
-                  })}
+                            {this.props.exercises[exerciseId].title}
+                            &nbsp;
+                            <button
+                              className="remove-workout-exercise"
+                              onClick={this.removeExercise(exerciseId)}
+                            >
+                              X
+                            </button>
+                          </li>
+                        </>
+                      );
+                    }})}
                 </div>
               </label>
 
