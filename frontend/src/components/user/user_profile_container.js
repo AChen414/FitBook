@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import UserProfile from "./user";
+import UserProfile from "./user_profile";
 import {fetchUserWorkouts} from '../../actions/workout_actions'
 import {openModal} from '../../actions/modal_actions'
 import { fetchUserProfile, updateProfilePic } from '../../actions/user_actions';

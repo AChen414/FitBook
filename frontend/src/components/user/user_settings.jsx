@@ -19,7 +19,6 @@ class UserSettings extends React.Component {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h3 className="modal-title">User Quiz</h3>
               <button
                 type="button"
                 className="close"
@@ -29,6 +28,7 @@ class UserSettings extends React.Component {
               >
                 <span aria-hidden="true">&times;</span>
               </button>
+              <h3 className="modal-title">User Quiz</h3>
             </div>
             <div className="modal-body">
               <UserBioForm />
