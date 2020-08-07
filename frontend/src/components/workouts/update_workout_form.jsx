@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 
 class EditWorkoutForm extends React.Component {
   constructor(props) {
-    // debugger;
     super(props);
     this.state = {
       title: "",
@@ -20,7 +19,7 @@ class EditWorkoutForm extends React.Component {
   }
 
   async componentDidMount() {
-    // debugger
+    debugger
     await this.props.fetchWorkout(this.props.match.params.workoutId)
     await this.props.fetchUserExercises(this.props.user.id);
     this.setState({
@@ -36,7 +35,6 @@ class EditWorkoutForm extends React.Component {
     // }
 
   updateSearch(e) {
-    // debugger
     this.setState({ search: e.target.value.substring(0, 20) });
   }
 
@@ -64,7 +62,6 @@ class EditWorkoutForm extends React.Component {
   }
 
   handleSubmit(e) {
-      debugger
     e.preventDefault();
     const newWorkout = Object.assign({}, this.state);
     this.props
@@ -80,16 +77,15 @@ class EditWorkoutForm extends React.Component {
   }
 
   render() {
-    // debugger
     if (!this.props.exercises) {
-        return null
+      return null
     }
     if (!this.state.load) {
-        return null
+      return null
     }
     let filteredExercises = Object.values(this.props.exercises).filter(
       (exercise) => {
-        //   debugger
+        debugger
         return (
           exercise.title
             .toLowerCase()

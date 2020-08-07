@@ -36,9 +36,9 @@ class WorkoutIndexItem extends React.Component {
                 >
                   Delete
                 </button>
-                <button className="btn btn-info btn-md workout-item-update">
-                  <Link to={`/workouts/${this.props.workout._id}/edit`}>Edit</Link>
-                </button>
+                  <Link to={`/workouts/${this.props.workout._id}/edit`}>
+                    <button className="btn btn-info btn-md workout-item-update">Edit</button>
+                    </Link>
               </div>
             </div>
           </div>
