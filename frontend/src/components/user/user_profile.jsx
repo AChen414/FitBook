@@ -14,9 +14,7 @@ class UserProfile extends React.Component{
     }
 
     componentDidMount() {
-      // debugger
       this.props.fetchUserProfile(this.props.currentUser.id)
-      // debugger
       this.props.fetchUserWorkouts(this.props.currentUser.id)
     }
 
@@ -114,9 +112,6 @@ class UserProfile extends React.Component{
                         Change Profile Photo
                       </button>
                     </div>
-
-                   
-
                     <div className="profile-usermenu">
                       <ul className="nav">
                         <li>
@@ -128,18 +123,19 @@ class UserProfile extends React.Component{
                         <li>
                           <a
                             href="#/profile"
-                            onClick={() => this.props.openModal("settings")}
+                            onClick={() => this.props.openModal("fitquiz")}
                           >
                             <i className="glyphicon glyphicon-user"></i>
                             User Quiz
                           </a>
                         </li>
-                        {/* <li>
-                        <a href="#/profile">
+                        <li>
+                        <a href="#/profile"
+                            onClick={() => this.props.openModal("testquiz")}>
                           <i className="glyphicon glyphicon-ok"></i>
-                          Goals
+                          test
                         </a>
-                      </li> */}
+                      </li>
                       </ul>
                     </div>
                     <div id="recommendation">

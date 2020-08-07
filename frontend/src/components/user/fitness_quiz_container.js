@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
 
-import UserSettings from "./user_settings";
+import FitnessQuiz from "./fitness_quiz";
 
 const mSTP = state => {
   return {
@@ -15,4 +15,4 @@ const mDTP = (dispatch) => {
   };
 };
 
-export default connect(mSTP, mDTP)(UserSettings);
+export default connect(mSTP, mDTP)(FitnessQuiz);
