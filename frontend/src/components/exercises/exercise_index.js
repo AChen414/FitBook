@@ -20,7 +20,14 @@ class ExerciseIndex extends React.Component{
     }
 
     render(){
-        let filteredExercises = (Object.values(this.props.exercises)).filter((exercise) => {
+        let userExercises = {};
+        for (const property in this.props.exercises) {
+            if (this.props.exercises[property].user === this.props.currentUser) {
+                userExercises[property] = this.props.exercises[property];
+            }
+        }
+        
+        let filteredExercises = (Object.values(userExercises)).filter((exercise) => {
             return exercise.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
         });
 
@@ -46,6 +53,7 @@ class ExerciseIndex extends React.Component{
                         <ExerciseItem 
                             key={`exercise._id-${i}`} 
                             exercise={exercise}
+                            currentUser={this.props.currentUser}
                             openModal={this.props.openModal}
                             closeModal={this.props.closeModal}
                         />

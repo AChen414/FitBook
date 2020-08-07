@@ -67,6 +67,6 @@ export const editExercise = exercise => dispatch => (
 
 export const deletusExercise = exerciseId => dispatch => (
     deleteExercise(exerciseId)
-        .then( () => dispatch(removeExercise(exerciseId)))
-        .catch( err => console.log(err))
+        .then(() => dispatch(removeExercise(exerciseId)))
+        .catch(err => console.log(err))
 );
