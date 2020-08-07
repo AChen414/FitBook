@@ -64,7 +64,7 @@ class EditWorkoutForm extends React.Component {
   }
 
   handleSubmit(e) {
-      debugger
+      // debugger
     e.preventDefault();
     const newWorkout = Object.assign({}, this.state);
     this.props
