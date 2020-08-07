@@ -1,7 +1,5 @@
 import React from "react";
-import Content from "./content"
-import Footer from "./footer"
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom'
 
 class MainPage extends React.Component {
   render() {
@@ -10,16 +8,12 @@ class MainPage extends React.Component {
         <div className="jumbotron">
           <div className="jumbotron-content">
             <h1>FitBook</h1>
-            {/* <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum imperdiet id ex in lobortis. Nullam.
-            </p> */}
-
             <p>
-              <a className="btn btn-primary btn-lg" href="#" role="button">
-                {/* link to about us */}
-                Learn more about us
-              </a>
+              <Link to={`/about-us`}>
+                <button className="btn btn-primary btn-lg" >
+                  Learn more about us
+                </button>
+              </Link>
             </p>
           </div>
         </div>

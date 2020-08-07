@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { openModal, closeModal } from "../../actions/modal_actions";
+import { closeModal } from "../../actions/modal_actions";
 
 import UserSettings from "./user_settings";
 

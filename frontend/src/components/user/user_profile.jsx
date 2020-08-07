@@ -58,9 +58,11 @@ class UserProfile extends React.Component{
           this.props.workouts.length !== 0 ? (
             <ul className="workout-list">
               {this.props.workouts.map((workout) => (
-                <button type="button" className="btn btn-info">
-                  <Link  to={`/workouts/${workout._id}`}>{workout.title}</Link>
-                </button>
+                <Link to={`/workouts/${workout._id}`}>
+                    <button key={workout._id} type="button" className="btn btn-info">
+                      {workout.title}
+                    </button>
+                </Link>
               ))}
             </ul>
           ) : (
