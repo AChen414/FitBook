@@ -4,6 +4,9 @@ import Question from './fitnessTest/question'
 
 
 class TestForm extends React.Component {
+    constructor(props){
+        super(props)
+    }
 
     render() {
         return (
