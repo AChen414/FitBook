@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from 'react-router-dom'
-
 class MainPage extends React.Component {
   render() {
     return (
@@ -8,14 +7,25 @@ class MainPage extends React.Component {
         <div className="jumbotron">
           <div className="jumbotron-content">
             <h1>FitBook</h1>
-            <p>
-              <Link to={`/about-us`}>
+          </div>
+        </div>
+
+        <div>
+          <p>
+            {/* <Link to={`/about-us`}>
                 <button className="btn btn-primary btn-lg" >
                   Learn more about us
                 </button>
-              </Link>
-            </p>
-          </div>
+              </Link> */}
+            Take our 1 minute quiz below to discover the right workout program
+            for you and your body:
+          </p>
+          <button
+            className="btn btn-primary btn-lg"
+            onClick={() => this.props.openModal("testquiz")}
+          >
+            Begin
+          </button>
         </div>
         <hr className="featurette-divider" />
         <div className="row featurette">
