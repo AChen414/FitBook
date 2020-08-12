@@ -5,7 +5,7 @@ import  FitnessQuiz  from "../user/fitness_quiz_container";
 import PhotoForm from '../user/upload_photo_container'
 import ExerciseEditForm from "../exercises/exercise_edit_form";
 import ExerciseModal from '../exercises/exercise_form_container'; // update to container
-import TestForm from "../user/test"
+import TestForm from "../fitness_test/test"
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -17,7 +17,7 @@ function Modal({ modal, closeModal }) {
       component = <FitnessQuiz />;
       break;
     case "testquiz":
-      component = <TestForm />;
+      component = <TestForm closeModal={closeModal}/>;
       break;
     case "EDIT_EXERCISE":
       component = <ExerciseEditForm />;
