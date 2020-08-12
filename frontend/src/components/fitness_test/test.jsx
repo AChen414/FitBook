@@ -1,10 +1,8 @@
 import React from 'react'
-import Question from './fitnessTest/question'
 import quizQuestions from './fitnessTest/quiz_questions'
 import Quiz from './fitnessTest/quiz'
 import Result from './fitnessTest/result'
 
-import {closeModal} from '../../actions/modal_actions'
 
 
 class TestForm extends React.Component {
