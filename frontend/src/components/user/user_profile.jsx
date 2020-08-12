@@ -120,7 +120,7 @@ class UserProfile extends React.Component{
                             Add a New Workout
                           </a>
                         </li>
-                        <li>
+                        {/* <li>
                           <a
                             href="#/profile"
                             onClick={() => this.props.openModal("fitquiz")}
@@ -128,12 +128,12 @@ class UserProfile extends React.Component{
                             <i className="glyphicon glyphicon-user"></i>
                             User Quiz
                           </a>
-                        </li>
+                        </li> */}
                         <li>
                         <a href="#/profile"
                             onClick={() => this.props.openModal("testquiz")}>
                           <i className="glyphicon glyphicon-ok"></i>
-                          test
+                          Take the 1-minute Test
                         </a>
                       </li>
                       </ul>
