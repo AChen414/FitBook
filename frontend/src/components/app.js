@@ -14,8 +14,7 @@ import WorkoutShowContainer from './workouts/workout_show_container';
 import EditWorkoutFormContainer from'./workouts/update_workout_form_container';
 import AboutUs from "./main/about-us";
 import Footer from"./main/footer";
-import Modal from './modal/modal'
-import main_page_container from "./main/main_page_container";
+import Modal from './modal/modal';
 
 const App = () => (
   <div id="home-page-container"> 
