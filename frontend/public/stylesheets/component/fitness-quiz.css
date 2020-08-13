@@ -14,6 +14,16 @@
   font-size: large;
 }
 
+.App-Content {
+    height: 360px;
+    margin-bottom: 50px;
+}
+
+.App-footer.card-footer.text-muted {
+    display: flex;
+    justify-content: center;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -45,6 +55,8 @@ body {
 }
 
 
+
+
 /* Result Component */
 .result {
   padding: 1.5rem 2.5rem;
@@ -56,6 +68,8 @@ body {
   padding: 0;
   list-style: none;
 }
+
+
 
 /* QuestionCount Component */
 .questionCount {
@@ -155,6 +169,58 @@ body {
 }
 
 .modal-content.fitness-modal {
-    height: 600px;
+    height: 700px;
     width: 800px;
+}
+
+/* Main Page */
+
+.fit-quiz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fit-quiz-start {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+.fit-quiz-start > p {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+button.btn.btn-primary.btn-lg.btn-fit {
+    width: 60%;
+    align-self: center;
+}
+
+/* Progress Bar */
+
+.progress-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 940px;
+    width: calc(100% - 10px);
+    height: fit-content;
+    margin: 0 auto;
+}
+
+.progress-icon-each img {
+    width: 50px;
+    height: 50px;
+}
+
+.progress-icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.progress-icon-each {
+    width: 75px;
+    height: 75px;
 }
