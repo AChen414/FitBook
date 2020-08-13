@@ -7,25 +7,32 @@ class MainPage extends React.Component {
         <div className="jumbotron">
           <div className="jumbotron-content">
             <h1>FitBook</h1>
+            {/* <p>
+              Take our 1 minute quiz below to discover the right workout program
+              for you and your body:
+            </p>
+            <button
+              className="btn btn-primary btn-lg"
+              onClick={() => this.props.openModal("testquiz")}
+            >
+              Begin
+            </button> */}
           </div>
         </div>
 
-        <div>
-          <p>
-            {/* <Link to={`/about-us`}>
-                <button className="btn btn-primary btn-lg" >
-                  Learn more about us
-                </button>
-              </Link> */}
-            Take our 1 minute quiz below to discover the right workout program
-            for you and your body:
-          </p>
-          <button
-            className="btn btn-primary btn-lg"
-            onClick={() => this.props.openModal("testquiz")}
-          >
-            Begin
-          </button>
+        <div className="fit-quiz-container">
+          <div className="fit-quiz-start">
+            <p>
+              Take our 1 minute quiz below to discover the right workout program
+              for you and your body:
+            </p>
+            <button
+              className="btn btn-primary btn-lg btn-fit"
+              onClick={() => this.props.openModal("testquiz")}
+            >
+              TAKE THE QUIZ
+            </button>
+          </div>
         </div>
         <hr className="featurette-divider" />
         <div className="row featurette">
