@@ -5,7 +5,7 @@ import  FitnessQuiz  from "../user/fitness_quiz_container";
 import PhotoForm from '../user/upload_photo_container'
 import ExerciseEditForm from "../exercises/exercise_edit_form";
 import ExerciseModal from '../exercises/exercise_form_container'; // update to container
-import TestForm from "../fitness_test/test"
+import TestForm from "../fitness_quiz/fit_quiz"
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
