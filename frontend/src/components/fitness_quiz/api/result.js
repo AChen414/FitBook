@@ -5,7 +5,25 @@ import { Link  } from "react-router-dom";
 
 
 function Result(props) {
-  debugger
+  let gender = props.quizResult[0]
+  let age = props.quizResult[1]
+  let program = props.quizResult[2]
+  let level = props.quizResult[3]
+  let bodyType
+  let goal
+
+
+  if (program === "Shred") {
+    bodyType = "A Skinny-Fat Physique";
+    goal = "Lean Down, Lose Excess Body Fay, And Reveal Muscle Definition";
+  } else if (program === "Build") {
+    bodyType = "A Skinny Physique";
+    goal = "Build Lean, Dense Muscle, And Definition Without Gaining Fat";
+  } else if (program === "Drop" || program === "Lose") {
+    bodyType = "Excess Fat"
+    goal = "Reveal Muscle Definition"
+  }
+
     return (
       <CSSTransitionGroup
         className="fitness-result fitness-test-container"
@@ -17,29 +35,55 @@ function Result(props) {
         transitionAppearTimeout={500}
       >
         <div className="fitness-result-content">
-          {/* You prefer <strong>{props.quizResult}</strong>! */}
-          <div>
-            Based on your quiz we recommened that you work out 3 times a week
+          <div className="fitness-result-head">
+            <p>
+              Based on your answers - Here is your recommened solution to reach
+              your goal physique:
+            </p>
+          </div>
+          <div className="fitness-program">
+            <p>
+              The {level} {program} Program
+            </p>
+          </div>
+          <div className="fitness-description">
+            <p>
+              Will Help You If You're Struggling With <strong>{bodyType}</strong>{" "}
+              And Want To...
+            </p>
+          </div>
+          <div className="fitness-goal">
+            <p>{goal}</p>
           </div>
         </div>
-        <div>
+        <div className="fitness-result-nav">
+          <Link to={`/profile`}>
+            <button
+              type="button"
+              className="btn btn-info fitness-nav-btn"
+              onClick={() => props.closeModal()}
+            >
+              View Your Program!
+            </button>
+          </Link>
+
           <Link to={`/workouts`}>
             <button
               type="button"
-              className="btn btn-info"
+              className="btn btn-info fitness-nav-btn"
               onClick={() => props.closeModal()}
             >
-              Create A Workout Now!
+              Create A NewWorkout Now!
             </button>
           </Link>
 
           <Link to={`/exercises`}>
             <button
               type="button"
-              className="btn btn-info"
+              className="btn btn-info fitness-nav-btn"
               onClick={() => props.closeModal()}
             >
-              Search For Exercises!
+              Search For Custom Exercises!
             </button>
           </Link>
         </div>
@@ -48,7 +92,7 @@ function Result(props) {
 }
 
 Result.propTypes = {
-    quizResult: PropTypes.string.isRequired,
+    quizResult: PropTypes.array.isRequired,
 };
 
 export default Result;

@@ -3,11 +3,11 @@ var quizQuestions = [
     question: "Select Gender",
     answers: [
       {
-        type: "1",
+        type: "Male",
         content: "Male",
       },
       {
-        type: "2",
+        type: "Female",
         content: "Female",
       },
     ],
@@ -16,23 +16,23 @@ var quizQuestions = [
     question: "Select Age Range",
     answers: [
       {
-        type: "1",
+        type: "Teen",
         content: "Teen's",
       },
       {
-        type: "2",
+        type: "20",
         content: "20's",
       },
       {
-        type: "3",
+        type: "30",
         content: "30's",
       },
       {
-        type: "4",
+        type: "40",
         content: "40's",
       },
       {
-        type: "5",
+        type: "50",
         content: "50's",
       },
     ],
@@ -41,22 +41,22 @@ var quizQuestions = [
     question: "What Best Describes Where You're At?",
     answers: [
       {
-        type: "1",
+        type: "Build",
         content:
           "I have a low amount of body fat and need/want to build more muscle.",
       },
       {
-        type: "2",
+        type: "Shred",
         content:
           "I'm 'Skinny Fat'- I'm half skinny, half fat. I know I need more muscle but ther's still fat covering my abs.",
       },
       {
-        type: "3",
+        type: "Drop",
         content:
           "I have good amount of muscle, but I still need to drop fat to reveal my existing muscle definition underneath.",
       },
       {
-        type: "4",
+        type: "Lose",
         content:
           "I have a high amount of body fat, I can't tell how much muscle I have, I just need to lose alot of fat fast.",
       },
@@ -66,15 +66,15 @@ var quizQuestions = [
     question: "Workout Experience",
     answers: [
       {
-        type: "1",
+        type: "Beginner",
         content: "0-1 years",
       },
       {
-        type: "2",
+        type: "Intermediate",
         content: "2-4 years",
       },
       {
-        type: "3",
+        type: "Advanced",
         content: "5 years+",
       },
     ],

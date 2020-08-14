@@ -4,11 +4,9 @@ import Quiz from './api/quiz'
 import Result from './api/result'
 
 
-
 class TestForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       counter: 0,
       questionId: 1,
@@ -88,17 +86,15 @@ class TestForm extends React.Component {
     const answersCountKeys = Object.keys(answersCount);
     const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
     const maxAnswerCount = Math.max.apply(null, answersCountValues);
-
     return answersCountKeys.filter(
       (key) => answersCount[key] === maxAnswerCount
     );
   }
-  
-  setResults(result) {
-    if (result.length === 1) {
-      this.setState({ result: result[0] });
-    } else {
-      this.setState({ result: "Undetermined" });
+
+  setResults(answerResult) {
+    if (answerResult.length >= 1) {
+      // this.setState({ result: answerResult[answerResult.length - 1] });
+      this.setState({ result: answerResult });
     }
   }
 
@@ -188,7 +184,7 @@ class TestForm extends React.Component {
             >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h2>FREE EVALUATION TOOL</h2>
+            <h2>Free Evaluation Tool</h2>
           </div>
 
           {progressbar}
