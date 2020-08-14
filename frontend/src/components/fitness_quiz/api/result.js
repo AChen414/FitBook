@@ -5,8 +5,9 @@ import { Link  } from "react-router-dom";
 
 
 function Result(props) {
-  let gender = props.quizResult[0]
-  let age = props.quizResult[1]
+  // let gender = props.quizResult[0]
+  // let age = props.quizResult[1]
+  
   let program = props.quizResult[2]
   let level = props.quizResult[3]
   let bodyType
@@ -73,7 +74,7 @@ function Result(props) {
               className="btn btn-info fitness-nav-btn"
               onClick={() => props.closeModal()}
             >
-              Create A NewWorkout Now!
+              Create A Workout Now!
             </button>
           </Link>
 
