@@ -19,7 +19,6 @@ function Quiz(props) {
         />
         );
     }
-    
     return (
       <CSSTransitionGroup
         className="fitness-test-container"

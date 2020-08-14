@@ -4,9 +4,8 @@ import { CSSTransitionGroup } from "react-transition-group";
 import { Link  } from "react-router-dom";
 
 
-
-
 function Result(props) {
+  debugger
     return (
       <CSSTransitionGroup
         className="fitness-result fitness-test-container"
@@ -22,29 +21,27 @@ function Result(props) {
           <div>
             Based on your quiz we recommened that you work out 3 times a week
           </div>
-          <div>
-            <Link to={`/workouts`}>
-              <button
-                type="button"
-                className="btn btn-info"
-                onClick={() => props.closeModal()}
-              >
-                Create A Workout Now!
-              </button>
-            </Link>
+        </div>
+        <div>
+          <Link to={`/workouts`}>
+            <button
+              type="button"
+              className="btn btn-info"
+              onClick={() => props.closeModal()}
+            >
+              Create A Workout Now!
+            </button>
+          </Link>
 
-            <Link to={`/exercises`}>
-              <button
-                type="button"
-                className="btn btn-info"
-                onClick={() => props.closeModal()}
-              >
-                Search For Exercises!
-              </button>
-            </Link>
-
-            
-          </div>
+          <Link to={`/exercises`}>
+            <button
+              type="button"
+              className="btn btn-info"
+              onClick={() => props.closeModal()}
+            >
+              Search For Exercises!
+            </button>
+          </Link>
         </div>
       </CSSTransitionGroup>
     );
