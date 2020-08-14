@@ -199,17 +199,6 @@ button.btn.btn-primary.btn-lg.btn-fit {
 
 /* Progress Bar */
 
-.progress-container {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    max-width: 940px;
-    width: calc(100% - 10px);
-    height: fit-content;
-    margin: 0 auto;
-}
-
 .progress-icon-each img {
     width: 50px;
     height: 50px;
@@ -218,9 +207,14 @@ button.btn.btn-primary.btn-lg.btn-fit {
 .progress-icons {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 1rem;
 }
 
 .progress-icon-each {
-    width: 75px;
+    width: 100px;
     height: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
