@@ -28,8 +28,8 @@ class UserCalendar extends React.Component<ICalendarProps, {}> {
       { Id: 2, Name: 'Back' }
     ];
 
-  public field: Object = { dataSource: this.treeViewData, id: 'Id', text: 'Name' };
-  // public field: Object = { dataSource: this.props.workouts, id: '_id', text: 'title' };
+  // public fields: Object = { dataSource: this.treeViewData, id: 'Id', text: 'Name' };
+  public fields: Object = { dataSource: this.props.workouts, id: 'Id', text: 'Name' };
 
   onTreeDragStop(args?: DragAndDropEventArgs): void {
     if (args) {
@@ -46,7 +46,7 @@ class UserCalendar extends React.Component<ICalendarProps, {}> {
     
       // this line adds the dropped workout directly
       // this.scheduleObj.addEvent(eventData);
-    }
+    } 
   }
 
   public render () {
@@ -65,7 +65,7 @@ class UserCalendar extends React.Component<ICalendarProps, {}> {
         <div className="treeview-title-container">Your Workouts:</div>
         <div className="treeview-component">
           <TreeViewComponent 
-            fields={this.field} 
+            fields={this.fields} 
             allowDragAndDrop={true}
             nodeDragStop={this.onTreeDragStop.bind(this)}
           />

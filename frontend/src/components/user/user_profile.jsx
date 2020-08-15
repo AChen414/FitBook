@@ -14,11 +14,15 @@ class UserProfile extends React.Component{
       this.handleSubmitProfileImg = this.handleSubmitProfileImg.bind(this);
     }
 
+    componentWillMount() {
+      this.props.fetchUserWorkouts(this.props.currentUser.id)
+    }
+
     componentDidMount() {
       // debugger
       this.props.fetchUserProfile(this.props.currentUser.id)
       // debugger
-      this.props.fetchUserWorkouts(this.props.currentUser.id)
+      // this.props.fetchUserWorkouts(this.props.currentUser.id)
     }
 
   handleProfileImg(e) {
@@ -170,7 +174,10 @@ class UserProfile extends React.Component{
                         *Click a day to add your workout
                       </div>
                     </div>
-                    <UserCalendar />
+                    <UserCalendar workouts={this.props.workouts.map((workout, idx) => {
+                        return { Id: workout._id, Name: workout.title }
+                      })} 
+                    />
                   </div>
                 </div>
               </div>
