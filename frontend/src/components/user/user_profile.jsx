@@ -1,5 +1,6 @@
 import React from "react";
-import UserCalender from './calendar';
+// import UserCalendar from './calendar';
+import UserCalendar from './calendar.tsx';
 import { Link, withRouter} from 'react-router-dom';
 
 
@@ -169,7 +170,7 @@ class UserProfile extends React.Component{
                         *Click a day to add your workout
                       </div>
                     </div>
-                    <UserCalender />
+                    <UserCalendar />
                   </div>
                 </div>
               </div>
