@@ -5,8 +5,8 @@ class UploadPhoto extends React.Component{
     super(props);
     this.state = {
       profilePic: null,
-      tempPic: null
-    }
+      tempPic: null,
+    };
     this.handleProfileImg = this.handleProfileImg.bind(this);
     this.handleSubmitProfileImg = this.handleSubmitProfileImg.bind(this);
   }
@@ -31,7 +31,6 @@ class UploadPhoto extends React.Component{
 
     const formData = new FormData();
     formData.append("file", this.state.profilePic);
-    // debugger
     this.props.updateProfilePic(formData, this.props.currentUser.id)
       .then(() => {
         this.setState({
@@ -43,25 +42,17 @@ class UploadPhoto extends React.Component{
       })
   }
 
-  render (){
-    
-    const profileLink = `https://fit-book-bucket.s3.amazonaws.com/${this.props.user.profilePhotoKey}`
-
-    const previewCurrentPhoto = this.state.profilePic !== null ? (
-      <div className="profile-userpic">
-        <img
-          src={this.state.tempPic}
-          alt=""
-        />
-      </div>
-    ) : (
+  render (){    
+    const previewCurrentPhoto =
+      this.state.tempPic !== null ? (
         <div className="profile-userpic">
-          <img
-            src={profileLink}
-            alt=""
-          />
+          <img src={this.state.tempPic} alt="" />
         </div>
-    )
+      ) : (
+        <div className="profile-userpic">
+          <img src={this.props.user.profilePhotoLink} alt="" />
+        </div>
+      );
 
     return(
       <div className="upload-img-container">
