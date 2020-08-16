@@ -23,7 +23,6 @@ class UserProfile extends React.Component{
     this.setState({
       profilePic: e.target.files[0]
     })
-    debugger
     this.handleSubmitProfileImg(e)
   };
 
@@ -36,7 +35,6 @@ class UserProfile extends React.Component{
 
     const formData = new FormData();
     formData.append("file", this.state.profilePic);
-    debugger
     this.props.updateProfilePic(formData, this.props.currentUser.id)
       .then(() => {
         this.setState({
@@ -69,12 +67,13 @@ class UserProfile extends React.Component{
           ) : (
             <div>No Workouts</div>
           );
-
-
-        const profileLink = `https://fit-book-bucket.s3.amazonaws.com/${this.props.user.profilePhotoKey}`
+        const tempProfilePic = "https://cdn.onlinewebfonts.com/svg/img_568657.png"
         // if profile link exists use it if not use default avatar
-        const profilePic =
-          this.props.user.profilePhotoKey !== "" ? (
+        const profileLink =
+          this.props.user.profilePhotoLink === tempProfilePic
+            ? tempProfilePic
+            : this.props.user.profilePhotoLink;
+        const profilePic = (
             <div className="profile-userpic">
               <img
                 src={profileLink}
@@ -82,15 +81,7 @@ class UserProfile extends React.Component{
                 alt=""
               />
             </div>
-          ) : (
-            <div className="profile-userpic">
-              <img
-                src="https://cdn.onlinewebfonts.com/svg/img_568657.png"
-                className="img-responsive"
-                alt=""
-              />
-            </div>
-          );
+          ) 
         
         return (
           <div className="user-body">
