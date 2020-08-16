@@ -21,30 +21,13 @@ class TestForm extends React.Component {
   }
 
   componentDidMount() {
-    const shuffledAnswerOptions = quizQuestions.map((question) =>
-      this.shuffleArray(question.answers)
+    const answerOptions = quizQuestions.map((question) => 
+      question.answers
     );
-
     this.setState({
       question: quizQuestions[0].question,
-      answerOptions: shuffledAnswerOptions[0],
+      answerOptions: answerOptions[0],
     });
-  }
-
-  shuffleArray(array) {
-    // var currentIndex = array.length, temporaryValue, randomIndex;
-
-    // while (0 !== currentIndex) {
-
-    //     randomIndex = Math.floor(Math.random() * currentIndex);
-    //     currentIndex -= 1;
-
-    //     temporaryValue = array[currentIndex];
-    //     array[currentIndex] = array[randomIndex];
-    //     array[randomIndex] = temporaryValue;
-    // }
-
-    return array;
   }
 
   handleAnswerSelected(event) {
@@ -93,7 +76,6 @@ class TestForm extends React.Component {
 
   setResults(answerResult) {
     if (answerResult.length >= 1) {
-      // this.setState({ result: answerResult[answerResult.length - 1] });
       this.setState({ result: answerResult });
     }
   }
