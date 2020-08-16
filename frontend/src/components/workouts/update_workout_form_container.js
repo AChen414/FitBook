@@ -7,7 +7,6 @@ import EditWorkoutForm from './update_workout_form';
 
 
 const mapStateToProps = (state, ownProps) => {
-    // debugger
     return {
         workout: state.entities.workouts[ownProps.match.params.workoutId],
         exercises: state.entities.exercises.user,
