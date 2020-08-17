@@ -26,8 +26,8 @@ const removeComment = (commentId) => ({
   commentId,
 });
 
-export const fetchWorkoutComments = (workoutId) => (dispatch) => {
-  debugger
+export const fetchWorkoutComments = (workoutId) => dispatch => {
+  // debugger
   return getWorkoutComments(workoutId)
     .then(
     comments => dispatch(receiveWorkoutComments(comments.data)),
@@ -36,24 +36,24 @@ export const fetchWorkoutComments = (workoutId) => (dispatch) => {
     }
 
 
-export const createComment = (workoutId, comment) => dispatch => (
-    CommentAPIUtil.createComment(workoutId, comment)
+export const createComment = (data) => dispatch => (
+    CommentAPIUtil.createComment(data)
     .then(
         comment => dispatch(receiveComment(comment.data)),
         err => dispatch(receiveErrors(err.response.data))
     )
 )
 
-export const updateComment = (workoutId, comment) => (dispatch) =>(
-    CommentAPIUtil.updateComment(workoutId, comment)
+export const updateComment = (comment) => (dispatch) =>(
+    CommentAPIUtil.updateComment(comment)
     .then(
         comment => dispatch(receiveComment(comment.data)),
         err => dispatch(receiveErrors(err.response.data))
     )
 );
 
-export const deleteComment = (workoutId, commentId) => (dispatch) => (
-        CommentAPIUtil.deleteComment(workoutId, commentId)
+export const deleteComment = (commentId) => (dispatch) => (
+        CommentAPIUtil.deleteComment(commentId)
         .then(
             () => dispatch(removeComment(commentId)),
             err => dispatch(receiveErrors(err.responseJSON))

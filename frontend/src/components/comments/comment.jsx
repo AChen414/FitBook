@@ -6,6 +6,7 @@ class Comment extends React.Component {
     super(props);
     this.state = {
       edit: false,
+      user: props.comment.user,
       text: props.comment.text,
       date: props.comment.date,
     };
@@ -46,15 +47,15 @@ class Comment extends React.Component {
 
   handleDelete(e) {
     e.preventDefault();
-    this.props.deleteComment(this.props.comment.id);
+    this.props.deleteComment(this.props.comment._id);
   }
 
   render() {
-    debugger
+    // debugger
     const { comment, user } = this.props;
 
     let buttons;
-    if (user.id === comment.user.id && this.state.edit === false) {
+    if (user.id === comment.user._id && this.state.edit === false) {
         buttons = (
             <div className="workout-show-page-comment-buttons">
                 <button className="comment-button" onClick={this.handleEdit}>
@@ -84,9 +85,9 @@ class Comment extends React.Component {
         return (
         <div className="comment-content-container">
             <div className="commenter">
-                <Link to={`/users/${comment.user._id}`}>
+                {/* <Link to={`/profile/`}> */}
                     {comment.user.username}
-                </Link>
+                {/* </Link> */}
             </div>
             <div className="comment-content">
                 <div className="comment-text">

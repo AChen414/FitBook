@@ -13,7 +13,7 @@ export default class CreateComment extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ text: e.currentTarget.value, buttons: true });
+    this.setState({ text: e.currentTarget.value, value: true });
   }
 
   handleSubmit(e) {

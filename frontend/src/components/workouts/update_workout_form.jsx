@@ -19,7 +19,7 @@ class EditWorkoutForm extends React.Component {
   }
 
   async componentDidMount() {
-    debugger
+    // debugger
     await this.props.fetchWorkout(this.props.match.params.workoutId)
     await this.props.fetchUserExercises(this.props.user.id);
     this.setState({
@@ -85,7 +85,7 @@ class EditWorkoutForm extends React.Component {
     }
     let filteredExercises = Object.values(this.props.exercises).filter(
       (exercise) => {
-        debugger
+        // debugger
         return (
           exercise.title
             .toLowerCase()

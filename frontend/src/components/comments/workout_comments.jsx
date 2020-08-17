@@ -38,13 +38,13 @@ class WorkoutComments extends React.Component {
     // }
     return (comments.length === 0) ? (
       <div className="comments">
-        <p>No Comments yet!</p>
         <CreateComment
           user={user}
           createComment={createComment}
           fetchWorkoutComments={fetchWorkoutComments}
           workoutId={workoutId}
         />
+        <p>No Comments yet!</p>
       </div>  
     ) : (
       <div className="comments">

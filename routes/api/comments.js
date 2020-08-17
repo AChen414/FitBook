@@ -6,8 +6,8 @@ const passport = require('passport');
 const Comment = require('../../models/Comment');
 const validateComment = require('../../validation/comments');
 
-router.get("/workouts/:workout_id/comments", (req, res) => {
-  debugger
+router.get("/workout/:workout_id/", (req, res) => {
+  // debugger
   Comment.find({ workout: req.params.workout_id })
     .populate("user")
     .sort({ date: -1 })

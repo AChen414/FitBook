@@ -7,7 +7,7 @@ const CommentSchema = new Schema({
         ref: "User",
     },
     workout: {
-        type: Schema.Types.ObjectId.Id,
+        type: Schema.Types.ObjectId,
         ref: "Workout",
     },
     text: {

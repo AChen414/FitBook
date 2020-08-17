@@ -16,6 +16,7 @@ const mapSTP = (state, ownProps) => {
 };
 
 const mapDTP = (dispatch) => ({
+  
   updateWorkout: (workout) => dispatch(updateWorkout(workout)), 
   fetchWorkout: (id) => dispatch(fetchWorkout(id)),
   fetchUserExercises: (userId) => dispatch(fetchUserExercises(userId)),

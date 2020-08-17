@@ -8,9 +8,9 @@ import {
 } from "../../actions/comment_actions";
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
+  // debugger
   return ({
-    comments: state.entities.workouts[ownProps.workoutId].comments,
+    comments: Object.values(state.entities.comments),
     workoutId: ownProps.workoutId,
     user: state.session.user,
   })
@@ -18,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchWorkoutComments: (workoutId) => dispatch(fetchWorkoutComments(workoutId)),
-  destroyComment: (commentId) => dispatch(deleteComment(commentId)),
+  deleteComment: (commentId) => dispatch(deleteComment(commentId)),
   createComment: (comment) => dispatch(createComment(comment)),
   updateComment: (comment) => dispatch(updateComment(comment)),
 });

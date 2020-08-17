@@ -102,7 +102,7 @@ router.patch('/:id',
                         exercises: workout._doc.exercises,
                         comments: workout._doc.comments
                     };
-                    debugger
+                    // debugger
                 res.json(result)    
             })
             .catch(err => res.status(404).json({ noworkoutfound: 'No workout found with that ID'})); 
