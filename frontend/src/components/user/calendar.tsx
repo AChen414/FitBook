@@ -34,18 +34,19 @@ class UserCalendar extends React.Component<ICalendarProps, {}> {
   onTreeDragStop(args?: DragAndDropEventArgs): void {
     if (args) {
       let cellData: CellClickEventArgs = this.scheduleObj.getCellDetails(args.target);
-      let eventData: {[key: string]: Object} = {
-        Subject: args.draggedNodeData.text,
-        StartTime: cellData.startTime,
-        EndTime: cellData.endTime,
-        IsAllDay: cellData.isAllDay
-      };
-
-      // this line opens the event editor on drop
-      this.scheduleObj.openEditor(eventData, "Add", true);
-    
-      // this line adds the dropped workout directly
-      // this.scheduleObj.addEvent(eventData);
+      if (cellData) {
+        let eventData: {[key: string]: Object} = {
+          Subject: args.draggedNodeData.text,
+          StartTime: cellData.startTime,
+          EndTime: cellData.endTime,
+          IsAllDay: cellData.isAllDay
+        };
+        // this line opens the event editor on drop
+        this.scheduleObj.openEditor(eventData, "Add", true);
+      
+        // this line adds the dropped workout directly
+        // this.scheduleObj.addEvent(eventData);
+      }
     } 
   }
 
