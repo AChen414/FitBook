@@ -9,7 +9,7 @@ const workouts = require("./routes/api/workouts");
 const passport = require('passport');
 const path = require('path');
 
-const profile = require("./routes/api/profile");
+// const profile = require("./routes/api/profile");
 
 
 mongoose
