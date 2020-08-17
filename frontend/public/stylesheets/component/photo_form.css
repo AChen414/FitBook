@@ -34,7 +34,7 @@
 }
 
 button.btn.btn-success.btn-sm {
-    width: 60%;
+    width: auto;
     margin-top: 15px;
 }
 

@@ -14,9 +14,7 @@ class UserProfile extends React.Component{
     }
 
     componentDidMount() {
-      // debugger
       this.props.fetchUserProfile(this.props.currentUser.id)
-      // debugger
       this.props.fetchUserWorkouts(this.props.currentUser.id)
     }
 
@@ -25,7 +23,6 @@ class UserProfile extends React.Component{
     this.setState({
       profilePic: e.target.files[0]
     })
-    debugger
     this.handleSubmitProfileImg(e)
   };
 
@@ -38,7 +35,6 @@ class UserProfile extends React.Component{
 
     const formData = new FormData();
     formData.append("file", this.state.profilePic);
-    debugger
     this.props.updateProfilePic(formData, this.props.currentUser.id)
       .then(() => {
         this.setState({
@@ -53,27 +49,31 @@ class UserProfile extends React.Component{
         if (!this.props.user) return null
         if (!this.props.workouts) return null 
         const {currentUser} = this.props
-        
         const UserWorkouts =
           this.props.workouts.length !== 0 ? (
             <ul className="workout-list">
               {this.props.workouts.map((workout) => (
-                <Link to={`/workouts/${workout._id}`}>
-                    <button key={workout._id} type="button" className="btn btn-info">
-                      {workout.title}
-                    </button>
+                <Link key={workout._id} to={`/workouts/${workout._id}`}>
+                  <button
+                    key={workout._id}
+                    type="button"
+                    className="btn btn-info"
+                  >
+                    {workout.title}
+                  </button>
                 </Link>
               ))}
             </ul>
           ) : (
             <div>No Workouts</div>
           );
-
-
-        const profileLink = `https://fit-book-bucket.s3.amazonaws.com/${this.props.user.profilePhotoKey}`
+        const tempProfilePic = "https://cdn.onlinewebfonts.com/svg/img_568657.png"
         // if profile link exists use it if not use default avatar
-        const profilePic =
-          this.props.user.profilePhotoKey !== "" ? (
+        const profileLink =
+          this.props.user.profilePhotoLink === tempProfilePic
+            ? tempProfilePic
+            : this.props.user.profilePhotoLink;
+        const profilePic = (
             <div className="profile-userpic">
               <img
                 src={profileLink}
@@ -81,15 +81,7 @@ class UserProfile extends React.Component{
                 alt=""
               />
             </div>
-          ) : (
-            <div className="profile-userpic">
-              <img
-                src="https://cdn.onlinewebfonts.com/svg/img_568657.png"
-                className="img-responsive"
-                alt=""
-              />
-            </div>
-          );
+          ) 
         
         return (
           <div className="user-body">
@@ -114,9 +106,6 @@ class UserProfile extends React.Component{
                         Change Profile Photo
                       </button>
                     </div>
-
-                   
-
                     <div className="profile-usermenu">
                       <ul className="nav">
                         <li>
@@ -125,21 +114,22 @@ class UserProfile extends React.Component{
                             Add a New Workout
                           </a>
                         </li>
-                        <li>
+                        {/* <li>
                           <a
                             href="#/profile"
-                            onClick={() => this.props.openModal("settings")}
+                            onClick={() => this.props.openModal("fitquiz")}
                           >
                             <i className="glyphicon glyphicon-user"></i>
                             User Quiz
                           </a>
-                        </li>
-                        {/* <li>
-                        <a href="#/profile">
+                        </li> */}
+                        <li>
+                        <a href="#/profile"
+                            onClick={() => this.props.openModal("testquiz")}>
                           <i className="glyphicon glyphicon-ok"></i>
-                          Goals
+                          Take the 1-minute Test
                         </a>
-                      </li> */}
+                      </li>
                       </ul>
                     </div>
                     <div id="recommendation">

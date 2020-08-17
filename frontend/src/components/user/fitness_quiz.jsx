@@ -1,6 +1,6 @@
 import React from 'react'
 
-import UserBioForm from './user_settings_form'
+import FitnessQuizForm from './fitness_quiz_form'
 
 class UserSettings extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class UserSettings extends React.Component {
               <h3 className="modal-title">User Quiz</h3>
             </div>
             <div className="modal-body">
-              <UserBioForm />
+              <FitnessQuizForm />
             </div>
             <div className="modal-footer">
               <button

@@ -41,11 +41,12 @@ router.post("/register", (req, res) => {
             return res.status(400).json(errors);
         } else {
             const newUser = new User({
-                username: req.body.username,
-                email: req.body.email,
-                password: req.body.password
+              username: req.body.username,
+              email: req.body.email,
+              password: req.body.password,
+              profilePhotoLink:
+                "https://cdn.onlinewebfonts.com/svg/img_568657.png",
             });
-
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(newUser.password, salt, (err, hash) => {
                     if (err) throw err;
@@ -111,7 +112,6 @@ router.post("/login", (req, res) => {
 
 
 router.get("/profile/:id", (req, res) => {
-    debugger
     User.findOne({ _id: req.params.id })
         .then(user => {
             if (!user) {
@@ -128,10 +128,8 @@ router.get("/profile/:id", (req, res) => {
 router.post("/:id/profile-img", upload.single("file"), (req,res) => {
     console.log('requestOkokok', req.file);
 
-    // debugger
     User.findOne({ _id: req.params.id})
         .then( user => {
-            // debugger
             if (!user) {
                 return res.status(404).json({ user: 'This user does not exist!' })
             } else {
@@ -154,12 +152,11 @@ router.post("/:id/profile-img", upload.single("file"), (req,res) => {
                 };
 
                 s3.upload(params, (err,data) => {
-                    // debugger
                     if (err) {
                         res.status(500).json({ error: true, Message: error });
                     } else {
-                        // debugger
-                        user.profilePhotoKey = params.Key
+                        photolink = `https://${params.Bucket}.s3.amazonaws.com/${params.Key}`;
+                        user.profilePhotoLink = photolink;
                         user.save()
                             .then(user => res.json(user))
                             .catch(err => console.log(err));
