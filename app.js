@@ -10,8 +10,6 @@ const comments = require("./routes/api/comments");
 const passport = require('passport');
 const path = require('path');
 
-const profile = require("./routes/api/profile");
-
 
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -39,5 +37,4 @@ app.use("/api/profile", profile);
 app.use("/api/comments", comments)
 
 const port = process.env.PORT || 5000;
-
 app.listen(port, () => console.log(`Server is runnning on port ${port}`));

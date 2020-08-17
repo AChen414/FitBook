@@ -19,7 +19,6 @@ class EditWorkoutForm extends React.Component {
   }
 
   async componentDidMount() {
-    // debugger
     await this.props.fetchWorkout(this.props.match.params.workoutId)
     await this.props.fetchUserExercises(this.props.user.id);
     this.setState({
@@ -85,7 +84,6 @@ class EditWorkoutForm extends React.Component {
     }
     let filteredExercises = Object.values(this.props.exercises).filter(
       (exercise) => {
-        // debugger
         return (
           exercise.title
             .toLowerCase()
@@ -126,24 +124,27 @@ class EditWorkoutForm extends React.Component {
                 <div className="workout-exec-title">Exercises</div>
                 <div className="workout-added-list">
                   {this.state.exercises.map((exerciseId, i) => {
-                    return (
-                      <>
-                        <li
-                          key={`workout-exercise-${i}`}
-                          className="workout-exercise-item"
-                        >
-                          {this.props.exercises[exerciseId].title}
-                          &nbsp;
-                          <button
-                            className="remove-workout-exercise"
-                            onClick={this.removeExercise(exerciseId)}
+                    if (!this.props.exercises[exerciseId]) {
+                      return null;
+                    } else {
+                      return (
+                        <>
+                          <li
+                            key={`workout-exercise-${i}`}
+                            className="workout-exercise-item"
                           >
-                            X
-                          </button>
-                        </li>
-                      </>
-                    );
-                  })}
+                            {this.props.exercises[exerciseId].title}
+                            &nbsp;
+                            <button
+                              className="remove-workout-exercise"
+                              onClick={this.removeExercise(exerciseId)}
+                            >
+                              X
+                            </button>
+                          </li>
+                        </>
+                      );
+                    }})}
                 </div>
               </label>
 
@@ -163,9 +164,9 @@ class EditWorkoutForm extends React.Component {
                 onChange={this.updateSearch}
                 placeholder="Filter by exercise"
               />
-              <a onClick={() => this.props.openModal("create exercise")}>
+              <button onClick={() => this.props.openModal("create exercise")}>
                 Create Exercise
-              </a>
+              </button>
               <ul className="exercise-ul">
                 {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
                 {filteredExercises.map((exercise, i) => (

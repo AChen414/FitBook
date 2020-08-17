@@ -1,7 +1,4 @@
 import React from "react";
-import Content from "./content"
-import Footer from "./footer"
-import { Link } from 'react-router-dom';
 
 class MainPage extends React.Component {
   render() {
@@ -11,16 +8,30 @@ class MainPage extends React.Component {
           <div className="jumbotron-content">
             <h1>FitBook</h1>
             {/* <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum imperdiet id ex in lobortis. Nullam.
-            </p> */}
-
-            <p>
-              <a className="btn btn-primary btn-lg" href="#" role="button">
-                {/* link to about us */}
-                Learn more about us
-              </a>
+              Take our 1 minute quiz below to discover the right workout program
+              for you and your body:
             </p>
+            <button
+              className="btn btn-primary btn-lg"
+              onClick={() => this.props.openModal("testquiz")}
+            >
+              Begin
+            </button> */}
+          </div>
+        </div>
+
+        <div className="fit-quiz-container">
+          <div className="fit-quiz-start">
+            <p>
+              Take our 1 minute quiz below to discover the right workout program
+              for you and your body:
+            </p>
+            <button
+              className="btn btn-primary btn-lg btn-fit"
+              onClick={() => this.props.openModal("testquiz")}
+            >
+              TAKE THE QUIZ
+            </button>
           </div>
         </div>
         <hr className="featurette-divider" />

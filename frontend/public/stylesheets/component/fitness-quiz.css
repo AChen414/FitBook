@@ -1,0 +1,266 @@
+.App-logo {
+  animation: spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: white;
+  padding: 20px;
+  color: black;
+  text-align: center;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.App-Content {
+    height: 360px;
+    margin-bottom: 50px;
+}
+
+.App-footer.card-footer.text-muted {
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #eee;
+  font-family: sans-serif;
+}
+
+.fitness-test-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 3px;
+}
+
+@media (min-width: 769px) {
+  .container {
+    margin: 2.5rem auto;
+  }
+}
+
+/* Result Component */
+.result {
+  padding: 1.5rem 2.5rem;
+}
+
+/* Quiz Component */
+.answerOptions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
+/* QuestionCount Component */
+.questionCount {
+  padding: 1.5rem 2.5rem 0;
+  font-size: 14px;
+}
+
+/* Question Component */
+.question {
+  margin: 0;
+  padding: 0.5rem 2.5rem 1.5rem 2.5rem;
+}
+
+/* AnswerOption Component */
+.answerOption {
+  border-top: 1px solid #eee;
+}
+
+.answerOption:hover {
+  background-color: #eefbfe;
+}
+
+.radioCustomButton {
+  position: absolute;
+  width: auto;
+  opacity: 0;
+}
+
+.radioCustomButton,
+.radioCustomLabel {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.radioCustomLabel {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 1.5rem 2.5rem 1.5rem 10rem;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.radioCustomButton ~ .radioCustomLabel:before {
+  position: absolute;
+  /* top: 20px; */
+  left: 38px;
+  width: 28px;
+  height: 28px;
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  background: #fff;
+  border: 1px solid #bbb;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.radioCustomButton:checked ~ .radioCustomLabel:before {
+  content: '';
+  background: #8bc53f url("https://images.vexels.com/media/users/3/157893/isolated/preview/d6f4e679138673eb3223362c70ecf7ce-check-mark-tick-icon-by-vexels.png") no-repeat;
+  background-size: 27px;
+  border-color: #8bc53f;
+}
+
+/* Animation */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out 0.3s;
+}
+
+.fade-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-appear {
+  opacity: 0;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.modal-content.fitness-modal {
+    height: 700px;
+    width: 800px;
+}
+
+/* Main Page */
+
+.fit-quiz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fit-quiz-start {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.fit-quiz-start > p {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+button.btn.btn-primary.btn-lg.btn-fit {
+    width: 60%;
+    align-self: center;
+}
+
+/* Progress Bar */
+
+.progress-icon-each img {
+    width: 50px;
+    height: 50px;
+}
+
+.progress-icons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.progress-icon-each {
+    width: 100px;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Results  */
+
+.fitness-result-head {
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.fitness-program {
+    font-size: 34px;
+    justify-content: center;
+    display: flex;
+    color: red;
+    font-weight: 800;
+    margin: 3rem;
+}
+
+.fitness-description {
+    display: flex;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.fitness-goal {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 2rem;
+}
+
+.fitness-result-content {
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.fitness-result-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+button.btn.btn-info.fitness-nav-btn {
+    width: auto;
+    height: 40px;
+    font-weight: 600;
+}

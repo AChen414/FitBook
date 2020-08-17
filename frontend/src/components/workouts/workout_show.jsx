@@ -1,7 +1,5 @@
 import React from "react";
 import CommentContainer from '../comments/comment_container'
-import { Link } from 'react-router-dom';
-import { updateWorkout } from "../../actions/workout_actions";
 
 class WorkoutShow extends React.Component {
     constructor(props) {
@@ -77,69 +75,36 @@ class WorkoutShow extends React.Component {
   }
 
     render() {
-      // debugger
-      // const { comment, user } = this.props;
-
-      // let buttons;
-      // if (user.id === comment.user.id && this.state.edit === false) {
-      //   buttons = (
-      //     <div className="workout-show-page-comment-buttons">
-      //       <button className="comment-button" onClick={this.handleEdit}>
-      //         Edit
-      //           </button>
-      //       &nbsp;
-      //           <button className="comment-button" onClick={this.handleDelete}>
-      //         Delete
-      //           </button>
-      //     </div>
-      //   );
-      // } else if (user.id === comment.user._id && this.state.edit === true) {
-      //   buttons = (
-      //     <div className="workout-show-page-comment-buttons">
-      //       <button className="comment-button" onClick={this.handleCancel}>
-      //         Cancel
-      //       </button>
-      //       &nbsp;
-      //       <button className="comment-button" onClick={this.handleSubmit}>
-      //         Save
-      //       </button>
-      //     </div>
-      //   );
-      // }
-
-      const { workout, exercises } = this.props
-      // if (!workout || !exercises) {
-      //     return null
-      // }
-      if (!this.state.load) {
-        return null
-      }
-      return (
-        <div id="workout-show">
-          <div className="workout-title">{workout.title}</div>
-          <div className="workout-show-container">
-            <div className="workout-exercise-title">
-              <ul>
-                {workout.exercises.map((exerciseId) => {
-                  if (!this.props.exercises[exerciseId]) {
-                    return null;
-                  } else {
-                    return (
-                      <li className="exercise-element">
-                        {exercises[exerciseId].title}
-                        <div className="exercise-img">
-                          <div
-                            className={`exercise-img-${exercises[
-                              exerciseId
-                            ].category.toLowerCase()}`}
-                          />
-                        </div>
-                      </li>
-                    );
-                  }
-                })}
-              </ul>
-            </div>
+        const { workout, exercises } = this.props
+        if (!this.state.load) {
+          return null
+        }
+        return (
+          <div id="workout-show">
+            <div className="workout-title">{workout.title}</div>
+            <div className="workout-show-container">
+              <div className="workout-exercise-title">
+                <ul>
+                  {workout.exercises.map((exerciseId) => {
+                    if (!exercises[exerciseId]) {
+                      return null;
+                    } else {
+                      return (
+                        <li className="exercise-element">
+                          {exercises[exerciseId].title}
+                          <div className="exercise-img">
+                            <div
+                              className={`exercise-img-${exercises[
+                                exerciseId
+                              ].category.toLowerCase()}`}
+                            />
+                          </div>
+                        </li>
+                      )
+                    }
+                  })}
+                </ul>
+              </div>
             <div className="workout-notes">
               <div className="workout-notes-header">Notes:</div>
               <br />

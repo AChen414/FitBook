@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { closeModal } from '../../actions/user_modal_actions';
-import { editExercise } from '../../actions/exercise_actions';
+import { closeModal } from '../../actions/modal_actions';
+import { editExercise, deletusExercise } from '../../actions/exercise_actions';
 
 const mSTP = state => {
   return {
@@ -13,15 +13,16 @@ const mSTP = state => {
 const mDTP = dispatch => {
   return {
     editExercise: exercise => dispatch(editExercise(exercise)),
+    deleteExercise: exerciseId => dispatch(deletusExercise(exerciseId)),
     closeModal: () => dispatch(closeModal())
   };
 }
 
 const ExerciseEditForm = props => {
-  const title = useFormInput(props.exercise.title);
-  const category = useFormInput(props.exercise.category);
-  const equipment = useFormInput(props.exercise.equipment);  
-  const notes = useFormInput(props.exercise.notes);
+  const title = useFormInput(props.exercise ? props.exercise.title : null);
+  const category = useFormInput(props.exercise ? props.exercise.category : null);
+  const equipment = useFormInput(props.exercise ? props.exercise.equipment : null);  
+  const notes = useFormInput(props.exercise ? props.exercise.notes : null);
   
   function handleSubmit(e) {
     e.preventDefault();
@@ -39,31 +40,35 @@ const ExerciseEditForm = props => {
 
   return (
     <div className="modal-dialog" role="document">
-      <div className="modal-content">
+      <div className="modal-content exercise-edit-content">
+        <button
+          type="button"
+          className="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          onClick={props.closeModal}
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
         <div className="modal-header">
-          <button
-            type="button"
-            className="close"
-            data-dismiss="modal"
-            aria-label="Close"
-            onClick={props.closeModal}
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h3 className="modal-title">Edit your exercise</h3>
+          <div className="modal-title-container">
+            <h3 className="modal-title">Edit your exercise</h3>
+          </div>
         </div>
         <form className="exercise-edit-form" onSubmit={handleSubmit}>
           <div className="form-group exercise-info">
-            <label>Title:
+            <label htmlFor="exampleFormControlInput1">Title:
             </label>
             <input
               type="text"
+              id="exampleFormControlInput1"
+              className="form-control"
               {...title}
             />
           </div>
           <div className="form-group exercise-category">
             <label htmlFor="exampleFormControlSelect1">
-              Select Category
+              Select Category:
             </label>
             <select 
               className="form-control" 
@@ -78,26 +83,53 @@ const ExerciseEditForm = props => {
               <option>Legs</option>
             </select>
           </div>
-          <div className="form-group exercise-info">
-            <label>Equipment:
+          <div className="form-group exercise-category">
+            <label htmlFor="exampleFormControlSelect2">
+              Equipment:
+            </label>
+            <select 
+              className="form-control" 
+              id="exampleFormControlSelect2" 
+              {...equipment}
+            >
+              <option>None</option>
+              <option>Machine</option>
+              <option>Barbell</option>
+              <option>Dumbell</option>
+            </select>
+          </div>
+          {/* <div className="form-group exercise-info">
+            <label for="exampleFormControlInput2">Equipment:
             </label>
             <input 
-              type="text" 
+              type="text"
+              id="exampleFormControlInput2"
+              className="form-control" 
               {...equipment}
             />
-          </div>
+          </div> */}
           <div className="form-group exercise-info">
-            <label>Notes:
+            <label htmlFor="exampleFormControlInput3">Notes:
             </label>
-            <input 
-              type="text" 
+            <textarea
+              type="text"
+              id="exampleFormControlInput3"
+              className="form-control"
               {...notes}
             />
           </div>
-          <button>
-            Update exercise
-          </button>
-        </form>  
+          <div className="exercise-edit-button">
+            <button className="btn btn-primary" type="submit">
+              Update exercise
+            </button>     
+            <button
+              className="btn btn-danger"
+              onClick={() => props.deleteExercise(props.exercise._id)}
+            >
+              Remove exercise
+            </button>    
+          </div>
+        </form>
       </div>
     </div>
   );

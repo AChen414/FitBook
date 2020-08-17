@@ -1,6 +1,6 @@
 import React from 'react'
 
-import UserBioForm from './user_settings_form'
+import FitnessQuizForm from './fitness_quiz_form'
 
 class UserSettings extends React.Component {
   constructor(props) {
@@ -19,7 +19,6 @@ class UserSettings extends React.Component {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h3 className="modal-title">User Quiz</h3>
               <button
                 type="button"
                 className="close"
@@ -29,9 +28,10 @@ class UserSettings extends React.Component {
               >
                 <span aria-hidden="true">&times;</span>
               </button>
+              <h3 className="modal-title">User Quiz</h3>
             </div>
             <div className="modal-body">
-              <UserBioForm />
+              <FitnessQuizForm />
             </div>
             <div className="modal-footer">
               <button

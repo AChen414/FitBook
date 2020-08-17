@@ -2,7 +2,6 @@
     background-image: url("https://fitbook-seeds.s3-us-west-1.amazonaws.com/home-page1.jpg");
     background-size: cover;
     height: 600px;
-    margin-top: 20px;
 }
 
 .main-page {
@@ -37,4 +36,9 @@ h2.featurette-heading {
 
 .lead {
     font-size: 32px;
+}
+
+hr.featurette-divider {
+    width: 90%;
+    border-bottom: 1px solid lightgray;
 }

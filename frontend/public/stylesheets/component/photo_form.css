@@ -1,11 +1,71 @@
-.card.border-light.mb-3.mt-5 {
+.upload-img-container {
     background: white;
     width: 300px;
+    height: 420px;
     padding: 10px;
-    border-radius: 3px;
+    border-radius: 6px;
 }
 
+.profile-userpic img{
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid black;
+}
 
-input[type="file"] {
+.card.border-light.mb-3.mt-5 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.current-img {
+    display: flex;
+    justify-content: center;
+}
+
+.user-profile-pic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button.btn.btn-success.btn-sm {
+    width: auto;
+    margin-top: 15px;
+}
+
+.btn-success {
     margin: 5px;
+    width: 250px;
 }
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input.file-upload {
+    margin-left: 18px;
+    margin-bottom: 10px;
+}
+
+.upload-form-title{
+    font-size:34px;
+    color: #555;
+    margin-left: 12px;
+}
+.card-header {
+    margin-bottom: 15px;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.abcdef {
+    display: grid;
+}
+
