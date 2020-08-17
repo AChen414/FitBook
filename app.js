@@ -9,7 +9,6 @@ const workouts = require("./routes/api/workouts");
 const passport = require('passport');
 const path = require('path');
 
-// const profile = require("./routes/api/profile");
 
 
 mongoose
@@ -34,7 +33,6 @@ require('./config/passport')(passport);
 app.use("/api/users", users);
 app.use("/api/exercises", exercises);
 app.use("/api/workouts", workouts);
-// app.use("/api/profile", profile);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is runnning on port ${port}`));
