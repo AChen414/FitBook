@@ -8,11 +8,9 @@ const usersReducer = (state = {}, action) => {
         case RECEIVE_USER:
             newState[action.user.data._id] = action.user.data;
            return newState
-    
-    
         default:
             return state;
     }
 }
 
-export default usersReducer
+export default usersReducer;
