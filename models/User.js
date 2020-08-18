@@ -16,6 +16,9 @@ const UserSchema = new Schema({
     },
     profilePhotoKey: {
         type: String
+    },
+    calendarData: {
+        type: Array
     }
 }, {
     timestamps: true

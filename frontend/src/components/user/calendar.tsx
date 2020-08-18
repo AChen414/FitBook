@@ -18,18 +18,29 @@ import {
 
 interface ICalendarProps {
   workouts?: { [key: string]: Object }[];
+  calendarData?: { [key: string]: Object }[];
+  currentUser?: String;
+  editUser: (user: Object) => void;
 }
 
 class UserCalendar extends React.Component<ICalendarProps, {}> {
   public scheduleObj!: ScheduleComponent;
 
-  private treeViewData: {[key: string]: Object}[] = [
-      { Id: 1, Name: 'Chest' },
-      { Id: 2, Name: 'Back' }
-    ];
-
-  // public fields: Object = { dataSource: this.treeViewData, id: 'Id', text: 'Name' };
   public fields: Object = { dataSource: this.props.workouts, id: 'Id', text: 'Name' };
+
+  public data: { [key: string]: Object }[] = [{
+    Id: 3,
+    Subject: 'Testing',
+    StartTime: new Date(2020, 7, 19, 9, 0),
+    EndTime: new Date(2020, 7, 19, 10, 0),
+    IsAllDay: false
+  }, {
+    Id: 4,
+    Subject: 'Vacation',
+    StartTime: new Date(2020, 7, 20, 9, 0),
+    EndTime: new Date(2020, 7, 20, 10, 0),
+    IsAllDay: false
+  }]; 
 
   onTreeDragStop(args?: DragAndDropEventArgs): void {
     if (args) {
@@ -43,21 +54,34 @@ class UserCalendar extends React.Component<ICalendarProps, {}> {
         };
         // this line opens the event editor on drop
         this.scheduleObj.openEditor(eventData, "Add", true);
-      
+        
         // this line adds the dropped workout directly
         // this.scheduleObj.addEvent(eventData);
       }
     } 
   }
 
-  public render () {
+  // this.scheduleObj.eventSettings.properties.dataSource
+
+  addEventToUserCalendar(){
+    let updatedUser: Object = {
+      calendarData: this.scheduleObj.eventSettings.dataSource,
+      _id: this.props.currentUser
+    }
+
+    this.props.editUser(updatedUser);
+  }
+
+  public render() {
+    // debugger
     return (
       <div>
+        <button onClick={this.addEventToUserCalendar.bind(this)}>Save</button>
         <div className="scheduler-component">
           <ScheduleComponent
             height="550px"
             currentView="Month"
-            // eventSettings={{ dataSource: this.data }}
+            eventSettings={{ dataSource: this.props.calendarData }}
             ref={schedule => this.scheduleObj = schedule as ScheduleComponent}
           >
             <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
