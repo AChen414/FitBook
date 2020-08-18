@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
-import  FitnessQuiz  from "../user/fitness_quiz_container";
 import PhotoForm from '../user/upload_photo_container'
 import ExerciseEditForm from "../exercises/exercise_edit_form";
 import ExerciseModal from '../exercises/exercise_form_container'; // update to container
@@ -13,9 +12,6 @@ function Modal({ modal, closeModal }) {
   }
   let component;
   switch (modal.type) {
-    case "fitquiz":
-      component = <FitnessQuiz />;
-      break;
     case "testquiz":
       component = <TestForm closeModal={closeModal}/>;
       break;
