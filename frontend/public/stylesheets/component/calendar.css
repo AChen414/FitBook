@@ -1,0 +1,37 @@
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-bottom {
+  display: flex;
+}
+
+.treeview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.e-fullrow {
+  padding: none;
+}
+
+.e-no-drop {
+  visibility: hidden;
+  display: none;
+  padding-right: 10px;
+}
+
+.e-treeview .e-text-content {
+  padding: 0 24px 0 24px !important;
+}
+
+.e-list-text {
+  margin-right: 20px;
+}
+
+.e-prevent-select, .e-list-item, .e-fullrow {
+  cursor: pointer !important;
+}

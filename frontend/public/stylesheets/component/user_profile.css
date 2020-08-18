@@ -200,21 +200,3 @@
   font-size: 12px;
   line-height: 5px;
 }
-
-.e-no-drop {
-  visibility: hidden;
-  display: none;
-  padding-right: 10px;
-}
-
-.e-treeview .e-text-content {
-  padding: 0 24px 0 24px !important;
-}
-
-.e-list-text {
-  margin-right: 20px;
-}
-
-.e-prevent-select, .e-list-item, .e-fullrow {
-  cursor: pointer !important;
-}

@@ -14,7 +14,7 @@ class UserProfile extends React.Component{
       this.handleSubmitProfileImg = this.handleSubmitProfileImg.bind(this);
     }
 
-    async componentWillMount() {
+    async UNSAFE_componentWillMount() {
       await this.props.fetchUserWorkouts(this.props.currentUser.id)
     }
 

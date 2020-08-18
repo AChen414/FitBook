@@ -28,19 +28,19 @@ class UserCalendar extends React.Component<ICalendarProps, {}> {
 
   public fields: Object = { dataSource: this.props.workouts, id: 'Id', text: 'Name' };
 
-  public data: { [key: string]: Object }[] = [{
-    Id: 3,
-    Subject: 'Testing',
-    StartTime: new Date(2020, 7, 19, 9, 0),
-    EndTime: new Date(2020, 7, 19, 10, 0),
-    IsAllDay: false
-  }, {
-    Id: 4,
-    Subject: 'Vacation',
-    StartTime: new Date(2020, 7, 20, 9, 0),
-    EndTime: new Date(2020, 7, 20, 10, 0),
-    IsAllDay: false
-  }]; 
+  // public data: { [key: string]: Object }[] = [{
+  //   Id: 3,
+  //   Subject: 'Testing',
+  //   StartTime: new Date(2020, 7, 19, 9, 0),
+  //   EndTime: new Date(2020, 7, 19, 10, 0),
+  //   IsAllDay: false
+  // }, {
+  //   Id: 4,
+  //   Subject: 'Vacation',
+  //   StartTime: new Date(2020, 7, 20, 9, 0),
+  //   EndTime: new Date(2020, 7, 20, 10, 0),
+  //   IsAllDay: false
+  // }]; 
 
   onTreeDragStop(args?: DragAndDropEventArgs): void {
     if (args) {
@@ -63,7 +63,7 @@ class UserCalendar extends React.Component<ICalendarProps, {}> {
 
   // this.scheduleObj.eventSettings.properties.dataSource
 
-  addEventToUserCalendar(){
+  addEventsToUserCalendar(){
     let updatedUser: Object = {
       calendarData: this.scheduleObj.eventSettings.dataSource,
       _id: this.props.currentUser
@@ -73,27 +73,37 @@ class UserCalendar extends React.Component<ICalendarProps, {}> {
   }
 
   public render() {
-    // debugger
     return (
-      <div>
-        <button onClick={this.addEventToUserCalendar.bind(this)}>Save</button>
-        <div className="scheduler-component">
-          <ScheduleComponent
-            height="550px"
-            currentView="Month"
-            eventSettings={{ dataSource: this.props.calendarData }}
-            ref={schedule => this.scheduleObj = schedule as ScheduleComponent}
+      <div className="calendar-container">
+        <div className="calendar-top">
+          <button 
+            className="calendar-save-btn" 
+            onClick={this.addEventsToUserCalendar.bind(this)}
           >
-            <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
-          </ScheduleComponent>
+            Save Your Schedule Changes
+          </button>
         </div>
-        <div className="treeview-title-container">Your Workouts:</div>
-        <div className="treeview-component">
-          <TreeViewComponent 
-            fields={this.fields} 
-            allowDragAndDrop={true}
-            nodeDragStop={this.onTreeDragStop.bind(this)}
-          />
+        <div className="calendar-bottom">
+          <div className="scheduler-component">
+            <ScheduleComponent
+              height="550px"
+              currentView="Month"
+              eventSettings={{ dataSource: this.props.calendarData }}
+              ref={schedule => this.scheduleObj = schedule as ScheduleComponent}
+            >
+              <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
+            </ScheduleComponent>
+          </div>
+          <div className="treeview-container">
+            <div className="treeview-title-container">Your Workouts:</div>
+            <div className="treeview-component">
+              <TreeViewComponent 
+                fields={this.fields} 
+                allowDragAndDrop={true}
+                nodeDragStop={this.onTreeDragStop.bind(this)}
+              />
+            </div>
+          </div>
         </div>
       </div>
     );
