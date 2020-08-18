@@ -18,6 +18,9 @@ const UserSchema = new Schema(
     profilePhotoLink: {
       type: String,
     },
+    fitnessProgram: {
+      type: String,
+    }
   },
   {
     timestamps: true,
