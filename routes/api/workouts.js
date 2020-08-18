@@ -6,6 +6,27 @@ const passport = require('passport');
 const Workout = require('../../models/Workout');
 const validateWorkoutInput = require('../../validation/workouts');
 
+router.get("/", (req, res) => {
+  Workout.find()
+    .then(workouts => {
+      const packagez = {}
+
+      workouts.forEach(workout => {
+        packagez[workout._doc._id.toString()] = {
+          _id: workout._doc._id.toString(),
+          user: workout._doc.user.toString(),
+          title: workout._doc.title,
+          notes: workout._doc.notes,
+          exercises: workout._doc.exercises,
+        };
+      });
+      res.json(packagez);
+    })
+    .catch((err) =>
+      res.status(404).json({ noworkoutsfound: "No workouts found" })
+    );
+});
+
 router.get('/user/:user_id', (req, res) => {    
     Workout.find({ user: req.params.user_id })
         .then(workouts => {

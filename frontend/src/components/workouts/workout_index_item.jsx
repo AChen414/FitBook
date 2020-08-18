@@ -19,6 +19,7 @@ class WorkoutIndexItem extends React.Component {
         this.props.updateWorkout(this.props.workout._id);    }
 
     render() {
+      debugger
         return (
           <div className="workout-item">
             <div className="workout-item-content">

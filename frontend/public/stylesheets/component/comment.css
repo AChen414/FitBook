@@ -1,0 +1,24 @@
+.comment-content-container {
+    margin-top: 10px;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 10px;
+    border: 1px solid lightgray;
+}
+
+.commenter {
+    text-align: left;
+    font-weight: bold;
+    margin-left: 15px;
+
+}
+
+.comment-content {
+    text-align: left;
+    margin-left: 15px;
+}
+
+.workout-show-page-comment-buttons {
+    text-align: left;
+    margin-left: 15px;
+}

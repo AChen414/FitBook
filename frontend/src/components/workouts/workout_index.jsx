@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import WorkoutIndexItem from './workout_index_item';
 
 class WorkoutIndex extends React.Component {
-    componentDidMount() {
-        this.props.fetchUserWorkouts(this.props.user.id);
+    async componentDidMount() {
+      await this.props.fetchWorkouts();
+      await this.props.fetchUserWorkouts(this.props.user.id);
     };
 
     render() {
+      debugger
         if (!this.props.workouts) return null
         
         return (

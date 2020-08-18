@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export const getWorkouts = () => {
-    return axios.get(`api/workouts`)
-} 
+    return axios.get('/api/workouts')
+};
 
 export const getUserWorkouts = (userId) => {
     return axios.get(`/api/workouts/user/${userId}`)

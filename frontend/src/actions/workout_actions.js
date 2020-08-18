@@ -1,15 +1,15 @@
 import * as WorkoutAPIUtil from '../util/workout_api_util';
-import { getUserWorkouts } from '../util/workout_api_util';
+import { getUserWorkouts, getWorkouts } from '../util/workout_api_util';
 
-export const RECEIVE_ALL_WORKOUTS = "RECEIVE_ALL_WORKOUTS"; 
+export const RECEIVE_WORKOUTS = "RECEIVE_WORKOUTS"; 
 export const RECEIVE_USER_WORKOUTS = "RECEIVE_USER_WORKOUTS";
 export const RECEIVE_WORKOUT = "RECEIVE_WORKOUT";
 export const REMOVE_WORKOUT = "REMOVE_WORKOUT";
 export const RECEIVE_WORKOUT_ERRORS = "RECEIVE_WORKOUT_ERRORS";
 
-export const receiveAllWorkout = (workouts) => {
+export const receiveWorkouts = workouts => {
     return {
-        type: RECEIVE_ALL_WORKOUTS,
+        type: RECEIVE_WORKOUTS,
         workouts
     }
 }
@@ -44,11 +44,9 @@ export const receiveErrors = (errors) => {
 };
 
 export const fetchWorkouts = () => dispatch => {
-    WorkoutAPIUtil.getWorkouts()
-        .then(
-            workouts => dispatch(receiveAllWorkout(workouts.data)),
-            err => dispatch(receiveErrors(err.response.data))
-        )
+    getWorkouts()
+        .then(workouts => dispatch(receiveWorkouts(workouts)))
+        .catch(err => console.log(err))
 }
 
 export const fetchUserWorkouts = (userId) => dispatch => {

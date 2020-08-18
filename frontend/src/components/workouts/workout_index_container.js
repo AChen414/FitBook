@@ -2,20 +2,23 @@ import { connect } from 'react-redux';
 import { 
   fetchUserWorkouts, 
   fetchWorkout, 
-  deleteWorkout 
+  deleteWorkout,
+  fetchWorkouts 
 } from '../../actions/workout_actions';
 import WorkoutIndex from './workout_index';
 import { fetchUserExercises } from "../../actions/exercise_actions";
 
 const mapStateToProps = state => {
   return {
-    workouts: Object.values(state.entities.workouts),
+    allWorkouts: Object.values(state.entities.workouts.all),
+    workouts: Object.values(state.entities.workouts.user),
     user: state.session.user
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    fetchWorkouts: () => dispatch(fetchWorkouts()),
     fetchUserWorkouts: (userId) => dispatch(fetchUserWorkouts(userId)),
     fetchWorkout: (workoutId) => dispatch(fetchWorkout(workoutId)),
     deleteWorkout: (workoutId) => dispatch(deleteWorkout(workoutId)),

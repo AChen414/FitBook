@@ -2,18 +2,20 @@ import {
     RECEIVE_USER_WORKOUTS,
     RECEIVE_WORKOUT,
     REMOVE_WORKOUT,
-  RECEIVE_ALL_WORKOUTS,
+    RECEIVE_WORKOUTS,
 } from '../actions/workout_actions';
 
-const workoutsReducer = (state = {}, action) => {
+const workoutsReducer = (state = { all: {}, user: {} }, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
 
     switch (action.type) {
-      case RECEIVE_ALL_WORKOUTS:
-        return action.workouts;
+      case RECEIVE_WORKOUTS:
+        newState.all = action.workouts;
+        return newState;
       case RECEIVE_USER_WORKOUTS:
-        return action.workouts;
+        newState.user = action.workouts;
+        return newState;
       case RECEIVE_WORKOUT:
         newState[action.workout._id] = action.workout;
         return newState;
