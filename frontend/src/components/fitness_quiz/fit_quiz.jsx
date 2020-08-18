@@ -3,8 +3,7 @@ import quizQuestions from './api/quiz_questions'
 import Quiz from './api/quiz'
 import Result from './api/result'
 
-
-class TestForm extends React.Component {
+class QuizForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -98,6 +97,7 @@ class TestForm extends React.Component {
       <Result
         quizResult={this.state.result}
         closeModal={this.props.closeModal}
+        user={this.props.user}
       />
     );
   }
@@ -184,4 +184,4 @@ class TestForm extends React.Component {
 }
 
 
-export default TestForm
+export default QuizForm
