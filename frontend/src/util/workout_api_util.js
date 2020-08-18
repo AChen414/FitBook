@@ -1,5 +1,9 @@
 import axios from "axios";
 
+export const getWorkouts = () => {
+    return axios.get(`api/workouts`)
+} 
+
 export const getUserWorkouts = (userId) => {
     return axios.get(`/api/workouts/user/${userId}`)
 };
@@ -13,6 +17,7 @@ export const createWorkout = (data) => {
 };
 
 export const updateWorkout = (data) => {
+    // debugger
     return axios.patch(`/api/workouts/${data._id}`, data)
 };
 

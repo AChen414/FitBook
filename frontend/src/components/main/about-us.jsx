@@ -24,7 +24,7 @@ const AboutUs = () => (
           <div className="about-us-box">
             <div className="about-us-pic">
               <p>Andrew Chen</p>
-              <img src="" alt="" />
+              <img src="https://media-exp1.licdn.com/dms/image/C5603AQF0EejdbaIi1g/profile-displayphoto-shrink_800_800/0?e=1602720000&v=beta&t=-BtjKkuOToSkhGn92LsyoUaUWozyZUfqHgKBk2A3Epk" alt="" />
             </div>
 
             <div className="link-session">

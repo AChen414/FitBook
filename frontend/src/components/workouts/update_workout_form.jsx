@@ -77,10 +77,10 @@ class EditWorkoutForm extends React.Component {
 
   render() {
     if (!this.props.exercises) {
-        return null
+      return null
     }
     if (!this.state.load) {
-        return null
+      return null
     }
     let filteredExercises = Object.values(this.props.exercises).filter(
       (exercise) => {
