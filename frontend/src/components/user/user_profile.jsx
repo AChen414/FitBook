@@ -9,41 +9,12 @@ class UserProfile extends React.Component{
       this.state = {
         profilePic: null,
       };
-      this.handleProfileImg = this.handleProfileImg.bind(this);
-      this.handleSubmitProfileImg = this.handleSubmitProfileImg.bind(this);
     }
 
     componentDidMount() {
       this.props.fetchUserProfile(this.props.currentUser.id)
       this.props.fetchUserWorkouts(this.props.currentUser.id)
     }
-
-  handleProfileImg(e) {
-    e.preventDefault();
-    this.setState({
-      profilePic: e.target.files[0]
-    })
-    this.handleSubmitProfileImg(e)
-  };
-
-  handleSubmitProfileImg(e) {
-    e.preventDefault();
-
-    if (!this.state.profilePic) {
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append("file", this.state.profilePic);
-    this.props.updateProfilePic(formData, this.props.currentUser.id)
-      .then(() => {
-        this.setState({
-          profilePic: null
-        })
-      })
-  }
-
-
 
   render (){
       if (!this.props.user) return null
@@ -83,14 +54,14 @@ class UserProfile extends React.Component{
           </div>
         ) 
       
+    
+      
       return (
         <div className="user-body">
           <div className="container">
             <div className="row profile">
               <div className="col-md-3">
                 <div className="profile-sidebar">
-
-
                   <div className="user-profile-pic">
                     <div className="profile-usertitle">
                       <div className="profile-usertitle-name">
@@ -101,7 +72,7 @@ class UserProfile extends React.Component{
                     <button
                       type="button"
                       className="btn btn-success btn-sm"
-                      onClick={() => this.props.openModal("photo")} 
+                      onClick={() => this.props.openModal("photo")}
                     >
                       Change Profile Photo
                     </button>
@@ -124,12 +95,14 @@ class UserProfile extends React.Component{
                         </a>
                       </li> */}
                       <li>
-                      <a href="#/profile"
-                          onClick={() => this.props.openModal("testquiz")}>
-                        <i className="glyphicon glyphicon-ok"></i>
-                        Take the 1-minute Test
-                      </a>
-                    </li>
+                        <a
+                          href="#/profile"
+                          onClick={() => this.props.openModal("testquiz")}
+                        >
+                          <i className="glyphicon glyphicon-ok"></i>
+                          Take the 1-minute Test
+                        </a>
+                      </li>
                     </ul>
                   </div>
                   <div id="recommendation">
@@ -146,12 +119,27 @@ class UserProfile extends React.Component{
                   </div>
                 </div>
               </div>
-
+              
+              {/* Top Nav */}
               <div className="col-md-9">
                 <div className="user-workouts">
-                  <h4>My Workouts: </h4>
+                  <ul className="nav nav-tabs">
+                    <li className="nav-item">
+                      <div className="nav-link active">
+                        View My Workouts
+                      </div>
+                    </li>
+                    <li className="nav-item">
+                      <div className="nav-link">
+                        My Program
+                      </div>
+                    </li>
+                  </ul>
+                  <h4>My Workouts Links: </h4>
                   {UserWorkouts}
                 </div>
+
+
                 <div className="profile-content">
                   <div className="schedule-header">
                     <h4>Your Schedule</h4>
