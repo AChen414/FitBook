@@ -4,6 +4,8 @@ const workoutErrorsReducer = (state=[], action) => {
     Object.freeze(state);
 
     switch (action.type) {
+        case WorkoutActions.RECEIVE_ALL_WORKOUTS:
+            return [];
         case WorkoutActions.RECEIVE_WORKOUT_ERRORS:
             return action.errors
         case WorkoutActions.RECEIVE_USER_WORKOUTS:

@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const users = require("./routes/api/users");
 const exercises = require("./routes/api/exercises");
 const workouts = require("./routes/api/workouts");
+const comments = require("./routes/api/comments");
 const passport = require('passport');
 const path = require('path');
 
@@ -32,6 +33,7 @@ require('./config/passport')(passport);
 app.use("/api/users", users);
 app.use("/api/exercises", exercises);
 app.use("/api/workouts", workouts);
+app.use("/api/comments", comments)
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is runnning on port ${port}`));
