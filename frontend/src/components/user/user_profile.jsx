@@ -4,17 +4,22 @@ import { Link, withRouter} from 'react-router-dom';
 
 
 class UserProfile extends React.Component{
-    constructor(props){
-      super(props)
-      this.state = {
-        profilePic: null,
-      };
-    }
+  constructor(props){
+    super(props)
+    this.state = {
+      profilePic: null,
+    };
 
-    componentDidMount() {
-      this.props.fetchUserProfile(this.props.currentUser.id)
-      this.props.fetchUserWorkouts(this.props.currentUser.id)
-    }
+  }
+
+  componentDidMount() {
+    this.props.fetchUserProfile(this.props.currentUser.id)
+    this.props.fetchUserWorkouts(this.props.currentUser.id)
+  }
+  
+  handleNavChoice(){
+
+  }
 
   render (){
       if (!this.props.user) return null
@@ -119,26 +124,35 @@ class UserProfile extends React.Component{
                   </div>
                 </div>
               </div>
-              
+
               {/* Top Nav */}
               <div className="col-md-9">
-                <div className="user-workouts">
+                <div className="user-nav-container">
                   <ul className="nav nav-tabs">
-                    <li className="nav-item">
-                      <div className="nav-link active">
+                    <li className="active">
+                      <a href="#Workout" data-toggle="tab">
                         View My Workouts
-                      </div>
+                      </a>
                     </li>
-                    <li className="nav-item">
-                      <div className="nav-link">
+                    <li >
+                      <a href="#Program" data-toggle="tab">
                         My Program
-                      </div>
+                      </a>
                     </li>
                   </ul>
-                  <h4>My Workouts Links: </h4>
-                  {UserWorkouts}
-                </div>
 
+                  <div className="tab-content">
+                    <div className="tab-pane fade in active" id="Workout">
+                      <h4>My Workouts Links: </h4>
+                      {UserWorkouts}
+                    </div>
+                    <div className="tab-pane fade" id="Program">
+                      <h4>Program </h4>
+                      this hard ass shit
+                    </div>
+                  </div>
+
+                </div>
 
                 <div className="profile-content">
                   <div className="schedule-header">
