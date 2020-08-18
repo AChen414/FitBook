@@ -25,8 +25,8 @@ class UserProfile extends React.Component{
       if (!this.props.user) return null
       if (!this.props.workouts) return null 
       const {currentUser} = this.props
-      const UserWorkouts =
-        this.props.workouts.length !== 0 ? (
+
+      const UserWorkouts = this.props.workouts.length !== 0 ? (
           <ul className="workout-list">
             {this.props.workouts.map((workout) => (
               <Link key={workout._id} to={`/workouts/${workout._id}`}>
@@ -41,8 +41,19 @@ class UserProfile extends React.Component{
             ))}
           </ul>
         ) : (
-          <div>No Workouts</div>
+          <div className="workout-list-none">
+            <h3>No Current Workouts...</h3>
+            <Link to={`/workouts`}>
+              <button
+                type="button"
+                className="btn btn-info workout-nav-btn"
+              >
+                Add A New Workout
+              </button>
+            </Link>
+          </div>
         );
+
       const tempProfilePic = "https://cdn.onlinewebfonts.com/svg/img_568657.png"
       // if profile link exists use it if not use default avatar
       const profileLink =
@@ -90,15 +101,6 @@ class UserProfile extends React.Component{
                           Add a New Workout
                         </a>
                       </li>
-                      {/* <li>
-                        <a
-                          href="#/profile"
-                          onClick={() => this.props.openModal("fitquiz")}
-                        >
-                          <i className="glyphicon glyphicon-user"></i>
-                          User Quiz
-                        </a>
-                      </li> */}
                       <li>
                         <a
                           href="#/profile"
@@ -143,12 +145,12 @@ class UserProfile extends React.Component{
 
                   <div className="tab-content">
                     <div className="tab-pane fade in active" id="Workout">
-                      <h4>My Workouts Links: </h4>
+                      <h4 className="tab-header">My Workouts Links: </h4>
                       {UserWorkouts}
                     </div>
                     <div className="tab-pane fade" id="Program">
-                      <h4>Program </h4>
-                      this hard ass shit
+                      <h4 className="tab-header">Program</h4>
+                      this workout is so hard
                     </div>
                   </div>
 

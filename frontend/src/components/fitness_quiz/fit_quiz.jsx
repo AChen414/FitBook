@@ -170,7 +170,7 @@ class TestForm extends React.Component {
           </div>
 
           {progressbar}
-
+        
           <div className="App-Content">
             {this.state.result ? this.renderResult() : this.renderQuiz()}
           </div>
