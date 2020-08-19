@@ -16,12 +16,19 @@ const UserSchema = new Schema(
       required: true,
     },
     profilePhotoLink: {
-      type: String,
+        type: String
     },
+      calendarData: {
+        type: Array
+    },
+    fitnessProgram: {
+      type: String,
+    }
   },
   {
     timestamps: true,
   }
 );
+
 
 module.exports = User = mongoose.model('User', UserSchema);
