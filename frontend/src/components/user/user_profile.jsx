@@ -54,13 +54,57 @@ class UserProfile extends React.Component{
             </Link>
           </div>
         );
+      
+      // Fitness Program
+      let workoutPlan 
+      let userFitnessProgram = this.props.user.fitnessProgram.split(' ')
+      if ( userFitnessProgram[0] === "Beginner") {
+        workoutPlan = (
+          <div className="workout-plan">
+            <div className="workout-duration">Duration: 8 Weeks</div>
+            <div className="workout-days">Work Out Days Per Week: <strong>3</strong> </div>
+            <div className="workout-focus">
+              Focus: Muscle Endurance, Strength Training
+            </div>
+          </div>
+        );
+      } else if (userFitnessProgram[0] === "Intermediate") {
+        workoutPlan = (
+          <div className="workout-plan">
+            <div className="workout-duration">Duration: 8 Weeks</div>
+            <div className="workout-days">
+              Work Out Days Per Week: <strong>4</strong>{" "}
+            </div>
+            <div className="workout-focus">
+              Focus: Muscle Growth, Strength Training
+            </div>
+          </div>
+        );;
+      } else {
+        workoutPlan = (
+          <div className="workout-plan">
+            <div className="workout-duration">Duration: 8 Weeks</div>
+            <div className="workout-days">
+              Work Out Days Per Week: <strong>5</strong>{" "}
+            </div>
+            <div className="workout-focus">
+              Focus: Muscle Tone, Strength Training
+            </div>
+          </div>
+        );;
+      }
 
       const fitnessProgramType =
         this.props.user.fitnessProgram !== "" ? (
-          <div>Lets get shredded</div>
+          <div className="fit-program-container">
+            <div className="fitness-program">
+              The {this.props.user.fitnessProgram}
+            </div>
+            {workoutPlan}
+          </div>
         ) : (
           <div className="fit-program-none">
-            <h3>No FitnessProgram yet</h3>
+            <h3>No Fitness Program Discovered Yet</h3>
             <button
               type="button"
               className="btn btn-info workout-nav-btn"
@@ -71,6 +115,9 @@ class UserProfile extends React.Component{
           </div>
         );
 
+     
+
+      // Pictures 
       const tempProfilePic = "https://cdn.onlinewebfonts.com/svg/img_568657.png"
       // if profile link exists use it if not use default avatar
       const profileLink =
@@ -88,7 +135,6 @@ class UserProfile extends React.Component{
         ) 
       
     
-      
       return (
         <div className="user-body">
           <div className="container">
@@ -149,42 +195,41 @@ class UserProfile extends React.Component{
                 <div className="user-nav-container">
                   <ul className="nav nav-tabs">
                     <li className="active">
-                      <a href="#Workout" data-toggle="tab">
-                        View My Workouts
+                      <a href="#Program" data-toggle="tab">
+                        My Program
                       </a>
                     </li>
                     <li>
-                      <a href="#Program" data-toggle="tab">
-                        My Program
+                      <a href="#Workout" data-toggle="tab">
+                        View My Workouts
                       </a>
                     </li>
                   </ul>
 
                   <div className="tab-content">
-                    <div className="tab-pane fade in active" id="Workout">
-                      <h4 className="tab-header">My Workouts Links: </h4>
-                      {UserWorkouts}
-                    </div>
-                    <div className="tab-pane fade" id="Program">
+                    <div className="tab-pane fade in active" id="Program">
                       <h4 className="tab-header">My Workout Program</h4>
                       {fitnessProgramType}
+                    </div>
+                    <div className="tab-pane fade " id="Workout">
+                      <h4 className="tab-header">My Workouts Links: </h4>
+                      {UserWorkouts}
                     </div>
                   </div>
                   <div className="profile-content">
                     <div className="schedule-header">
                       <h4>Your Schedule</h4>
-
                     </div>
-                    <UserCalendar 
+                    <UserCalendar
                       editUser={this.props.editUser}
                       currentUser={this.props.user._id}
                       calendarData={this.props.user.calendarData}
-                      workouts={this.props.workouts.map(workout => {
-                        return { Id: workout._id, Name: workout.title }
-                      })} 
+                      workouts={this.props.workouts.map((workout) => {
+                        return { Id: workout._id, Name: workout.title };
+                      })}
                     />
                   </div>
-                  </div>
+                </div>
               </div>
             </div>
           </div>
