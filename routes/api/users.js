@@ -113,7 +113,7 @@ router.post("/login", (req, res) => {
                   profilePhotoLink: user.profilePhotoLink,
                   fitnessProgram: user.fitnessProgram,
                 };
-                
+                debugger
                 jwt.sign(payload, keys.secretOrKey, { expiresIn: '7d' }, (err, token) => {
                     res.json({
                         success: true,
@@ -218,8 +218,9 @@ router.patch('/:id/calendar',
                     _id: user._doc._id.toString(),
                     username: user._doc.username,
                     email: user._doc.email,
-                    profilePhotoKey: user._doc.profilePhotoKey,
-                    calendarData: user._doc.calendarData
+                    profilePhotoLink: user._doc.profilePhotoLink,
+                    calendarData: user._doc.calendarData,
+                    fitnessProgram: user._doc.fitnessProgram
                 };
                 res.json(result)
             })
