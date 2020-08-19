@@ -17,9 +17,6 @@ class UserProfile extends React.Component{
     this.props.fetchUserWorkouts(this.props.currentUser.id)
   }
   
-  handleNavChoice(){
-
-  }
 
   render (){
       if (!this.props.user) return null
@@ -51,6 +48,22 @@ class UserProfile extends React.Component{
                 Add A New Workout
               </button>
             </Link>
+          </div>
+        );
+
+      const fitnessProgramType =
+        this.props.user.fitnessProgram !== "" ? (
+          <div>Lets get shredded</div>
+        ) : (
+          <div className="fit-program-none">
+            <h3>No FitnessProgram yet</h3>
+            <button
+              type="button"
+              className="btn btn-info workout-nav-btn"
+              onClick={() => this.props.openModal("testquiz")}
+            >
+              Take the 1-minute quiz now
+            </button>
           </div>
         );
 
@@ -136,7 +149,7 @@ class UserProfile extends React.Component{
                         View My Workouts
                       </a>
                     </li>
-                    <li >
+                    <li>
                       <a href="#Program" data-toggle="tab">
                         My Program
                       </a>
@@ -149,11 +162,10 @@ class UserProfile extends React.Component{
                       {UserWorkouts}
                     </div>
                     <div className="tab-pane fade" id="Program">
-                      <h4 className="tab-header">Program</h4>
-                      this workout is so hard
+                      <h4 className="tab-header">My Workout Program</h4>
+                      {fitnessProgramType}
                     </div>
                   </div>
-
                 </div>
 
                 <div className="profile-content">
