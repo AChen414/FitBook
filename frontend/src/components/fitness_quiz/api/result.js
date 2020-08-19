@@ -57,7 +57,7 @@ class Result extends React.Component {
                 className="btn btn-info fitness-nav-btn"
                 onClick={() => this.props.closeModal()}
               >
-                View Your Program!
+                View Your Profile!
               </button>
             </Link>
 
