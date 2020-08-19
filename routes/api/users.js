@@ -58,12 +58,13 @@ router.post("/register", (req, res) => {
                     newUser
                         .save()
                         .then(user => {
+
                             const payload = {
                               _id: user._doc._id.toString(),
                               username: user._doc.username,
                               email: user._doc.email,
                               calendarData: user._doc.calendarData,
-                              profilePhotoLink: user._doc.profilePhotoLink,
+                              profilePhotoLink: "https://cdn.onlinewebfonts.com/svg/img_568657.png",
                               fitnessProgram: "",
                             };
 
