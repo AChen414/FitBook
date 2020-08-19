@@ -15,7 +15,7 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    profilePhotoKey: {
+    profilePhotoLink: {
         type: String
     },
       calendarData: {
