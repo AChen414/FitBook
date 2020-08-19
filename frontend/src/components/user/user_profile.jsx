@@ -26,7 +26,7 @@ class UserProfile extends React.Component{
   render (){
       if (!this.props.user) return null
       if (!this.props.workouts) return null 
-      const {currentUser} = this.props
+      // const {currentUser} = this.props
       const UserWorkouts = this.props.workouts.length !== 0 ? (
           <ul className="workout-list">
             {this.props.workouts.map((workout) => (
@@ -98,7 +98,7 @@ class UserProfile extends React.Component{
                   <div className="user-profile-pic">
                     <div className="profile-usertitle">
                       <div className="profile-usertitle-name">
-                        {currentUser.username}
+                        {this.props.user.username}
                       </div>
                     </div>
                     {profilePic}
@@ -170,15 +170,11 @@ class UserProfile extends React.Component{
                       {fitnessProgramType}
                     </div>
                   </div>
-                </div>
+                  <div className="profile-content">
+                    <div className="schedule-header">
+                      <h4>Your Schedule</h4>
 
-                <div className="profile-content">
-                  <div className="schedule-header">
-                    <h4>Your Schedule</h4>
-                    <div className="schedule-instructions">
-                      *Click a day to add your workout
                     </div>
-                  </div>
                     <UserCalendar 
                       editUser={this.props.editUser}
                       currentUser={this.props.user._id}
@@ -187,6 +183,7 @@ class UserProfile extends React.Component{
                         return { Id: workout._id, Name: workout.title }
                       })} 
                     />
+                  </div>
                   </div>
               </div>
             </div>
