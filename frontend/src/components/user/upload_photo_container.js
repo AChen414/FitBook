@@ -4,11 +4,17 @@ import { fetchUserProfile, updateProfilePic } from '../../actions/user_actions';
 import PhotoForm from "./upload_photo";
 
 const mSTP = (state) => {
-  return {
-    currentUser: state.session.user,
-    user: state.entities.users[state.session.user.id]
-
-  };
+  if (state.session.user.data) {
+    return {
+      currentUser: state.session.user.data._id,
+      user: state.entities.users[state.session.user.data._id]
+    };
+  } else { 
+    return {
+      currentUser: state.session.user.id,
+      user: state.entities.users[state.session.user.id],
+    };
+  }
 };
 
 const mDTP = (dispatch) => {

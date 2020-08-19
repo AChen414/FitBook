@@ -34,19 +34,23 @@ router.post("/register", (req, res) => {
     if (!isValid) {
         return res.status(400).json(errors);
     }
-
+    
     User.findOne({ username: req.body.username }).then(user => {
         if (user) {
             errors.username = "User already exists";
             return res.status(400).json(errors);
         } else {
+            
+            const defPhoto =
+              "https://cdn.onlinewebfonts.com/svg/img_568657.png";
             const newUser = new User({
               username: req.body.username,
               email: req.body.email,
               password: req.body.password,
-              profilePhotoLink:
-                "https://cdn.onlinewebfonts.com/svg/img_568657.png",
+              profilePhotoLink: defPhoto,
+              fitnessProgram: ""
             });
+            
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(newUser.password, salt, (err, hash) => {
                     if (err) throw err;
@@ -54,7 +58,15 @@ router.post("/register", (req, res) => {
                     newUser
                         .save()
                         .then(user => {
-                            const payload = { id: user.id, username: user.username };
+
+                            const payload = {
+                              _id: user._doc._id.toString(),
+                              username: user._doc.username,
+                              email: user._doc.email,
+                              calendarData: user._doc.calendarData,
+                              profilePhotoLink: "https://cdn.onlinewebfonts.com/svg/img_568657.png",
+                              fitnessProgram: "",
+                            };
 
                             jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                                 res.json({
@@ -67,7 +79,7 @@ router.post("/register", (req, res) => {
                                 exercise.user = user.id;
                                 exercise.save();
                             })
-
+                            res.json(payload)
                         })
                         .catch(err => console.log(err));
                 });
@@ -91,11 +103,17 @@ router.post("/login", (req, res) => {
             errors.email = "This user does not exist";
             return res.status(400).json(errors);
         }
-
+        
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
-                const payload = { id: user.id, email: user.email, username: user.username };
-
+                const payload = {
+                  id: user.id,
+                  email: user.email,
+                  username: user.username,
+                  profilePhotoLink: user.profilePhotoLink,
+                  fitnessProgram: user.fitnessProgram,
+                };
+                debugger
                 jwt.sign(payload, keys.secretOrKey, { expiresIn: '7d' }, (err, token) => {
                     res.json({
                         success: true,
@@ -200,8 +218,9 @@ router.patch('/:id/calendar',
                     _id: user._doc._id.toString(),
                     username: user._doc.username,
                     email: user._doc.email,
-                    profilePhotoKey: user._doc.profilePhotoKey,
-                    calendarData: user._doc.calendarData
+                    profilePhotoLink: user._doc.profilePhotoLink,
+                    calendarData: user._doc.calendarData,
+                    fitnessProgram: user._doc.fitnessProgram
                 };
                 res.json(result)
             })

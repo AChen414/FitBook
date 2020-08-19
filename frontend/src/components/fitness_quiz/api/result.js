@@ -1,29 +1,37 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link  } from "react-router-dom";
 
-
-function Result(props) {
-  // let gender = props.quizResult[0]
-  // let age = props.quizResult[1]
-  
-  let program = props.quizResult[2]
-  let level = props.quizResult[3]
-  let bodyType
-  let goal
-
-
-  if (program === "Shred") {
-    bodyType = "A Skinny-Fat Physique";
-    goal = "Lean Down, Lose Excess Body Fay, And Reveal Muscle Definition";
-  } else if (program === "Build") {
-    bodyType = "A Skinny Physique";
-    goal = "Build Lean, Dense Muscle, And Definition Without Gaining Fat";
-  } else if (program === "Drop" || program === "Lose") {
-    bodyType = "Excess Fat"
-    goal = "Reveal Muscle Definition"
+class Result extends React.Component {
+  componentDidMount(){
+    // console.log("ello i am the update function")
+    // console.log("current fitness program:")
+    // console.log(`${this.props.quizResult[3]}-${this.props.quizResult[2]}`);
+    let updatedUser = {
+      _id: this.props.user.id,
+      fitnessProgram: `${this.props.quizResult[3]} ${this.props.quizResult[2]}`,
+    };
+    this.props.editUser(updatedUser);
   }
+   
+  render (){
+    let program = this.props.quizResult[2]
+    let level = this.props.quizResult[3]
+    let bodyType
+    let goal
 
+
+    if (program === "Shred") {
+      bodyType = "A Skinny-Fat Physique";
+      goal = "Lean Down, Lose Excess Body Fay, And Reveal Muscle Definition";
+    } else if (program === "Build") {
+      bodyType = "A Skinny Physique";
+      goal = "Build Lean, Dense Muscle, And Definition Without Gaining Fat";
+    } else if (program === "Drop" || program === "Lose") {
+      bodyType = "Excess Fat"
+      goal = "Reveal Muscle Definition"
+    }
+
+     
     return (
         <div key="transition-group-content">
           <div className="fitness-result-content">
@@ -53,9 +61,9 @@ function Result(props) {
               <button
                 type="button"
                 className="btn btn-info fitness-nav-btn"
-                onClick={() => props.closeModal()}
+                onClick={() => this.props.closeModal()}
               >
-                View Your Program!
+                View Your Profile!
               </button>
             </Link>
 
@@ -63,7 +71,7 @@ function Result(props) {
               <button
                 type="button"
                 className="btn btn-info fitness-nav-btn"
-                onClick={() => props.closeModal()}
+                onClick={() => this.props.closeModal()}
               >
                 Create A Workout Now!
               </button>
@@ -73,7 +81,7 @@ function Result(props) {
               <button
                 type="button"
                 className="btn btn-info fitness-nav-btn"
-                onClick={() => props.closeModal()}
+                onClick={() => this.props.closeModal()}
               >
                 Search For Custom Exercises!
               </button>
@@ -81,10 +89,8 @@ function Result(props) {
           </div>
         </div>
     );
+  }
 }
 
-Result.propTypes = {
-    quizResult: PropTypes.array.isRequired,
-};
 
 export default Result;

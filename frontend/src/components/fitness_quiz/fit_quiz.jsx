@@ -3,8 +3,7 @@ import quizQuestions from './api/quiz_questions'
 import Quiz from './api/quiz'
 import Result from './api/result'
 
-
-class TestForm extends React.Component {
+class QuizForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -96,8 +95,10 @@ class TestForm extends React.Component {
   renderResult() {
     return (
       <Result
+        editUser={this.props.editUser}
         quizResult={this.state.result}
         closeModal={this.props.closeModal}
+        user={this.props.user}
       />
     );
   }
@@ -170,7 +171,7 @@ class TestForm extends React.Component {
           </div>
 
           {progressbar}
-
+        
           <div className="App-Content">
             {this.state.result ? this.renderResult() : this.renderQuiz()}
           </div>
@@ -184,4 +185,4 @@ class TestForm extends React.Component {
 }
 
 
-export default TestForm
+export default QuizForm
