@@ -29,6 +29,14 @@ import { logout } from "./actions/session_actions";
 // import { compose } from "redux";
 
 document.addEventListener("DOMContentLoaded", () => {
+  // document.getElementById("_active").addEventListener("dragstart", function (e) {
+  //   this.style.backgroundColor = "red";
+  //   // e.dataTransfer.setDragImage(img, 0, 0);
+  // }, false);
+  // document.getElementById("drag-with-colour").addEventListener("dragend", function (e) {
+  //   this.style.backgroundColor = "green";
+  // }, false);
+
   let store;
 
   if (localStorage.jwtToken) {

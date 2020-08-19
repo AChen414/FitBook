@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/AChen414/FitBook#readme",
   "dependencies": {
+    "@syncfusion/ej2-react-navigations": "^18.2.47",
     "aws-sdk": "^2.724.0",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
@@ -38,6 +39,7 @@
     "multer-s3": "^2.9.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "typescript": "^3.9.7",
     "validator": "^13.1.1"
   },
   "devDependencies": {

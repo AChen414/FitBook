@@ -191,7 +191,7 @@
 
 .schedule-header{
   margin-bottom: 5px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
