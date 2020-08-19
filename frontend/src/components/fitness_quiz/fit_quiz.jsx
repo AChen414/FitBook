@@ -95,6 +95,7 @@ class QuizForm extends React.Component {
   renderResult() {
     return (
       <Result
+        editUser={this.props.editUser}
         quizResult={this.state.result}
         closeModal={this.props.closeModal}
         user={this.props.user}

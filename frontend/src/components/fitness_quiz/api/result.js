@@ -3,11 +3,16 @@ import { Link  } from "react-router-dom";
 
 class Result extends React.Component {
   componentDidMount(){
-    console.log("ello i am the update function")
-    console.log("current fitness program:")
-    console.log(`${this.props.quizResult[3]}-${this.props.quizResult[2]}`);
+    // console.log("ello i am the update function")
+    // console.log("current fitness program:")
+    // console.log(`${this.props.quizResult[3]}-${this.props.quizResult[2]}`);
+    let updatedUser = {
+      _id: this.props.user.id,
+      fitnessProgram: `${this.props.quizResult[3]} ${this.props.quizResult[2]}`,
+    };
+    this.props.editUser(updatedUser);
   }
-
+   
   render (){
     let program = this.props.quizResult[2]
     let level = this.props.quizResult[3]
@@ -26,6 +31,7 @@ class Result extends React.Component {
       goal = "Reveal Muscle Definition"
     }
 
+     
     return (
         <div key="transition-group-content">
           <div className="fitness-result-content">
