@@ -5,6 +5,7 @@ export const getWorkouts = () => {
 } 
 
 export const getUserWorkouts = (userId) => {
+    debugger
     return axios.get(`/api/workouts/user/${userId}`);
 }
 

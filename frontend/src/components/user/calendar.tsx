@@ -77,7 +77,7 @@ class UserCalendar extends React.Component<ICalendarProps, {}> {
       <div className="calendar-container">
         <div className="calendar-top">
           <button 
-            className="calendar-save-btn" 
+            className="calendar-save-btn btn btn-primary" 
             onClick={this.addEventsToUserCalendar.bind(this)}
           >
             Save Changes

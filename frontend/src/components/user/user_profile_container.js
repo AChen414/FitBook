@@ -7,6 +7,7 @@ import { fetchUserProfile, updateProfilePic, editUser } from '../../actions/user
 
 
 const mSTP = (state) => {
+  debugger
     return{
       currentUser: state.session.user,
       workouts: Object.values(state.entities.workouts),

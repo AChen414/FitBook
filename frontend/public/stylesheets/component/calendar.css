@@ -12,11 +12,29 @@
   flex-direction: column;
   align-items: center;
   margin-left: 20px;
-  width: 100%;
+  width: 167.5px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 5px;
+
 }
 
 .treeview-title-container {
   margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* .e-text-content {
+  background-color: rgb(63, 81, 181);;
+} */
+
+/* .e-text-content:hover {
+  background-color: none !important;
+} */
+
+.e-list-parent {
+  display: flex !important;
+  align-items: flex-start !important;
+  flex-direction: column !important;
 }
 
 .calendar-save-btn {
@@ -27,12 +45,28 @@
   display: flex !important;
   justify-content: center !important;
   background-color: rgb(63, 81, 181);
-  text-align: center;
-  width: 100% !important;
+  text-align: center !important;
+  /* width: 80% !important; */
+  /* background-color: none !important; */
+  border-radius: 4px !important;
 }
 
 .e-fullrow:hover {
-  background-color: green !important;
+  background-color: coral !important;
+  /* border-color: coral !important; */
+}
+
+/* .e-list-item:hover {
+  background-color: coral;
+} */
+
+.e-treeview .e-list-item.e-hover > .e-fullrow {
+    background-color: none !important;
+    border-color: none !important;
+}
+
+.e-hover {
+  background-color: none !important;
 }
 
 .e-no-drop {
@@ -43,10 +77,25 @@
 
 .e-treeview .e-text-content {
   padding: 0 24px 0 24px !important;
+  /* background-color: rgb(63, 81, 181); */
+  text-align: left !important;
+}
+
+.e-list-item {
+  display: flex !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  /* background-color: rgb(63, 81, 181); */
+  margin-bottom: 5px;
+}
+
+.e-drag-item {
+  background-color: rgb(63, 81, 181) !important;
 }
 
 .e-list-text {
   color: white !important;
+  text-align: center !important;
 }
 
 .e-prevent-select, .e-list-item, .e-fullrow {
