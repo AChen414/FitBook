@@ -2,7 +2,6 @@ import axios from 'axios';
 
 //Get All Comments for specific workout
 export const getWorkoutComments = (workoutId) => {
-  // debugger
   return(
   axios.get(`/api/comments/workout/${workoutId}`)
   )

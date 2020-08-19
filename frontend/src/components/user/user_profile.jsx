@@ -1,5 +1,6 @@
 import React from "react";
-import UserCalender from './calendar';
+// import UserCalendar from './calendar';
+import UserCalendar from './calendar.tsx';
 import { Link, withRouter} from 'react-router-dom';
 
 
@@ -9,13 +10,18 @@ class UserProfile extends React.Component{
     this.state = {
       profilePic: null,
     };
+    
+  }
 
+  async UNSAFE_componentWillMount() {
+    await this.props.fetchUserWorkouts(this.props.currentUser.id)
   }
 
   componentDidMount() {
     this.props.fetchUserProfile(this.props.currentUser.id)
     this.props.fetchUserWorkouts(this.props.currentUser.id)
   }
+
   
 
   render (){
@@ -174,8 +180,16 @@ class UserProfile extends React.Component{
                     <div className="schedule-instructions">
                       *Click a day to add your workout
                     </div>
+                    <UserCalendar 
+                      editUser={this.props.editUser}
+                      currentUser={this.props.user._id}
+                      calendarData={this.props.user.calendarData}
+                      workouts={this.props.workouts.map(workout => {
+                        return { Id: workout._id, Name: workout.title }
+                      })} 
+                    />
                   </div>
-                  <UserCalender />
+                  {/* <UserCalender /> */}
                 </div>
               </div>
             </div>
@@ -187,7 +201,6 @@ class UserProfile extends React.Component{
 
 export default withRouter(UserProfile);
 
-
 // "The FitBook Program" will help if
-//                     you're struggle with your current physique and want to lean
-//                     down, shed excess body fat, and reveal muscle definition.
+// you're struggle with your current physique and want to lean
+// down, shed excess body fat, and reveal muscle definition.

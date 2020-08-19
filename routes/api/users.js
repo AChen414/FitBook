@@ -183,4 +183,47 @@ router.post("/:id/profile-img", upload.single("file"), (req,res) => {
         })
 })
 
+// router.patch("/:id/calendar", (req, res) => {
+//     debugger
+//     User.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false, new: true })
+//         .then(user => {
+//             const result = {
+//                 calendarData: user._doc.calendarData
+//             };
+//             res.json(result)    
+//         })
+//         .catch(err => res.status(404).json({ noworkoutfound: 'No user found with that ID'}));
+//     }       
+// )
+
+router.patch('/:id/calendar',
+    passport.authenticate('jwt', { session: false }),
+    async (req, res) => {
+        // const { errors, isValid } = validateWorkoutInput(req.body);
+
+        // if (!isValid) {
+        //     return res.status(400).json(errors)
+        // }
+
+        // const user = await User.findById(req.params.id)
+
+        // if (req.user.id !== workout.user.toString()) {
+        //     return res.status(400).json({ invaliduser: 'Cannot update a workout you did not create' })   // checks that the workout owner is the logged in user
+        // }
+
+        User.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false, new: true })
+            .then(user => {
+                const result = {
+                    _id: user._doc._id.toString(),
+                    username: user._doc.username,
+                    email: user._doc.email,
+                    profilePhotoKey: user._doc.profilePhotoKey,
+                    calendarData: user._doc.calendarData
+                };
+                res.json(result)
+            })
+            // .catch(err => res.status(404).json({ noworkoutfound: 'No workout found with that ID' }));
+    }
+)
+
 module.exports = router;

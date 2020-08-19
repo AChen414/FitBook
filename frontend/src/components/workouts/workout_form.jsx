@@ -69,7 +69,6 @@ class WorkoutForm extends React.Component {
     };
 
     render() {
-      debugger
         let filteredExercises = (Object.values(this.props.exercises)).filter((exercise) => {
             return exercise.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
         });
