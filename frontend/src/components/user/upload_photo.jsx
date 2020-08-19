@@ -31,7 +31,7 @@ class UploadPhoto extends React.Component{
 
     const formData = new FormData();
     formData.append("file", this.state.profilePic);
-    this.props.updateProfilePic(formData, this.props.currentUser.id)
+    this.props.updateProfilePic(formData, this.props.currentUser)
       .then(() => {
         this.setState({
           profilePic: null,

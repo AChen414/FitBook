@@ -14,21 +14,19 @@ class UserProfile extends React.Component{
   }
 
   async UNSAFE_componentWillMount() {
-    await this.props.fetchUserWorkouts(this.props.currentUser.id)
+    await this.props.fetchUserWorkouts(this.props.currentUser)
   }
 
   componentDidMount() {
-    this.props.fetchUserProfile(this.props.currentUser.id)
-    this.props.fetchUserWorkouts(this.props.currentUser.id)
+    this.props.fetchUserProfile(this.props.currentUser)
+    this.props.fetchUserWorkouts(this.props.currentUser)
   }
 
-  
 
   render (){
       if (!this.props.user) return null
       if (!this.props.workouts) return null 
       const {currentUser} = this.props
-
       const UserWorkouts = this.props.workouts.length !== 0 ? (
           <ul className="workout-list">
             {this.props.workouts.map((workout) => (
@@ -180,6 +178,7 @@ class UserProfile extends React.Component{
                     <div className="schedule-instructions">
                       *Click a day to add your workout
                     </div>
+                  </div>
                     <UserCalendar 
                       editUser={this.props.editUser}
                       currentUser={this.props.user._id}
@@ -189,8 +188,6 @@ class UserProfile extends React.Component{
                       })} 
                     />
                   </div>
-                  {/* <UserCalender /> */}
-                </div>
               </div>
             </div>
           </div>
@@ -200,7 +197,3 @@ class UserProfile extends React.Component{
 }
 
 export default withRouter(UserProfile);
-
-// "The FitBook Program" will help if
-// you're struggle with your current physique and want to lean
-// down, shed excess body fat, and reveal muscle definition.

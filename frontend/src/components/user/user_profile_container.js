@@ -7,11 +7,20 @@ import { fetchUserProfile, updateProfilePic, editUser } from '../../actions/user
 
 
 const mSTP = (state) => {
-    return{
-      currentUser: state.session.user,
-      workouts: Object.values(state.entities.workouts),
-      user: state.entities.users[state.session.user.id]
-    }
+  if (state.session.user.data) {
+    return {
+      currentUser: state.session.user.data._id,
+      workouts: Object.values(state.entities.workouts.user),
+      user: state.entities.users[state.session.user.data._id],
+    };
+  } else {
+    return {
+      currentUser: state.session.user.id,
+      workouts: Object.values(state.entities.workouts.user),
+      user: state.entities.users[state.session.user.id],
+    };
+  }
+    
 };
 
 const mDTP = dispatch => {
