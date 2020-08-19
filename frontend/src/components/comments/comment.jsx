@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 
 class Comment extends React.Component {
   constructor(props) {
@@ -51,7 +50,6 @@ class Comment extends React.Component {
   }
 
   render() {
-    // debugger
     const { comment, user } = this.props;
 
     let buttons;
@@ -83,22 +81,20 @@ class Comment extends React.Component {
 
     if (this.state.edit === false) {
         return (
-        <div className="comment-content-container">
+          <div className="comment-content-container">
             <div className="commenter">
-                {/* <Link to={`/profile/`}> */}
-                    {comment.user.username}
-                {/* </Link> */}
+              {/* <Link to={`/profile/`}> */}
+              <h4>{comment.user.username}</h4>
+              {/* </Link> */}
             </div>
             <div className="comment-content">
-                <div className="comment-text">
-                    <p>{comment.text}</p>
-                </div>
-                <div className="comment-time">
-                    <p>{comment.date}</p>
-                </div>
+              <div className="comment-text">
+                <p>&nbsp;&nbsp;{comment.text}</p>
+                <p>{comment.date.slice(0, 10)}</p>
+              </div>
             </div>
             {buttons}
-        </div>
+          </div>
         );
     } else {
         return (

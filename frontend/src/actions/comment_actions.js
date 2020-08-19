@@ -27,7 +27,6 @@ const removeComment = (commentId) => ({
 });
 
 export const fetchWorkoutComments = (workoutId) => dispatch => {
-  // debugger
   return getWorkoutComments(workoutId)
     .then(
     comments => dispatch(receiveWorkoutComments(comments.data)),

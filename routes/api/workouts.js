@@ -6,6 +6,27 @@ const passport = require('passport');
 const Workout = require('../../models/Workout');
 const validateWorkoutInput = require('../../validation/workouts');
 
+router.get("/", (req, res) => {
+  Workout.find()
+    .then(workouts => {
+      const packagez = {}
+
+      workouts.forEach(workout => {
+        packagez[workout._doc._id.toString()] = {
+          _id: workout._doc._id.toString(),
+          user: workout._doc.user.toString(),
+          title: workout._doc.title,
+          notes: workout._doc.notes,
+          exercises: workout._doc.exercises,
+        };
+      });
+      res.json(packagez);
+    })
+    .catch((err) =>
+      res.status(404).json({ noworkoutsfound: "No workouts found" })
+    );
+});
+
 router.get('/user/:user_id', (req, res) => {    
     Workout.find({ user: req.params.user_id })
         .then(workouts => {
@@ -78,22 +99,16 @@ router.patch('/:id',
     async (req, res) => {
         
         const { errors, isValid } = validateWorkoutInput(req.body);
-         console.log("hello1");
         if (!isValid) {
             return res.status(400).json(errors)
         }
-        console.log("hello2");
         const workout = await Workout.findById(req.params.id)
-         console.log("hello3");
-       
         
         // if (req.user.id !== workout.user.toString()) { 
         //     return res.status(400).json({ invaliduser: 'Cannot update a workout you did not create'})   // checks that the workout owner is the logged in user
         // }
-        // debugger
         Workout.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false, new: true })
             .then(workout => {
-                // debugger
                     const result = {
                         _id: workout._doc._id.toString(), 
                         user: workout._doc.user.toString(),
@@ -102,11 +117,9 @@ router.patch('/:id',
                         exercises: workout._doc.exercises,
                         comments: workout._doc.comments
                     };
-                    // debugger
                 res.json(result)    
             })
             .catch(err => res.status(404).json({ noworkoutfound: 'No workout found with that ID'})); 
-             console.log("hello4");
     }
 )
 
