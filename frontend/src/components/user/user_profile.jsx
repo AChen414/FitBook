@@ -160,9 +160,9 @@ class UserProfile extends React.Component{
                   <div className="profile-content">
                     <div className="schedule-header">
                       <h4>Your Schedule</h4>
-                      <div className="schedule-instructions">
+                      {/* <div className="schedule-instructions">
                         *Click a day to add your workout
-                      </div>
+                      </div> */}
                     </div>
                     <UserCalendar 
                       editUser={this.props.editUser}

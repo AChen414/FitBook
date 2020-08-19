@@ -77,10 +77,10 @@ class UserCalendar extends React.Component<ICalendarProps, {}> {
       <div className="calendar-container">
         <div className="calendar-top">
           <button 
-            className="calendar-save-btn" 
+            className="calendar-save-btn btn btn-primary" 
             onClick={this.addEventsToUserCalendar.bind(this)}
           >
-            Save Your Schedule Changes
+            Save Changes
           </button>
         </div>
         <div className="calendar-bottom">
@@ -95,7 +95,7 @@ class UserCalendar extends React.Component<ICalendarProps, {}> {
             </ScheduleComponent>
           </div>
           <div className="treeview-container">
-            <div className="treeview-title-container">Your Workouts:</div>
+            <div className="treeview-title-container">Drag and drop your workouts to schedule:</div>
             <div className="treeview-component">
               <TreeViewComponent 
                 fields={this.fields} 

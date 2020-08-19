@@ -146,10 +146,10 @@ class WorkoutForm extends React.Component {
                 </button>
                 <ul className="exercise-ul">
                   {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
-                  {filteredExercises.map((exercise, i) => (
+                  {filteredExercises.map((exercise) => (
                     <li
                       className="exercise-item-list "
-                      key={`exercise-${i}`}
+                      key={`exercise-${exercise._id}`}
                       onClick={this.addExercise(exercise._id)}
                     >
                       <div>
