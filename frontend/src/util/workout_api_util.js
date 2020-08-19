@@ -17,7 +17,6 @@ export const createWorkout = (data) => {
 };
 
 export const updateWorkout = (data) => {
-    // debugger
     return axios.patch(`/api/workouts/${data._id}`, data)
 };
 

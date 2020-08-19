@@ -1,8 +1,8 @@
-#workout-show {
-    background-image: url("https://fitbook-seeds.s3-us-west-1.amazonaws.com/workout-background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-bottom: 2.5rem;
+.workout-show-background img {
+    position: fixed;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
 }
 
 .workout-title {
@@ -10,25 +10,25 @@
     text-align: center;
     font-size: 80px;
     border: 1px solid black;
-
-    margin-top: 30px;
     margin-bottom: 30px;
     margin-right: 265px;
     margin-left: 265px;
-    background-color: cornflowerblue;
-    opacity: 0.8;
+    background-color: lightseagreen;
+    opacity: 0.9;
 }
 
-.workout-exercise-title li {
-    font-size: large;
+.workout-exercise-title h3 {
+    border-bottom: 1px solid black;
+    text-align: center;
 }
 
 .workout-exercise-title {
     border: 1px solid black;
-    background-color: cornflowerblue;
-    width: 320px;
+    background-color: lightseagreen;
+    width: 100%;
     display: block;
-    opacity: 0.8;
+    margin-left: 265px;
+    opacity: 0.9;
 }
 
 .workout-show-container {
@@ -36,29 +36,54 @@
     display: flex;
 }
 
+.exercise-container {
+    border-bottom: 1px black solid;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .exercise-element {
     margin: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}
+
+.exercise-img {
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .workout-notes {
     border: 1px solid black;
-    background-color: cornflowerblue;
+    background-color: lightseagreen;
     font-size: large;
     display: block;
     float: right;
-    width: 320px;
-    opacity: 0.8;
+    text-align: center;
+    width: 100%;
+    margin-right: 265px;
+    opacity: 0.9;
+}
+
+.workout-notes h3 {
+    border-bottom: 1px solid black;
+}
+
+.workout-notes h4 {
+    font-weight: bold;
 }
 
 .comments-container {
     justify-content: center;
     text-align: center;
-    border: 1px solid black;
 
     margin-top: 30px;
     margin-bottom: 30px;
     margin-right: 265px;
     margin-left: 265px;
-    background-color: cornflowerblue;
-    opacity: 0.8;
+    background-color: lightseagreen;
+    opacity: 0.9;
 }

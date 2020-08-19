@@ -8,7 +8,6 @@ import {
 } from "../../actions/comment_actions";
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   return ({
     comments: Object.values(state.entities.comments),
     workoutId: ownProps.workoutId,

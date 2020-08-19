@@ -22,7 +22,6 @@ export const receiveUserWorkouts = (workouts) => {
 };
 
 export const receiveWorkout = (workout) => {
-    // debugger
     return {
         type: RECEIVE_WORKOUT,
         workout
@@ -45,7 +44,7 @@ export const receiveErrors = (errors) => {
 
 export const fetchWorkouts = () => dispatch => {
     getWorkouts()
-        .then(workouts => dispatch(receiveWorkouts(workouts)))
+        .then(workouts => dispatch(receiveWorkouts(workouts.data)))
         .catch(err => console.log(err))
 }
 

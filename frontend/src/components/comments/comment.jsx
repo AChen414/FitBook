@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class Comment extends React.Component {
   constructor(props) {
@@ -51,7 +50,6 @@ class Comment extends React.Component {
   }
 
   render() {
-    debugger
     const { comment, user } = this.props;
 
     let buttons;
