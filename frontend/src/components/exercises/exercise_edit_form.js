@@ -52,7 +52,7 @@ const ExerciseEditForm = props => {
         </button>
         <div className="modal-header">
           <div className="modal-title-container">
-            <h3 className="modal-title">Edit your exercise</h3>
+            <h3 className="modal-title">Edit Your Exercise</h3>
           </div>
         </div>
         <form className="exercise-edit-form" onSubmit={handleSubmit}>
@@ -98,16 +98,6 @@ const ExerciseEditForm = props => {
               <option>Dumbell</option>
             </select>
           </div>
-          {/* <div className="form-group exercise-info">
-            <label for="exampleFormControlInput2">Equipment:
-            </label>
-            <input 
-              type="text"
-              id="exampleFormControlInput2"
-              className="form-control" 
-              {...equipment}
-            />
-          </div> */}
           <div className="form-group exercise-info">
             <label htmlFor="exampleFormControlInput3">Notes:
             </label>
