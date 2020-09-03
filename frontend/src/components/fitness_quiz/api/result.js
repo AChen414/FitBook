@@ -7,12 +7,12 @@ class Result extends React.Component {
     // console.log("current fitness program:")
     // console.log(`${this.props.quizResult[3]}-${this.props.quizResult[2]}`);
     let updatedUser = {
-      _id: this.props.user.id,
+      _id: this.props.user,
       fitnessProgram: `${this.props.quizResult[3]} ${this.props.quizResult[2]}`,
     };
     this.props.editUser(updatedUser);
   }
-   
+
   render (){
     let program = this.props.quizResult[2]
     let level = this.props.quizResult[3]
@@ -31,6 +31,38 @@ class Result extends React.Component {
       goal = "Reveal Muscle Definition"
     }
 
+    const displayBtns = (
+      <div>
+        <Link to={`/profile`}>
+          <button
+            type="button"
+            className="btn btn-info fitness-nav-btn"
+            onClick={() => this.props.closeModal()}
+          >
+            View Your Program!
+          </button>
+        </Link>
+        <Link to={`/workouts`}>
+          <button
+            type="button"
+            className="btn btn-info fitness-nav-btn"
+            onClick={() => this.props.closeModal()}
+          >
+            Create A Workout Now!
+              </button>
+        </Link>
+
+        <Link to={`/exercises`}>
+          <button
+            type="button"
+            className="btn btn-info fitness-nav-btn"
+            onClick={() => this.props.closeModal()}
+          >
+            Search For Custom Exercises!
+              </button>
+        </Link>
+      </div>
+    ) 
      
     return (
         <div key="transition-group-content">
@@ -57,35 +89,7 @@ class Result extends React.Component {
             </div>
           </div>
           <div className="fitness-result-nav">
-            <Link to={`/profile`}>
-              <button
-                type="button"
-                className="btn btn-info fitness-nav-btn"
-                onClick={() => this.props.closeModal()}
-              >
-                View Your Profile!
-              </button>
-            </Link>
-
-            <Link to={`/workouts`}>
-              <button
-                type="button"
-                className="btn btn-info fitness-nav-btn"
-                onClick={() => this.props.closeModal()}
-              >
-                Create A Workout Now!
-              </button>
-            </Link>
-
-            <Link to={`/exercises`}>
-              <button
-                type="button"
-                className="btn btn-info fitness-nav-btn"
-                onClick={() => this.props.closeModal()}
-              >
-                Search For Custom Exercises!
-              </button>
-            </Link>
+            {displayBtns}
           </div>
         </div>
     );
