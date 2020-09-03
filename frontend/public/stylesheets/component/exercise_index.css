@@ -29,6 +29,16 @@
   margin-bottom: 15px;
 }
 
+/* .search-box, #myinput {
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
+}
+
+.search-box {
+  margin-bottom: 0 !important;
+} */
+
 ::-webkit-input-placeholder {
   color: #333;
   font-weight: 300;
