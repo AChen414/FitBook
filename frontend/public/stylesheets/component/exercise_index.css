@@ -29,15 +29,15 @@
   margin-bottom: 15px;
 }
 
-/* .search-box, #myinput {
+.search-box {
   display: flex;
   align-items: center;
-  margin: 0 !important;
+  margin-bottom: 15px;
 }
 
-.search-box {
+#myinput, .add-exercise {
   margin-bottom: 0 !important;
-} */
+}
 
 ::-webkit-input-placeholder {
   color: #333;
