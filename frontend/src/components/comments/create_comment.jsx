@@ -28,14 +28,16 @@ export default class CreateComment extends React.Component {
       <div className="create-comment-container">
         <h4>Want to share your thought of this workout?</h4>
 
-        <input
+        <textarea
           className="comment-box"
-          type="textarea"
+          rows="4" 
+          cols="50"
           placeholder="Put your thought about this comment"
           value={this.state.text}
           onChange={this.handleChange}
         />
-
+        <br/>
+        <br/>
         <button className="comment-button" onClick={this.handleSubmit}>
             Submit
         </button>

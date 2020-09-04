@@ -67,12 +67,12 @@ class Comment extends React.Component {
         );
     } else if (user.id === comment.user._id && this.state.edit === true) {
         buttons = (
-          <div className="workout-show-page-comment-buttons">
-            <button className="comment-button" onClick={this.handleCancel}>
+          <div className="edit-show-page-comment-buttons">
+            <button className="edit-comment-button" onClick={this.handleCancel}>
               Cancel
             </button>
             &nbsp;
-            <button className="comment-button" onClick={this.handleSubmit}>
+            <button className="edit-comment-button" onClick={this.handleSubmit}>
               Save
             </button>
           </div>
@@ -84,7 +84,7 @@ class Comment extends React.Component {
           <div className="comment-content-container">
             <div className="commenter">
               {/* <Link to={`/profile/`}> */}
-              <h4>{comment.user.username}</h4>
+              <h4><img src={comment.user.profilePhotoLink} alt="" className="commenter-pic" />&nbsp;&nbsp;{comment.user.username}</h4>
               {/* </Link> */}
             </div>
             <div className="comment-content">
@@ -94,19 +94,22 @@ class Comment extends React.Component {
               </div>
             </div>
             {buttons}
+            <br/>
           </div>
         );
     } else {
         return (
         <div className="edit-comment-content">
-            <input
+            <textarea
                 className="comment-box" 
-                type="textarea"
+                rows="4"
+                cols="50"
                 placeholder="Share your thought"
                 value={this.state.text}
                 onChange={this.update("text")}
             />
             {buttons}
+            <br/>
         </div>
         );
     }

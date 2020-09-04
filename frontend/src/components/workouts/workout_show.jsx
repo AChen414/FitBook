@@ -43,7 +43,7 @@ class WorkoutShow extends React.Component {
             <div className="workout-show-container">
               <div className="workout-exercise-title">
                 <h3>List of Exercises:</h3>
-                <div>
+                <div className="exercises-container">
                   {workout.exercises.map((exerciseId) => {
                     if (!exercises[exerciseId]) {
                       return null;
