@@ -12,7 +12,6 @@ class WorkoutIndex extends React.Component {
     render() {
         if (!this.props.workouts) return null
         if (!this.props.allWorkouts) return null
-        
         return (
           <div className="workout-index">
             <div className="workout-index-background">

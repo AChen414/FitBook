@@ -42,13 +42,13 @@ router.post("/register", (req, res) => {
         } else {
             
             const defPhoto =
-              "https://cdn.onlinewebfonts.com/svg/img_568657.png";
-            const newUser = new User({
-              username: req.body.username,
-              email: req.body.email,
-              password: req.body.password,
-              profilePhotoLink: defPhoto,
-              fitnessProgram: ""
+                "https://cdn.onlinewebfonts.com/svg/img_568657.png";
+                const newUser = new User({
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: req.body.password,
+                    profilePhotoLink: defPhoto,
+                    fitnessProgram: ""
             });
             
             bcrypt.genSalt(10, (err, salt) => {
@@ -60,15 +60,15 @@ router.post("/register", (req, res) => {
                         .then(user => {
 
                             const payload = {
-                              _id: user._doc._id.toString(),
-                              username: user._doc.username,
-                              email: user._doc.email,
-                              calendarData: user._doc.calendarData,
-                              profilePhotoLink: "https://cdn.onlinewebfonts.com/svg/img_568657.png",
-                              fitnessProgram: "",
+                                _id: user._doc._id.toString(),
+                                username: user._doc.username,
+                                email: user._doc.email,
+                                calendarData: user._doc.calendarData,
+                                profilePhotoLink: "https://cdn.onlinewebfonts.com/svg/img_568657.png",
+                                fitnessProgram: "",
                             };
 
-                            jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                            jwt.sign(payload, keys.secretOrKey, { expiresIn: '7d' }, (err, token) => {
                                 res.json({
                                     success: true,
                                     token: "Bearer " + token
@@ -113,7 +113,6 @@ router.post("/login", (req, res) => {
                   profilePhotoLink: user.profilePhotoLink,
                   fitnessProgram: user.fitnessProgram,
                 };
-                debugger
                 jwt.sign(payload, keys.secretOrKey, { expiresIn: '7d' }, (err, token) => {
                     res.json({
                         success: true,
@@ -185,7 +184,6 @@ router.post("/:id/profile-img", upload.single("file"), (req,res) => {
 })
 
 // router.patch("/:id/calendar", (req, res) => {
-//     debugger
 //     User.findByIdAndUpdate(req.params.id, req.body, { returnOriginal: false, new: true })
 //         .then(user => {
 //             const result = {

@@ -9,11 +9,19 @@ import WorkoutIndex from './workout_index';
 import { fetchUserExercises } from "../../actions/exercise_actions";
 
 const mapStateToProps = state => {
-  return {
-    allWorkouts: Object.values(state.entities.workouts.all),
-    workouts: Object.values(state.entities.workouts.user),
-    user: state.session.user
-  };
+  if (state.session.user.data) {
+    return {
+      allWorkouts: Object.values(state.entities.workouts.all),
+      workouts: Object.values(state.entities.workouts.user),
+      user: state.session.user.data
+    }
+  } else {
+    return {
+      allWorkouts: Object.values(state.entities.workouts.all),
+      workouts: Object.values(state.entities.workouts.user),
+      user: state.session.user
+    }
+  }
 };
 
 const mapDispatchToProps = dispatch => {

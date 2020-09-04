@@ -3,7 +3,17 @@ import { openModal,closeModal } from "../../actions/modal_actions";
 
 import MainPage from './main_page'
 
-
+const mSTP = state => {
+  if (state.session.user !== undefined) {
+    return {
+      user : state.session.user
+    }
+  } else {
+    return {
+      user : ""
+    }
+  }
+}
 
 const mDTP = (dispatch) => {
   return {
@@ -12,4 +22,4 @@ const mDTP = (dispatch) => {
   };
 };
 
-export default connect(null, mDTP)(MainPage);
+export default connect(mSTP, mDTP)(MainPage);
