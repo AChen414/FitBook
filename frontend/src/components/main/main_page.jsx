@@ -61,12 +61,16 @@ class MainPage extends React.Component {
           <div className="col-md-7 col-md-push-5">
             <h2 className="featurette-heading">
               Personalized Workout Builder.{" "}
-              <span className="text-muted">See for yourself.</span>
+              {/* <span className="text-muted">See for yourself.</span> */}
+              
             </h2>
             <p className="lead">
-              Choose from our vast database of exercises submitted by your
-              coaches and friends!
+              Create your own custom workouts! If you don't see an exercise you
+              want, create it!
             </p>
+            <a href="#/workouts" className="btn btn-primary btn-lg btn-fit">
+              CREATE A NEW WORKOUT
+            </a>
           </div>
           <div className="col-md-5 col-md-pull-7">
             <img
