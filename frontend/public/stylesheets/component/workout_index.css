@@ -52,13 +52,17 @@
     height: 100px;
     color: black;
     margin: 15px 0 15px;
-    background: lightseagreen;
+    background: lightgray;
     border: 1px solid #333;
     font-weight: 500;
     font-size: 36px;
     border-radius: 4px;
     padding: 10px 16px;
     opacity: 0.9;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .workout-item-title {
