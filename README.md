@@ -79,6 +79,59 @@ removeExercise(exerciseId) {
 }
 ```
 
+# Calendar 
+
+### Using Syncfusion React library, a modern UI Components library, we built our dynamic calendar from the ground up to be lightweight, responsive, modular and touch friendly.
+
+* Adding Syncfusion Scheduler package 
+
+```bat 
+npm install @syncfusion/ej2-react-schedule --save
+```
+
+* Populating the Calendar with User Workouts is done by binding the event data to its assiged dataSource property either with valid JSON data or else with remote URL, from where the data will be fetched.
+
+```javascript 
+    public fields: Object = { dataSource: this.props.workouts, id: 'Id', text: 'Name' };
+
+    addEventsToUserCalendar(){
+        let updatedUser: Object = {
+        calendarData: this.scheduleObj.eventSettings.dataSource,
+        _id: this.props.currentUser
+        }
+        this.props.editUser(updatedUser);
+    }
+
+    <ScheduleComponent
+        height="550px"
+        currentView="Month"
+        eventSettings={{ dataSource: this.props.calendarData }}
+        ref={schedule => this.scheduleObj = schedule as ScheduleComponent}>
+        <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
+    </ScheduleComponent>
+
+```
+
+* Workouts can be rescheduled to any time by dragging and dropping them onto the desired location. 
+
+```javascript
+  onTreeDragStop(args?: DragAndDropEventArgs): void {
+    if (args) {
+      let cellData: CellClickEventArgs = this.scheduleObj.getCellDetails(args.target);
+      if (cellData) {
+        let eventData: {[key: string]: Object} = {
+          Subject: args.draggedNodeData.text,
+          StartTime: cellData.startTime,
+          EndTime: cellData.endTime,
+          IsAllDay: cellData.isAllDay
+        };
+        this.scheduleObj.openEditor(eventData, "Add", true);
+      }
+    } 
+  }
+
+```
+
 # Future Features
 * Social interactions between users
     * Sharing workouts and exercises
