@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class ExerciseForm extends React.Component {
     constructor(props) {
         super(props);
@@ -25,35 +24,37 @@ class ExerciseForm extends React.Component {
         this.props.composeExercise(newExercise).then(() => this.props.closeModal());
     }
 
-
     render() {
         return (
             <div className="modal-dialog" role="document">
-                <div className="modal-content">
+                <div className="modal-content exercise-edit-content">
+                    <button
+                        type="button"
+                        className="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                        onClick={this.props.closeModal}
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     <div className="modal-header">
-                        <button
-                            type="button"
-                            className="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                            onClick={this.props.closeModal}
-                        >
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h3 className="modal-title">Create an Exercise</h3>
+                        <div className="modal-title-container">
+                            <h3 className="modal-title">Create Your Exercise</h3>
+                        </div>
                     </div>
                     <form className="exercise-edit-form" onSubmit={this.handleSubmit}>
                         <div className="form-group exercise-info">
                             <label>Title:</label>
                             <input
                                 type="text"
+                                className="form-control"
                                 value={this.state.title}
                                 onChange={this.handleInput('title')}
                             />
                         </div>
                         <div className="form-group exercise-category">
                             <label htmlFor="exampleFormControlSelect1">
-                                Select Category
+                                Select Category:
                             </label>
                             <select
                                 className="form-control"
@@ -86,18 +87,20 @@ class ExerciseForm extends React.Component {
                             </select>
                         </div>
                         <div className="form-group exercise-info">
-                            <label>Notes:
-            </label>
+                            <label>Notes:</label>
                             <textarea
                                 className='form-control'
+                                id="exampleFormControlInput3"
                                 rows="3"
                                 placeholder='Write any notes you have about the exercise...'
                                 onChange={this.handleInput('notes')}
                                 value={this.state.notes}></textarea>
                         </div>
-                        <button>
-                            Create Exercise
-          </button>
+                        <div className="submit-btn-container">
+                            <button className="btn btn-primary">
+                                Create Exercise
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

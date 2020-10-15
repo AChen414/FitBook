@@ -5,6 +5,7 @@ import {editUser} from "../../actions/user_actions";
 import QuizForm from "./fit_quiz";
 
 const mSTP = (state) => {
+  // debugger
   return {
     user: state.session.user,
   };

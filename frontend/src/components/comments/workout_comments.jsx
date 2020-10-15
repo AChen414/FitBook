@@ -54,8 +54,9 @@ class WorkoutComments extends React.Component {
           fetchWorkoutComments={fetchWorkoutComments}
           workoutId={workoutId}
         />
-
+        <br/>
         {allComments}
+        <br/>
       </div>
     );
   }

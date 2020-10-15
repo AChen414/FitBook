@@ -192,6 +192,7 @@ body {
 button.btn.btn-primary.btn-lg.btn-fit {
     width: 60%;
     align-self: center;
+    margin-left: 10rem;
 }
 
 /* Progress Bar */

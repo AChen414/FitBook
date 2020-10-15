@@ -42,3 +42,7 @@ hr.featurette-divider {
     width: 90%;
     border-bottom: 1px solid lightgray;
 }
+
+img.featurette-image.img-responsive.center-block {
+    border-radius: 3px;
+}

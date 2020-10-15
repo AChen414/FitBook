@@ -5,15 +5,21 @@
     height: 100%;
 }
 
+.exercises-container {
+    height: 450px;
+    overflow: auto;
+    
+}
+
 .workout-title {
     justify-content: center;
     text-align: center;
     font-size: 80px;
-    border: 1px solid black;
+    color: black;
+    font-weight: bold;
     margin-bottom: 30px;
     margin-right: 265px;
     margin-left: 265px;
-    background-color: lightseagreen;
     opacity: 0.9;
 }
 
@@ -24,22 +30,29 @@
 
 .workout-exercise-title {
     border: 1px solid black;
-    background-color: lightseagreen;
+    background-color: lightgray;
     width: 100%;
     display: block;
     margin-left: 265px;
     opacity: 0.9;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .workout-show-container {
     justify-content: space-evenly;
     display: flex;
+    color: black;
+    font-weight: bold;
+    overflow: scroll;
 }
 
 .exercise-container {
     border-bottom: 1px black solid;
+    background-color: lightgray;
     margin-left: 20px;
     margin-right: 20px;
+    
 }
 
 .exercise-element {
@@ -58,7 +71,7 @@
 
 .workout-notes {
     border: 1px solid black;
-    background-color: lightseagreen;
+    background-color: lightgray;
     font-size: large;
     display: block;
     float: right;
@@ -66,6 +79,8 @@
     width: 100%;
     margin-right: 265px;
     opacity: 0.9;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .workout-notes h3 {
@@ -74,16 +89,28 @@
 
 .workout-notes h4 {
     font-weight: bold;
+    height: 450px;
+    overflow: auto;
 }
 
 .comments-container {
     justify-content: center;
     text-align: center;
-
+    color: black;
+    background-color: lightgray;
+    font-weight: bold;
     margin-top: 30px;
     margin-bottom: 30px;
     margin-right: 265px;
     margin-left: 265px;
-    background-color: lightseagreen;
     opacity: 0.9;
+    overflow: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.comments-container h4 {
+    padding-top: 20px;
 }
