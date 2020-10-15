@@ -62,7 +62,7 @@ class ExerciseForm extends React.Component {
                                 value={this.state.category}
                             >
                                 <option>Select Category</option>
-                                <option value="Full Body">Full Body</option>
+                                <option value="Full-Body">Full Body</option>
                                 <option value="Chest">Chest</option>
                                 <option value="Arms">Arms</option>
                                 <option value="Shoulders">Shoulders</option>
