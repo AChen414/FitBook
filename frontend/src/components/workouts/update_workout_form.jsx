@@ -94,7 +94,7 @@ class EditWorkoutForm extends React.Component {
 
 
     return (
-        // <div>hello world</div>
+      <div className="workout-div">
         <div className="workout-form-container">
           <div className="col-md-6 workout-form-left">
             <form className="new-workout-form" onSubmit={this.handleSubmit}>
@@ -102,16 +102,18 @@ class EditWorkoutForm extends React.Component {
               <div className="workout-form-title">
                 <label className="workout-form-type">Title</label>
                 <input
-                  className="workout-form-field"
+                  className="workout-form-field form-control"
                   type="text"
                   onChange={this.update("title")}
                   value={this.state.title}
                 />
               </div>
+              <br/>
 
               <div className="workout-form-notes">
                 <label className="workout-form-type">Notes</label>
                 <textarea
+                  className="form-control"
                   onChange={this.update("notes")}
                   value={this.state.notes}
                   placeholder="Notes (ex. Upper chest focused workout)"
@@ -119,10 +121,10 @@ class EditWorkoutForm extends React.Component {
                   rows="20"
                 ></textarea>
               </div>
-
+              <br/>
               <label className="workout-form-type">
-                <div className="workout-exec-title">Exercises</div>
-                <div className="workout-added-list">
+                <div className="workout-exec-title">Exercises List</div>
+                <div className="workout-added-list form-control">
                   {this.state.exercises.map((exerciseId, i) => {
                     if (!this.props.exercises[exerciseId]) {
                       return null;
@@ -133,6 +135,7 @@ class EditWorkoutForm extends React.Component {
                             key={`workout-exercise-${i}`}
                             className="workout-exercise-item"
                           >
+                            
                             {this.props.exercises[exerciseId].title}
                             &nbsp;
                             <button
@@ -148,11 +151,15 @@ class EditWorkoutForm extends React.Component {
                 </div>
               </label>
 
-              <input
-                type="submit"
-                className="workout-form-submit"
-                value="Update Workout"
-              />
+              <br/>
+                <div className="workout-form-submit" >
+                  <input
+                    type="submit"
+                    className="btn-primary"
+                    value="Update Workout"
+                  />
+                </div>
+                <br/>
             </form>
           </div>
 
@@ -164,12 +171,17 @@ class EditWorkoutForm extends React.Component {
                 onChange={this.updateSearch}
                 placeholder="Filter by exercise"
               />
-              <button onClick={() => this.props.openModal("create exercise")}>
-                Create Exercise
-              </button>
+              <br/>
+              <div>
+                <i className="fas fa-exclamation-circle"></i> Click an exercise to add to your list
+              </div>
+              <br/>
+
+
               <ul className="exercise-ul">
                 {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
                 {filteredExercises.map((exercise, i) => (
+                
                   <li
                     className="exercise-item-list "
                     key={`exercise-${i}`}
@@ -192,9 +204,18 @@ class EditWorkoutForm extends React.Component {
                   </li>
                 ))}
               </ul>
+              <br/>
+                <div>
+                  Don't see an exercise right for you?
+                </div>
+                <br/>
+                <button className="btn-primary" onClick={() => this.props.openModal('create exercise')}>
+                  Create A New Exercise
+                </button>
             </div>
           </div>
         </div>
+      </div>
     );
   }
 }

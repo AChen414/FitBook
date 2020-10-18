@@ -67,6 +67,7 @@ class MainPage extends React.Component {
         </div>
 {/* 
         <div className="fit-quiz-container">
+
           {handleQuizDisplay}
         </div> */}
 
@@ -75,10 +76,8 @@ class MainPage extends React.Component {
         {handleQuizDisplay}
 
 
-
-
-
         <hr className="featurette-divider" />
+
         <div className="row featurette">
           <div className="col-md-7">
             <h2 className="featurette-heading">
@@ -86,33 +85,69 @@ class MainPage extends React.Component {
               <span className="text-muted">It'll blow your mind.</span>
             </h2>
             <p className="lead">
-              Add and share your workout schedule with all your friends.
+              Drag and drop your workouts onto the calendar to add them to your 
+              schedule.
             </p>
           </div>
           <div className="col-md-5">
-            <img
+            {/* <img
               className="featurette-image img-responsive center-block"
               data-src="holder.js/500x500/auto"
               alt="500x500"
               src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/home-page-schedule.png"
               data-holder-rendered="true"
+            /> */}
+            <img
+              className="featurette-image img-responsive center-block"
+              data-src="holder.js/500x500/auto"
+              alt="500x500"
+              src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/calendar.gif"
+              data-holder-rendered="true"
             />
           </div>
         </div>
+
         <hr className="featurette-divider" />
 
         <div className="row featurette">
           <div className="col-md-7 col-md-push-5">
             <h2 className="featurette-heading">
-              Personalized Workout Builder.{" "}
-              <span className="text-muted">See for yourself.</span>
+              Grow Your Exercise List.
             </h2>
             <p className="lead">
-              Choose from our vast database of exercises submitted by your
-              coaches and friends!
+              Grow your list of exercises. Create and categorize any exercise 
+              you wish to do.
             </p>
+            </div>
+            <div className="col-md-5 col-md-pull-7">
+              <img
+                className="featurette-image img-responsive center-block"
+                data-src="holder.js/500x500/auto"
+                alt="500x500"
+                src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/exercises.gif"
+                data-holder-rendered="true"
+              />
+            </div>
+        </div>
+
+        <hr className="featurette-divider"/>
+
+        <div className="row featurette">
+          <div className="col-md-7">
+            <h2 className="featurette-heading">
+              Personalized Workout Builder.{" "}
+              {/* <span className="text-muted">See for yourself.</span> */}
+              
+            </h2>
+            <p className="lead">
+              Create your own custom workouts! If you don't see the exercise you
+              want, create it!
+            </p>
+            <a href="#/workouts" className="btn btn-primary btn-lg btn-fit">
+              CREATE A NEW WORKOUT
+            </a>
           </div>
-          <div className="col-md-5 col-md-pull-7">
+          <div className="col-md-5">
             <img
               className="featurette-image img-responsive center-block"
               data-src="holder.js/500x500/auto"
