@@ -4,8 +4,15 @@
     display:flex;
     justify-content: center;
     align-items:center;
-    /* border: 1px solid black; */
-    height: 750px;
+    /* height: 750px; */
+
+}
+
+.workout-div{
+    background: url("https://fit-book-bucket.s3-us-west-1.amazonaws.com/sj-background.jpg");
+    background-size: cover;
+    height: 93vh;
+    opacity: .9;
 }
 
 /* left */
@@ -13,20 +20,23 @@
     display:flex;
     flex-direction: column;
     align-items:center;
-    /* border: 1px solid black; */
+    border: 1px solid #ccc;
     margin: 10px;
     height: 100%;
+    padding: 1rem;
+    border-radius: 4px;
+    background: #fefefe;
+    box-shadow: 0 5px 10px grey;
 }
 
 .workout-form-right, .workout-form-left{
     display:flex;
     justify-content: center;
     align-items:center;
-    /* border: 1px solid black; */
     margin: 10px;
     width: 100%;
     padding: 15px;
-    height: 100%;
+    height: 800px;
 }
 
 ::-webkit-scrollbar {
@@ -42,12 +52,18 @@
 
 
 .exercise-list{
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100%;
-    width: 100%;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2rem;
+    background: #fefefe;
+    margin: 10px;
+    box-shadow: 0 5px 10px grey;
 }
 
 .exercise-list > a {
@@ -56,19 +72,18 @@
 }
 
 .exercise-ul{
-    padding: 0;
-    overflow: scroll;
+    padding: 1rem;
+    overflow: auto;
     /* max-height: 50%; */
     height: 100vh;
     /* position: fixed; */
-    border: 1px solid black;
     box-shadow: black;
-    width: 420px;
+    /* width: 440px; */
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
-.workout-form-type{
-    display:flex;
-    justify-content: start;
-}
+
 
 .exercise-item-list{
     display: flex;
@@ -76,10 +91,18 @@
     border: 1px solid black;
     margin: 5px; 
     padding: 5px;
-    width: 400px;
+    /* width: 400px; */
+    width: 100%;
     height: 170px;
     align-items: center;
+    cursor: pointer;
 }
+
+.exercise-item-list:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
 
 .exercise-img{
     height: 150px;
@@ -128,20 +151,24 @@
 .workout-form-type{
     display: flex;
     flex-direction: column;
+    padding-right: .5rem;
+    
 }
 
 .workout-exec-title{
     width: 375px;
     text-align: center;
+    display: flex;
+    align-items: flex-start;
 }
 .workout-added-list{
-    display: flex;
+    display: grid;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    height: 150px;
-    overflow: scroll;
-    /* border: 1px solid black */
+    justify-content: center;
+    height: 250px;
+    overflow: auto;
+    list-style-type: none;
 }
 
   
