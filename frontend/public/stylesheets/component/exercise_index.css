@@ -1,10 +1,14 @@
 .exercise-index-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    background: linear-gradient(45deg, black, transparent);
+    background-size: cover;
+    min-height: 935px;
+    background-attachment: fixed;
 }
 
 .add-exercise {
@@ -30,9 +34,11 @@
 }
 
 .search-box {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+    width: 100%;
 }
 
 #myinput, .add-exercise {
@@ -45,11 +51,22 @@
 }
 
 .exercise-index {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 600px;
-  height: 100%;
-  font-size: 30px;
-  margin-bottom: 15px;
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.exercise-list .form-control{
+  width: 80%;
+}
+
+.exercise-list button {
+  padding: 1rem;
+  border-radius: 4px;
 }
