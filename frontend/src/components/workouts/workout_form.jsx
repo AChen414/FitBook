@@ -75,23 +75,26 @@ class WorkoutForm extends React.Component {
 
 
         return (
+          <div className="workout-div">
           <div className="workout-form-container">
             <div className="col-md-6 workout-form-left">
               <form className="new-workout-form" onSubmit={this.handleSubmit}>
                 {this.renderErrors()}
-                <div className="workout-form-title">
-                  <label className="workout-form-type">Title</label>
-                  <input
-                    className="workout-form-field"
+                <div className="workout-form-title ">
+                  <label className="workout-form-type ">Title</label>
+                  <input 
+                    className="workout-form-field form-control"
                     type="text"
+                    placeholder="(Push Workout)"
                     onChange={this.update("title")}
                     value={this.state.title}
                   />
                 </div>
-
+                <br/>
                 <div className="workout-form-notes">
                   <label className="workout-form-type">Notes</label>
                   <textarea
+                    className="form-control"
                     onChange={this.update("notes")}
                     value={this.state.notes}
                     placeholder="Notes (ex. Upper chest focused workout)"
@@ -99,10 +102,10 @@ class WorkoutForm extends React.Component {
                     rows="20"
                   ></textarea>
                 </div>
-
+                <br/>
                 <label className="workout-form-type">
-                  <div className="workout-exec-title">Exercises</div>
-                  <div className="workout-added-list">
+                  <div className="workout-exec-title">Exercise List</div>
+                  <div className="workout-added-list form-control">
                     {this.state.exercises.map((exerciseId, i) => {
                       return (
                         <>
@@ -113,7 +116,7 @@ class WorkoutForm extends React.Component {
                             {this.props.exercises[exerciseId].title}
                             &nbsp;
                             <button
-                              className="remove-workout-exercise"
+                              className="remove-workout-exercise "
                               onClick={this.removeExercise(exerciseId)}
                             >
                               X
@@ -124,26 +127,32 @@ class WorkoutForm extends React.Component {
                     })}
                   </div>
                 </label>
-
-                <input
-                  type="submit"
-                  className="workout-form-submit"
-                  value="Create Workout"
-                />
+                <br/>
+                <div className="workout-form-submit" >
+                  <input
+                    type="submit"
+                    className="btn-primary"
+                    value="Create Your Workout"
+                  />
+                </div>
+                <br/>
               </form>
             </div>
 
             <div className="col-md-6 workout-form-right">
               <div className="exercise-list">
                 <input
+                  className="form-control"
                   type="text"
                   value={this.state.search}
                   onChange={this.updateSearch}
-                  placeholder="Filter by exercise"
+                  placeholder="Filter by exercise (ex: bench)"
                 />
-                <button onClick={() => this.props.openModal('create exercise')}>
-                  Create Exercise
-                </button>
+                <br/>
+                <div>
+                  <i className="fas fa-exclamation-circle"></i> Click an exercise to add to your list
+                </div>
+                <br/>
                 <ul className="exercise-ul">
                   {/* {Object.values(this.props.exercises).map((exercise, i) => ( */}
                   {filteredExercises.map((exercise) => (
@@ -171,11 +180,21 @@ class WorkoutForm extends React.Component {
                     </li>
                   ))}
                 </ul>
+                <br/>
+                <div>
+                  Don't see an exercise right for you?
+                </div>
+                <br/>
+                <button className="btn-primary" onClick={() => this.props.openModal('create exercise')}>
+                  Create A New Exercise
+                </button>
               </div>
             </div>
           </div>
+        </div>
         );
     };
+    
 };
 
 export default withRouter(WorkoutForm);
