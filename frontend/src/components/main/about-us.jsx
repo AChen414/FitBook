@@ -24,13 +24,13 @@ const AboutUs = () => (
           <div className="about-us-box">
             <div className="about-us-pic">
               <p>Andrew Chen</p>
-              <img src="https://media-exp1.licdn.com/dms/image/C5603AQF0EejdbaIi1g/profile-displayphoto-shrink_800_800/0?e=1602720000&v=beta&t=-BtjKkuOToSkhGn92LsyoUaUWozyZUfqHgKBk2A3Epk" alt="" />
+              <img src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/AC.jpeg" alt="" />
             </div>
 
             <div className="link-session">
               <a href="https://www.linkedin.com/in/andrew-chen-787534171/">
                 <img
-                  src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
+                  src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/linkedin.png"
                   alt="linkedin"
                 />
               </a>
@@ -54,7 +54,7 @@ const AboutUs = () => (
             <div className="link-session">
               <a href="https://www.linkedin.com/in/insightfulkennethliang/">
                 <img
-                  src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
+                  src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/linkedin.png"
                   alt="linkedin"
                 />
               </a>
@@ -78,7 +78,7 @@ const AboutUs = () => (
             <div className="link-session">
               <a href="https://www.linkedin.com/in/gordy-bullen-b78531181/">
                 <img
-                  src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
+                  src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/linkedin.png"
                   alt="linkedin"
                 />
               </a>
@@ -99,7 +99,7 @@ const AboutUs = () => (
             <div className="link-session">
               <a href="https://www.linkedin.com/in/yuk-fai-chan-54830a192/">
                 <img
-                  src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png"
+                  src="https://fitbook-seeds.s3-us-west-1.amazonaws.com/linkedin.png"
                   alt="linkedin"
                 />
               </a>
