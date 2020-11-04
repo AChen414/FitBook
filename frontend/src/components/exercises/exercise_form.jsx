@@ -68,6 +68,8 @@ class ExerciseForm extends React.Component {
                                 <option value="Arms">Arms</option>
                                 <option value="Shoulders">Shoulders</option>
                                 <option value="Legs">Legs</option>
+                                <option value="Cardio">Cardio</option>
+                                <option value="Triceps">Triceps</option>
                             </select>
                         </div>
                         <div className="form-group exercise-category">

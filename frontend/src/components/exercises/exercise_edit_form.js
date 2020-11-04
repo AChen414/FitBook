@@ -81,6 +81,8 @@ const ExerciseEditForm = props => {
               <option>Arms</option>
               <option>Shoulders</option>
               <option>Legs</option>
+              <option>Cardio</option>
+              <option>Triceps</option>
             </select>
           </div>
           <div className="form-group exercise-category">
