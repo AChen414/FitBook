@@ -1,6 +1,10 @@
 # [FitBook](http://fitness-book.herokuapp.com/)
 Fitbook is a fitness tracking web app that allows you to create and track custom workouts and share them amongst your friends and followers. A user can create workouts by adding exercises from an extensive list from our database, or even add their own. Users can then add these workouts to a calendar and share them amongst other users.
 
+![fb](https://user-images.githubusercontent.com/59374267/98974767-22286b00-24ca-11eb-8ab1-ebe978096e14.jpeg)
+
+
+
 ## Creators
 * [Andrew Chen](https://github.com/AChen414)
 * [Yuk Chan](https://github.com/YukC92)
