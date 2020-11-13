@@ -147,6 +147,22 @@
     border-radius: 3px;
 }
 
+.exercise-img-cardio {
+    background: url("https://fit-book-bucket.s3-us-west-1.amazonaws.com/running.jpg") no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.exercise-img-triceps {
+    background: url("https://fit-book-bucket.s3-us-west-1.amazonaws.com/tripcep.jpg") no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+}
+
 
 .workout-form-type{
     display: flex;
